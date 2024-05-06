@@ -13,6 +13,9 @@ public class Main {
             Language pLanguage = new PythonLanguage();
             pLanguage.execute("codes-test/helloworld.py");
 
+            //Call of the java part (its javaseption time)
+            Language javaLanguage = new JavaLanguage();
+            javaLanguage.execute("codes-test/helloworld.java");
 
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();

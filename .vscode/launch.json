@@ -3,6 +3,13 @@
   "configurations": [
     {
       "type": "java",
+      "name": "helloworld",
+      "request": "launch",
+      "mainClass": "helloworld",
+      "projectName": "CodYngame_c525301d"
+    },
+    {
+      "type": "java",
       "name": "Main",
       "request": "launch",
       "mainClass": "Main",

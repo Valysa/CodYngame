@@ -1,4 +1,4 @@
-# ***Book'In***
+# ***CodYngame***
 ## Table of Contents
 1. [Infos général](#infos-général)
 2. [Compatibilité système](#compatibilité-système)

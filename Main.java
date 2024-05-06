@@ -21,6 +21,10 @@ public class Main {
             Language phpLanguage = new phpLanguage();
             phpLanguage.execute("codes-test/helloworld.php");
 
+            //Call of the js part (its javaseption time)
+            Language jsLanguage = new phpLanguage();
+            jsLanguage.execute("codes-test/helloworld.js");
+
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }

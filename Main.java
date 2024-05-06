@@ -4,9 +4,16 @@ public class Main {
     public static void main(String[] args) {
         try {
             System.out.println("Java hello");
+
+            //Call of the C part
             Language cLanguage = new CLanguage();
-            // cLanguage.compile("helloworld.c");
-            cLanguage.execute("helloworld.c");
+            cLanguage.execute("codes-test/helloworld.c");
+
+            //Call of the python part
+            Language pLanguage = new PythonLanguage();
+            pLanguage.execute("codes-test/helloworld.py");
+
+
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }

@@ -17,6 +17,10 @@ public class Main {
             Language javaLanguage = new JavaLanguage();
             javaLanguage.execute("codes-test/helloworld.java");
 
+            //Call of the php part (its javaseption time)
+            Language phpLanguage = new phpLanguage();
+            phpLanguage.execute("codes-test/helloworld.php");
+
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }

@@ -6,24 +6,29 @@ public class Main {
             System.out.println("Java hello");
 
             //Call of the C part
+            String cFile = "codes-test/helloworld.c";
             Language cLanguage = new CLanguage();
-            cLanguage.execute("codes-test/helloworld.c");
+            cLanguage.execute(cFile);
 
             //Call of the python part
+            String pyFile = "codes-test/helloworld.py";
             Language pLanguage = new PythonLanguage();
-            pLanguage.execute("codes-test/helloworld.py");
+            pLanguage.execute(pyFile);
 
-            //Call of the java part (its javaseption time)
+            //Call of the java part (its javasception time)
+            String javaFile = "codes-test/helloworld.java";
             Language javaLanguage = new JavaLanguage();
-            javaLanguage.execute("codes-test/helloworld.java");
+            javaLanguage.execute(javaFile);
 
-            //Call of the php part (its javaseption time)
+            //Call of the php part
+            String phpFile = "codes-test/helloworld.php";
             Language phpLanguage = new phpLanguage();
-            phpLanguage.execute("codes-test/helloworld.php");
+            phpLanguage.execute(phpFile);
 
-            //Call of the js part (its javaseption time)
+            //Call of the js part
+            String jsFile = "codes-test/helloworld.js";
             Language jsLanguage = new phpLanguage();
-            jsLanguage.execute("codes-test/helloworld.js");
+            jsLanguage.execute(jsFile);
 
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();

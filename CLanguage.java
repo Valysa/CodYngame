@@ -23,15 +23,6 @@ public class CLanguage extends Language {
         };
         Process process = Runtime.getRuntime().exec("./execName");
 
-        InputStream inputStream = process.getInputStream();
-        BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-        String line;
-        while ((line = reader.readLine()) != null) {
-            System.out.println(line);
-        }
-        int exitCode = process.waitFor();
-        if (exitCode != 0) {
-            throw new RuntimeException("Run error");
-        }
+        readStdout(process);
     }
 }

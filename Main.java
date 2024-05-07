@@ -1,4 +1,6 @@
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 
 import C.Languages.CLanguage;
 import C.Languages.JavaLanguage;
@@ -36,6 +38,20 @@ public class Main {
             Language javaLanguage = new JavaLanguage();
             javaLanguage.execute(javaFile);*/
 
+            //Sort of menu displays
+            System.out.println("------------------------------");
+            System.out.println("             Menu             "); 
+            System.out.println("1-Sin/Sout exo | 2-Include exo");
+            System.out.println("------------------------------");
+
+            BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
+            String s = bufferRead.readLine();
+            if(s.equals("1")){
+                System.out.println("This part neither");
+            }
+            if(s.equals("2")){
+                System.out.println("Unfortunatly this mode isnt dev yet");
+            }
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }

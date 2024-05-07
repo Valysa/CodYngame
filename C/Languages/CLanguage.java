@@ -1,9 +1,9 @@
+package C.Languages;
 import java.io.IOException;
 
 public class CLanguage extends Language {
 
     public void compile(String sourceFilePath, String executableFile) throws IOException, InterruptedException {
-
         Process process = Runtime.getRuntime().exec("gcc " + sourceFilePath + " -o " + executableFile);
         int exitCode = process.waitFor();
         if (exitCode != 0) {

@@ -1,9 +1,10 @@
+package C.Languages;
 import java.io.IOException;
 
-public class JsLanguage extends Language {
+public class phpLanguage extends Language {
     @Override
     public void execute(String executablePath) throws IOException, InterruptedException {
-        Process process = Runtime.getRuntime().exec("node " + executablePath);
+        Process process = Runtime.getRuntime().exec("php " + executablePath);
 
         readStdout(process);
     }

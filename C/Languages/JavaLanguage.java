@@ -14,13 +14,13 @@ public class JavaLanguage extends Language {
 
     @Override
     public void execute(String sourceFilePath) throws IOException, InterruptedException {
-        try {
+        /*try {
             compile(sourceFilePath);
         } catch (Exception e) {
             System.out.println("Compilation error");
             throw new InterruptedException("Error");
-        }
-        Process process = Runtime.getRuntime().exec("java -cp codes-test helloworld");
+        }*/
+        Process process = Runtime.getRuntime().exec("java " + sourceFilePath);
 
         readStdout(process);
     }

@@ -3,7 +3,7 @@ int main(){
     int exit;
     for(int i=0; i<10; i++){
         scanf("%d",&entry);
-        exit = entry*2;
+        exit = entry*3;
         printf("%d\n",exit);
     }
     return 0;

@@ -1,5 +1,7 @@
 package C.Languages;
+
 import java.io.IOException;
+import java.util.Arrays;
 
 import C.Exercise.ExerciseStdinStdout;
 
@@ -14,9 +16,11 @@ public class CLanguage extends Language {
     }
 
     @Override
+    // Here its a void but I maybe want to take the output ? (thinking of returning
+    // String[])
     public void execute(String executablePath) throws IOException, InterruptedException {
         String executableFile = "execName";
-        try {        
+        try {
             this.compile(executablePath, executableFile);
         } catch (Exception e) {
             System.out.println("Compilation error");
@@ -24,16 +28,17 @@ public class CLanguage extends Language {
         }
         ;
         Process process = Runtime.getRuntime().exec("./" + executableFile);
-        readStdout(process, null);
+        // readStdout(process, null);
     }
 
     @Override
-    //without exo, just run the file, with exo with entry input the entry in the file
-    //with outpout, try if expected matches with gived output
-    //We maybe want to only put entries (See ligne 45)
-    public void execute(String executablePath, ExerciseStdinStdout exo) throws IOException, InterruptedException {
+    // without exo, just run the file, with exo with entry input the entry in the
+    // file
+    // with outpout, try if expected matches with gived output
+    // We maybe want to only put entries (See ligne 45)
+    public String[] execute(String executablePath, String[] entries) throws IOException, InterruptedException {
         String executableFile = "execName";
-        try {        
+        try {
             this.compile(executablePath, executableFile);
         } catch (Exception e) {
             System.out.println("Compilation error");
@@ -41,14 +46,7 @@ public class CLanguage extends Language {
         }
         ;
         Process process = Runtime.getRuntime().exec("./" + executableFile);
-        readStdin(process, exo.entryData);
-        //This part may be put in the main
-        Boolean success = readStdout(process, exo.outputData);
-        if(success){
-            System.out.println("you win");
-        }
-        else{
-            System.out.println("you loose");
-        }
+        readStdin(process, entries);
+        return readStdout(process);
     }
 }

@@ -22,27 +22,25 @@ public class Main {
             Language cLanguage = LanguageFactory.assignLanguage(cFile);
             cLanguage.execute(cFile);
 
-            /*
-             * // Call of the python part
-             * String pyFile = "C/Test/codes-test/helloworld.py";
-             * Language pLanguage = new PythonLanguage();
-             * pLanguage.execute(pyFile);
-             * 
-             * // Call of the php part
-             * String phpFile = "C/Test/codes-test/helloworld.php";
-             * Language phpLanguage = new phpLanguage();
-             * phpLanguage.execute(phpFile);
-             * 
-             * // Call of the js part
-             * String jsFile = "C/Test/codes-test/helloworld.js";
-             * Language jsLanguage = new JsLanguage();
-             * jsLanguage.execute(jsFile);
-             * 
-             * //Call of the java part (its javasception time)
-             * String javaFile = "C/Test/codes-test/helloworld.java";
-             * Language javaLanguage = new JavaLanguage();
-             * javaLanguage.execute(javaFile);
-             */
+            // Call of the php part
+            String phpFile = "C/Test/codes-test/helloworld.php";
+            Language phpLanguage = LanguageFactory.assignLanguage(phpFile);
+            phpLanguage.execute(phpFile);
+
+            // Call of the python part
+            String pyFile = "C/Test/codes-test/helloworld.py";
+            Language pLanguage = LanguageFactory.assignLanguage(pyFile);
+            pLanguage.execute(pyFile);
+
+            // Call of the js part
+            String jsFile = "C/Test/codes-test/helloworld.js";
+            Language jsLanguage = LanguageFactory.assignLanguage(jsFile);
+            jsLanguage.execute(jsFile);
+
+            // Call of the java part (its javasception time)
+            String javaFile = "C/Test/codes-test/helloworld.java";
+            Language javaLanguage = LanguageFactory.assignLanguage(javaFile);
+            javaLanguage.execute(javaFile);
 
             // Sort of menu displays
             System.out.println("------------------------------");
@@ -60,10 +58,10 @@ public class Main {
                 System.out.println("Select the exercise you want to do");
                 String selectedExercise = bufferRead.readLine();
 
-                //Creates exercises
+                // Creates exercises
                 ExerciseStdinStdout exo = new ExerciseStdinStdout();
-                //if exo1 selected
-                if(selectedExercise.equals("1")){
+                // if exo1 selected
+                if (selectedExercise.equals("1")) {
                     // initialing the exercise with name description entry and expected exit
                     exo.name = "exo1";
                     exo.description = "You will be given in entry a list of 10 integer and we ask you to give back their values multiplied by two";
@@ -74,8 +72,7 @@ public class Main {
                         exo.outputData[i] = String.valueOf(i * 2);
                     }
                     System.out.println("The selected exercise is : " + exo.name);
-                }
-                else if(selectedExercise.equals("2")){
+                } else if (selectedExercise.equals("2")) {
                     // initialing the exercise with name description entry and expected exit
                     exo.name = "exo2";
                     exo.description = "You will be given in entry a list of 10 integer and we ask you to give back their values multiplied by ten";
@@ -86,8 +83,7 @@ public class Main {
                         exo.outputData[i] = String.valueOf(i * 10);
                     }
                     System.out.println("The selected exercise is : " + exo.name);
-                }
-                else{
+                } else {
                     // initialing the exercise with name description entry and expected exit
                     exo.name = "error exo";
                     exo.description = "This exercise does not exist";

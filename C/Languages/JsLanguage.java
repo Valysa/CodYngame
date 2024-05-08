@@ -8,4 +8,11 @@ public class JsLanguage extends Language {
 
         readStdout(process);
     }
+
+    @Override
+    public String[] execute(String executablePath, String[] entries) throws IOException, InterruptedException {
+        Process process = Runtime.getRuntime().exec("node " + executablePath);
+        readStdin(process, entries);
+        return readStdout(process);
+    }
 }

@@ -32,10 +32,6 @@ public class CLanguage extends Language {
     }
 
     @Override
-    // without exo, just run the file, with exo with entry input the entry in the
-    // file
-    // with outpout, try if expected matches with gived output
-    // We maybe want to only put entries (See ligne 45)
     public String[] execute(String executablePath, String[] entries) throws IOException, InterruptedException {
         String executableFile = "execName";
         try {

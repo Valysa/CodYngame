@@ -31,6 +31,7 @@ public class Language {
 
     }
 
+    //this function return the standard output of a running programm (in any language)
     public String[] readStdout(Process process) throws IOException, InterruptedException {
         InputStream inputStream = process.getInputStream();
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));

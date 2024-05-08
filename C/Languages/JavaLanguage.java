@@ -24,4 +24,18 @@ public class JavaLanguage extends Language {
 
         readStdout(process);
     }
+
+
+    @Override
+    public String[] execute(String executablePath, String[] entries) throws IOException, InterruptedException {
+        /*try {
+            compile(sourceFilePath);
+        } catch (Exception e) {
+            System.out.println("Compilation error");
+            throw new InterruptedException("Error");
+        }*/
+        Process process = Runtime.getRuntime().exec("php " + executablePath);
+        readStdin(process, entries);
+        return readStdout(process);
+    }
 }

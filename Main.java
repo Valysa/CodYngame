@@ -102,12 +102,12 @@ public class Main {
 
                 // initialisating exercise file
                 String file = filePath;
-                Language cSolutionFile = new CLanguage();
+                Language solutionFile = LanguageFactory.assignLanguage(filePath);
                 // executing file, with this specific exercise (entry and expected output)
                 String[] givenResult;
-                givenResult = cSolutionFile.execute(file, exo.entryData);
+                givenResult = solutionFile.execute(file, exo.entryData);
                 System.out.println(Arrays.toString(givenResult));
-                System.out.println(Arrays.toString(cSolutionFile.execute(file, exo.entryData)));
+                System.out.println(Arrays.toString(solutionFile.execute(file, exo.entryData)));
                 if (exo.checkResult(givenResult)) {
                     // case where utilisator's programm output matches the expected output
                     System.out.println("You win, congrats");

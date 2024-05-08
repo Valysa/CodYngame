@@ -52,24 +52,54 @@ public class Main {
             BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
             String s = bufferRead.readLine();
             if (s.equals("1")) {
+
                 // ExerciseStdinStdout part
-                ExerciseStdinStdout exo1 = new ExerciseStdinStdout();
-                // initialing the exercise with name description entry and expected exit
-                exo1.name = "exo1";
-                exo1.description = "You will be given in entry a list of 10 integer and we ask you to give back their values multiplied by two";
-                exo1.entryData = new String[10];
-                exo1.outputData = new String[10];
-                for (int i = 0; i < 10; i++) {
-                    exo1.entryData[i] = String.valueOf(i);
-                    exo1.outputData[i] = String.valueOf(i * 2);
-                }
+
                 // ask for the number of exercise
                 // this part is unused yet cuz there is only one exercise
-                System.out.println(exo1.name);
+                System.out.println("Select the exercise you want to do");
                 String selectedExercise = bufferRead.readLine();
 
+                ExerciseStdinStdout exo = new ExerciseStdinStdout();
+                //if exo1 selected
+                if(selectedExercise.equals("1")){
+                    // initialing the exercise with name description entry and expected exit
+                    exo.name = "exo1";
+                    exo.description = "You will be given in entry a list of 10 integer and we ask you to give back their values multiplied by two";
+                    exo.entryData = new String[10];
+                    exo.outputData = new String[10];
+                    for (int i = 0; i < 10; i++) {
+                        exo.entryData[i] = String.valueOf(i);
+                        exo.outputData[i] = String.valueOf(i * 2);
+                    }
+                    System.out.println("The selected exercise is : " + exo.name);
+                }
+                else if(selectedExercise.equals("2")){
+                    // initialing the exercise with name description entry and expected exit
+                    exo.name = "exo2";
+                    exo.description = "You will be given in entry a list of 10 integer and we ask you to give back their values multiplied by ten";
+                    exo.entryData = new String[10];
+                    exo.outputData = new String[10];
+                    for (int i = 0; i < 10; i++) {
+                        exo.entryData[i] = String.valueOf(i);
+                        exo.outputData[i] = String.valueOf(i * 10);
+                    }
+                    System.out.println("The selected exercise is : " + exo.name);
+                }
+                else{
+                    // initialing the exercise with name description entry and expected exit
+                    exo.name = "error exo";
+                    exo.description = "This exercise does not exist";
+                    exo.entryData = new String[10];
+                    exo.outputData = new String[10];
+                    for (int i = 0; i < 10; i++) {
+                        exo.entryData[i] = String.valueOf(i);
+                        exo.outputData[i] = String.valueOf(i * 10);
+                    }
+                    System.out.println("The selected exercise is : " + exo.name);
+                }
+
                 // ask the file for the first exercise
-                System.out.println(exo1.description);
                 System.out.print("enter the file name\n");
                 String filePath = bufferRead.readLine();
 
@@ -78,10 +108,10 @@ public class Main {
                 Language cSolutionFile = new CLanguage();
                 // executing file, with this specific exercise (entry and expected output)
                 String[] givenResult;
-                givenResult = cSolutionFile.execute(file, exo1.entryData);
+                givenResult = cSolutionFile.execute(file, exo.entryData);
                 System.out.println(Arrays.toString(givenResult));
-                System.out.println(Arrays.toString(cSolutionFile.execute(file, exo1.entryData)));
-                if (exo1.checkResult(givenResult)) {
+                System.out.println(Arrays.toString(cSolutionFile.execute(file, exo.entryData)));
+                if (exo.checkResult(givenResult)) {
                     // case where utilisator's programm output matches the expected output
                     System.out.println("You win, congrats");
                 } else {

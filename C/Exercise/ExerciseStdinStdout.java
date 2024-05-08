@@ -5,7 +5,6 @@ public class ExerciseStdinStdout extends Exercise{
     public String[] outputData;
 
     public boolean checkResult(String[] entries){
-        // If no expected result then it's ok
         // if expected result but not the same size as returned result then KO
         // else compare line by line
         Boolean isOk = true;

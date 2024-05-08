@@ -28,7 +28,7 @@ public class CLanguage extends Language {
         }
         ;
         Process process = Runtime.getRuntime().exec("./" + executableFile);
-        // readStdout(process, null);
+        readStdout(process);
     }
 
     @Override

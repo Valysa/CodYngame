@@ -8,6 +8,7 @@ import C.Languages.CLanguage;
 import C.Languages.JavaLanguage;
 import C.Languages.JsLanguage;
 import C.Languages.Language;
+import C.Languages.LanguageFactory;
 import C.Languages.PythonLanguage;
 import C.Languages.phpLanguage;
 
@@ -18,7 +19,7 @@ public class Main {
 
             // Call of the C part
             String cFile = "C/Test/codes-test/helloworld.c";
-            Language cLanguage = new CLanguage();
+            Language cLanguage = LanguageFactory.assignLanguage(cFile);
             cLanguage.execute(cFile);
 
             /*
@@ -52,14 +53,14 @@ public class Main {
             BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
             String s = bufferRead.readLine();
             if (s.equals("1")) {
-
+                // ---------------------------------------------
                 // ExerciseStdinStdout part
-
+                // ---------------------------------------------
                 // ask for the number of exercise
-                // this part is unused yet cuz there is only one exercise
                 System.out.println("Select the exercise you want to do");
                 String selectedExercise = bufferRead.readLine();
 
+                //Creates exercises
                 ExerciseStdinStdout exo = new ExerciseStdinStdout();
                 //if exo1 selected
                 if(selectedExercise.equals("1")){

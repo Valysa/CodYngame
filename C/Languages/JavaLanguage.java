@@ -12,6 +12,20 @@ public class JavaLanguage extends Language {
         }
     }
 
+    public void compile(String[] sourceFilePaths) throws IOException, InterruptedException {
+        StringBuilder command = new StringBuilder("javac");
+        // Add all the file to compile
+        for (String sourceFilePath : sourceFilePaths) {
+            command.append(" ").append(sourceFilePath);
+        }
+
+        Process process = Runtime.getRuntime().exec(command.toString());
+        int exitCode = process.waitFor();
+        if (exitCode != 0) {
+            throw new RuntimeException("Compilation error");
+        }
+    }
+
     @Override
     public void execute(String sourceFilePath) throws IOException, InterruptedException {
         /*try {

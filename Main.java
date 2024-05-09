@@ -49,6 +49,16 @@ public class Main {
             String[] cFiles = {c2File, c3File};
             c2Language.execute(cFiles);
 
+            // Call of the php part
+            String php2File = "mainEx1.php";
+            Language ph2pLanguage = LanguageFactory.assignLanguage(phpFile);
+            phpLanguage.execute(php2File);
+
+            //Call of the python part
+            String py2File = "mainEx1.py";
+            Language p2Language = LanguageFactory.assignLanguage(pyFile);
+            pLanguage.execute(py2File);
+
             // Sort of menu displays
             System.out.println("------------------------------");
             System.out.println("             Menu             ");

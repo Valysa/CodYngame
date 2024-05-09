@@ -1,0 +1,1 @@
+print("This hello world was sent by a python script")

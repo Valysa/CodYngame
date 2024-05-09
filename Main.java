@@ -42,6 +42,12 @@ public class Main {
             Language javaLanguage = LanguageFactory.assignLanguage(javaFile);
             javaLanguage.execute(javaFile);
 
+            //Call of the c part for two files
+            String c2File = "mainEx1.c";
+            String c3File = "ex1Soluce.c";
+            CLanguage c2Language = new CLanguage();
+            c2Language.executeTwoFiles(c2File, c3File);
+
             // Sort of menu displays
             System.out.println("------------------------------");
             System.out.println("             Menu             ");

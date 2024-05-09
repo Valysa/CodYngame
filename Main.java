@@ -46,7 +46,8 @@ public class Main {
             String c2File = "mainEx1.c";
             String c3File = "ex1Soluce.c";
             CLanguage c2Language = new CLanguage();
-            c2Language.executeTwoFiles(c2File, c3File);
+            String[] cFiles = {c2File, c3File};
+            c2Language.execute(cFiles);
 
             // Sort of menu displays
             System.out.println("------------------------------");

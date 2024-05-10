@@ -14,6 +14,9 @@ public class LanguageFactory {
         } else if (filePath.endsWith(".js")) {
             return new JsLanguage();
         }
+        else if (filePath.endsWith(".mjs")) {  //This extension serve for import and export functions in the include mode
+            return new JsLanguage();
+        }
         
         
         // Si l'extension n'est pas reconnue, retournez null ou lancez une exception

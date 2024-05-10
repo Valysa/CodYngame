@@ -13,7 +13,7 @@ public class JavaLanguage extends Language {
     }
 
     public void compile(String[] sourceFilePaths) throws IOException, InterruptedException {
-        StringBuilder command = new StringBuilder("javac");
+        StringBuilder command = new StringBuilder("javac ");
         // Add all the file to compile
         for (String sourceFilePath : sourceFilePaths) {
             command.append(" ").append(sourceFilePath);
@@ -51,5 +51,17 @@ public class JavaLanguage extends Language {
         Process process = Runtime.getRuntime().exec("php " + executablePath);
         readStdin(process, entries);
         return readStdout(process);
+    }
+
+    public void execute(String[] sourceFilePath, String mainFileName) throws IOException, InterruptedException {
+        try {
+            this.compile(sourceFilePath);
+        } catch (Exception e) {
+            System.out.println("Compilation error");
+            throw new InterruptedException("Error");
+        }
+        Process process = Runtime.getRuntime().exec("java " + mainFileName);
+
+        readStdout(process);
     }
 }

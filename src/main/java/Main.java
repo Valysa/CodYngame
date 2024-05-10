@@ -43,21 +43,33 @@ public class Main {
             javaLanguage.execute(javaFile);
 
             //Call of the c part for two files
-            String c2File = "mainEx1.c";
-            String c3File = "ex1Soluce.c";
+            String c2File = "src/main/java/C/ExercisesInclude/mainEx1.c";
+            String c3File = "src/main/java/C/ExercisesInclude/ex1Soluce.c";
             CLanguage c2Language = new CLanguage();
             String[] cFiles = {c2File, c3File};
             c2Language.execute(cFiles);
 
             // Call of the php part
-            String php2File = "mainEx1.php";
-            Language ph2pLanguage = LanguageFactory.assignLanguage(phpFile);
-            phpLanguage.execute(php2File);
+            String php2File = "src/main/java/C/ExercisesInclude/mainEx1.php";
+            Language php2Language = LanguageFactory.assignLanguage(php2File);
+            php2Language.execute(php2File);
 
             //Call of the python part
-            String py2File = "mainEx1.py";
-            Language p2Language = LanguageFactory.assignLanguage(pyFile);
-            pLanguage.execute(py2File);
+            String py2File = "src/main/java/C/ExercisesInclude/mainEx1.py";
+            Language p2Language = LanguageFactory.assignLanguage(py2File);
+            p2Language.execute(py2File);
+
+            String js2File = "src/main/java/C/ExercisesInclude/mainEx1.mjs";
+            Language js2Language = LanguageFactory.assignLanguage(js2File);
+            js2Language.execute(js2File);
+
+            // Call of the java part for two files (its javasception time)
+            String java2File = "src/main/java/C/ExercisesInclude/mainEx1.java";
+            String java3File = "src/main/java/C/ExercisesInclude/ex1Soluce.java";
+            String javaMainFile = "src/main/java/C/ExercisesInclude/mainEx1";
+            JavaLanguage java2Language = new JavaLanguage();
+            String[] javaFiles = {java2File, java3File};
+            java2Language.execute(javaFiles, javaMainFile);
 
             // Sort of menu displays
             System.out.println("------------------------------");

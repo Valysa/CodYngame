@@ -1,4 +1,4 @@
-package ExercisesInclude;
+package C.ExercisesInclude;
 public class mainEx1 {
     public static void main(String[] args){
         ex1Soluce array1 = new ex1Soluce(new int[]{1, 2, 3, 4, 5});

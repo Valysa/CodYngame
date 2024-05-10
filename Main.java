@@ -146,7 +146,6 @@ public class Main {
             }
             if (s.equals("2")) {
                 System.out.println("Unfortunatly this mode isnt dev yet");
-                
             }
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();

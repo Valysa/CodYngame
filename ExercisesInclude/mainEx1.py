@@ -5,8 +5,8 @@ def main():
     array2 = [10,20,30,40,50]
     #Test games
     print("Python : Exercise 1")
-    print("Sum array1 :", ex1Soluce.array_sum(array1, 5))
-    print("Sum array2 :", ex1Soluce.array_sum(array2, 5))
+    print("Sum array1 :", ex1Soluce.array_sum(array1, len(array1)))
+    print("Sum array2 :", ex1Soluce.array_sum(array2, len(array2)))
     print()
 
 main()

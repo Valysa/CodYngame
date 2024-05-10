@@ -6,9 +6,9 @@
     $array2 = [10,20,30,40,50];
     //Test games
     echo "PHP : Exercise 1 \n";
-    echo "Sum array1 : ", arraySum($array1, 5);
+    echo "Sum array1 : ", arraySum($array1, count($array1));
     echo "\n";
-    echo "Sum array2 : ", arraySum($array2, 5);
+    echo "Sum array2 : ", arraySum($array2, count($array2));
     echo "\n";
     echo "\n";
 ?>

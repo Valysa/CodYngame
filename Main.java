@@ -6,11 +6,8 @@ import java.util.Arrays;
 import C.Exercise.ExerciseStdinStdout;
 import C.Languages.CLanguage;
 import C.Languages.JavaLanguage;
-import C.Languages.JsLanguage;
 import C.Languages.Language;
 import C.Languages.LanguageFactory;
-import C.Languages.PythonLanguage;
-import C.Languages.phpLanguage;
 
 public class Main {
     public static void main(String[] args) {
@@ -43,21 +40,34 @@ public class Main {
             javaLanguage.execute(javaFile);
 
             //Call of the c part for two files
-            String c2File = "mainEx1.c";
-            String c3File = "ex1Soluce.c";
+            String c2File = "ExercisesInclude/mainEx1.c";
+            String c3File = "ExercisesInclude/ex1Soluce.c";
             CLanguage c2Language = new CLanguage();
             String[] cFiles = {c2File, c3File};
             c2Language.execute(cFiles);
 
-            // Call of the php part
-            String php2File = "mainEx1.php";
-            Language ph2pLanguage = LanguageFactory.assignLanguage(phpFile);
-            phpLanguage.execute(php2File);
+            // Call of the php part for two files
+            String php2File = "ExercisesInclude/mainEx1.php";
+            Language ph2pLanguage = LanguageFactory.assignLanguage(php2File);
+            ph2pLanguage.execute(php2File);
 
-            //Call of the python part
-            String py2File = "mainEx1.py";
-            Language p2Language = LanguageFactory.assignLanguage(pyFile);
-            pLanguage.execute(py2File);
+            //Call of the python part for two files
+            String py2File = "ExercisesInclude/mainEx1.py";
+            Language p2Language = LanguageFactory.assignLanguage(py2File);
+            p2Language.execute(py2File);
+
+            // Call of the js part for two files
+            String js2File = "ExercisesInclude/mainEx1.mjs";
+            Language js2Language = LanguageFactory.assignLanguage(js2File);
+            js2Language.execute(js2File);
+
+            // Call of the java part for two files (its javasception time)
+            String java2File = "ExercisesInclude/mainEx1.java";
+            String java3File = "ExercisesInclude/ex1Soluce.java";
+            String javaMainFile = "ExercisesInclude/mainEx1";
+            JavaLanguage java2Language = new JavaLanguage();
+            String[] javaFiles = {java2File, java3File};
+            java2Language.execute(javaFiles, javaMainFile);
 
             // Sort of menu displays
             System.out.println("------------------------------");

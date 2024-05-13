@@ -1,11 +1,9 @@
 package C.ExercisesInclude;
 
-import java.util.ArrayList;
-
-public class ex1Soluce {
+public class Ex1Soluce {
     private final int[] array;
 
-    public ex1Soluce(int[] Array) {
+    public Ex1Soluce(int[] Array) {
         this.array = Array ;
     }
 

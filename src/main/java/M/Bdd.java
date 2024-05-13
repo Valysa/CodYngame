@@ -18,7 +18,7 @@ public class Bdd {
             con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","");
             Statement stmt = con.createStatement();
 
-            String sql = "CREATE DATABASE IF NOT EXISTS Exercice";
+            String sql = "CREATE DATABASE IF NOT EXISTS Exercise";
             stmt.executeUpdate(sql);
 
             stmt.close();
@@ -144,7 +144,7 @@ public class Bdd {
 
     public static void addEx(int ExoType, String ExoName, String Instruction, int SolutionLang, String SolutionCode, String InputData, String OutputData, int NbTry, int NbSucess, int NbSessionSucess, int NbFirstTry) {
 
-        String sql = "INSERT INTO Question (type_exo, ExoName, Instruction, SolutionLang, SolutionCode, InputData, OutputData, NbTry, NbSucess, NbSessionSucess, NbFirstTry) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Question (ExoType, ExoName, Instruction, SolutionLang, SolutionCode, InputData, OutputData, NbTry, NbSucess, NbSessionSucess, NbFirstTry) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
 

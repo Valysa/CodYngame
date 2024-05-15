@@ -1,16 +1,18 @@
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import C.Exercise.ExerciseInclude;
 import C.Exercise.ExerciseStdinStdout;
 import C.Languages.CLanguage;
 import C.Languages.JavaLanguage;
-import C.Languages.JsLanguage;
 import C.Languages.Language;
 import C.Languages.LanguageFactory;
-import C.Languages.PythonLanguage;
-import C.Languages.phpLanguage;
 
 public class Main {
     public static void main(String[] args) {
@@ -64,9 +66,9 @@ public class Main {
             js2Language.execute(js2File);
 
             // Call of the java part for two files (its javasception time)
-            String java2File = "src/main/java/C/ExercisesInclude/mainEx1.java";
-            String java3File = "src/main/java/C/ExercisesInclude/ex1Soluce.java";
-            String javaMainFile = "src/main/java/C/ExercisesInclude/mainEx1";
+            String java2File = "src/main/java/C/ExercisesInclude/MainEx1.java";
+            String java3File = "src/main/java/C/ExercisesInclude/Ex1Soluce.java";
+            String javaMainFile = "C.ExercisesInclude.MainEx1";
             JavaLanguage java2Language = new JavaLanguage();
             String[] javaFiles = {java2File, java3File};
             java2Language.execute(javaFiles, javaMainFile);
@@ -147,7 +149,44 @@ public class Main {
 
             }
             if (s.equals("2")) {
-                System.out.println("Unfortunatly this mode isnt dev yet");
+                ExerciseInclude ex = new ExerciseInclude();
+                ex.name = "ex1";
+                ex.description = "You will be create a function that calculates the sum of an array";
+                ex.entryData = new String[1];
+                ex.entryData[0] = "Test";
+                try {
+                    //Write the name of the good name of solution file : ex1Soluce.c or any other language
+                    System.out.println("Enter the file name");
+                    String filePathInclude = "src/main/java/C/ExercisesInclude/" + bufferRead.readLine();
+                    String codeLine = ex.readLineFromFile(filePathInclude);
+                    if (codeLine != null) {
+                        System.out.println(codeLine);
+                    } else {
+                        System.out.println("No lines with '{' or ':' were found");
+                    }
+                } catch (IOException er) {
+                    System.out.println("An error has occurred " + er.getMessage());
+                }
+                /*String BadCSyntax = "(#include\\s*<.*>|#include\\s*\".*\"|\\bint\\b|\\bchar\\b|\\bfloat\\b|\\bdouble\\b|\\bvoid\\b|\\breturn\\b|\\bif\\b|\\belse\\b|\\bfor\\b|\\bwhile\\b|\\bdo\\b|\\bswitch\\b|\\bcase\\b|\\bbreak\\b|\\bcontinue\\b|\\bdefault\\b|\\bsizeof\\b|\\bstruct\\b|\\btypedef\\b|\\bunion\\b|\\bextern\\b|\\bstatic\\b|\\bconst\\b|\\bvolatile\\b|\\bregister\\b|\\bauto\\b|\\bsigned\\b|\\bunsigned\\b|\\blong\\b|\\bshort\\b|\\bgoto\\b|\\binclude\\b|\\bdefine\\b|\\bifdef\\b|\\bifndef\\b|\\bendif\\b|\\bdefine\\b|\\bundef\\b|\\bpragma\\b|\\berror\\b|\\bline\\b|\\bwarning\\b|\\b__FILE__\\b|\\b__LINE__\\b|\\b__DATE__\\b|\\b__TIME__\\b|\\b__TIMESTAMP__\\b|\\/\\/.*|\\/\\*.*\\*\\/|\\b0[xX][0-9a-fA-F]+\\b|\\b[0-9]+\\b|\\b[0-9]+\\.[0-9]*\\b|\\b[0-9]*\\.[0-9]+\\b|\\b\".*\"\\b|\\b'.*'\\b|\\b[_a-zA-Z][_a-zA-Z0-9]*\\b|\\[|\\]|\\(|\\)|\\{|\\}|\\,|\\;|\\+|\\-|\\*|\\/|\\%|\\&\\&|\\|\\||\\!|\\=|\\<|\\>|\\<\\<|\\>\\>|\\<\\=|\\>\\=|\\=\\=|\\!\\=|\\&|\\||\\^|\\~|\\?|\\:)";
+                String CSyntax = "\\b(?:int|char|float|double|void)\\s+[a-zA-Z_]\\w*\\s*\\([^\\)]*\\)\\s*\\{.*\\}";
+                String JavaSyntax = "(import\\s.*|package\\s.*|class\\s.*|public\\s.*|private\\s.*|protected\\s.*|interface\\s.*|extends\\s.*|implements\\s.*|abstract\\s.*|final\\s.*|static\\s.*|void\\s.*|int\\s.*|long\\s.*|float\\s.*|double\\s.*|char\\s.*|boolean\\s.*|String\\s.*|if\\s.*|else\\s.*|for\\s.*|while\\s.*|do\\s.*|switch\\s.*|case\\s.*|break\\s.*|continue\\s.*|default\\s.*|return\\s.*|try\\s.*|catch\\s.*|finally\\s.*|throw\\s.*|throws\\s.*|assert\\s.*|new\\s.*|instanceof\\s.*|super\\s.*|this\\s.*|null\\s.*)";
+                try (BufferedReader FileReader = new BufferedReader(new FileReader(c3File))) {
+                    String line;
+                    StringBuilder content = new StringBuilder();
+                    while ((line = FileReader.readLine()) != null) {
+                        content.append(line).append(("\n"));
+                    }
+                    Pattern patternC = Pattern.compile(CSyntax, Pattern.DOTALL);
+                    Matcher matcherC = patternC.matcher(content);
+                    boolean GoodLanguage = matcherC.matches();
+                    if (GoodLanguage) {
+                        System.out.println("Yes, you understand this language !");
+                    } else {
+                        System.out.println("No, you haven't programming in the correct language");
+                    }
+                } catch (IOException es){
+                    System.err.println("Error during the reading file " + es.getMessage());
+                }*/
             }
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();

@@ -1,22 +1,31 @@
+package launcher;
+
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-import C.Exercise.Exercise;
 import C.Exercise.ExerciseInclude;
 import C.Exercise.ExerciseStdinStdout;
 import C.Languages.CLanguage;
 import C.Languages.JavaLanguage;
 import C.Languages.Language;
 import C.Languages.LanguageFactory;
+import M.Bdd;
+import M.Exercise;
 
 public class Main {
     public static void main(String[] args) {
+
+
+        /*Bdd.idBdd("3306","root","280945");
+        Bdd.create();
+        Exercise[] exo = Exercise.allExo();
+
+        for(Exercise ex : exo){
+
+            System.out.println(ex.toString() +"\n");
+        }*/
         try {
             System.out.println("Java hello");
 

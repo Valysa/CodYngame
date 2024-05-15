@@ -6,7 +6,9 @@ import java.sql.*;
 
 public class Bdd {
 
-
+    static String port ;
+    static String user;
+    static String password;
 
     // Connect to the database
 
@@ -15,7 +17,7 @@ public class Bdd {
         Connection con = null;
 
         try{
-            con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","280945");
+            con =  DriverManager.getConnection("jdbc:mysql://localhost:" + port + "/",user,password);
             Statement stmt = con.createStatement();
 
             String sql = "CREATE DATABASE IF NOT EXISTS Exercise";
@@ -24,7 +26,7 @@ public class Bdd {
             stmt.close();
             end(con);
 
-            con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/Exercise","root","280945");
+            con =  DriverManager.getConnection("jdbc:mysql://localhost:" + port + "/Exercise",user,password);
 
         } catch (SQLException e) {
             System.out.println("Error during the connexion to the database : " + e.getMessage());
@@ -46,6 +48,12 @@ public class Bdd {
             System.out.println("Error during the disconnexion to the database : " + e.getMessage());
         }
 
+    }
+
+    public static void idBdd(String p,String u,String pa){
+        port = p;
+        user = u;
+        password = pa;
     }
 
 
@@ -70,6 +78,7 @@ public class Bdd {
                     + "SolutionLang TINYINT,\n"
                     + "SolutionCode TEXT,\n"
                     + "GeneratorCode TEXT,\n"
+                    + "MainCode TEXT,\n"
                     + "NbTry INT,\n"
                     + "NbSucess INT,\n"
                     + "NbSessionSucess INT,\n"
@@ -85,10 +94,17 @@ public class Bdd {
             System.out.println("Error during the creation of the table : " + e.getMessage());
         }
 
+        basicExo();
 
     }
 
-    
+    public static void basicExo(){
+
+        addEx(0,"Exercise 1","You will be given in entry a list of 10 integer and we ask you to give back their values multiplied by two",0,"int main(){\n\tint entry;\n\tint exit;\n\tfor(int i=0; i<10; i++){\n\t\tscanf(\"%d\",&entry);\n\t\texit = entry*2;\n\t\tprintf(\"%d\\n\",exit);\n\t}\n\treturn 0;\n}","","");
+        addEx(0,"Exercise 2","You will be given in entry a list of 10 integer and we ask you to give back their values multiplied by ten",0,"int main(){\n\tint entry;\n\tint exit;\n\tfor(int i=0; i<10; i++){\n\t\tscanf(\"%d\",&entry);\n\t\texit = entry*10;\n\t\tprintf(\"%d\\n\",exit);\n\t}\n\treturn 0;\n}","","");
+        addEx(1,"Exercise 3","You will be create a function that calculates the sum of an array",0,"#include <stdio.h>\n\nint main(){\n\tint array1[] = {1,2,3,4,5};\n\tint array2[] = {10,20,30,40,50};\n\t//Test games\n\tprintf(\"C : Exercise 1\\n\");\n\tprintf(\"Sum array1 : %d\\n\", array_sum(array1, 5));\n\tprintf(\"Sum array2 : %d\\n\", array_sum(array2, 5));\n\treturn 0;\n}","","#include <stdio.h>\n\nint main(){\n\tint array1[] = {1,2,3,4,5};\n\tint array2[] = {10,20,30,40,50};\n\t//Test games\n\tprintf(\"C : Exercise 1\\n\");\n\tprintf(\"Sum array1 : %d\\n\", array_sum(array1, 5));\n\tprintf(\"Sum array2 : %d\\n\", array_sum(array2, 5));\n\treturn 0;\n}");
+
+    }
 
     // Take a Question (Id) from the database and stock it in the class Excercise
     
@@ -108,19 +124,37 @@ public class Bdd {
 
             if (rs.next()) {
 
-                exo = new Exercise(
-                        rs.getInt("Id"),
-                        rs.getInt("ExoType"),
-                        rs.getString("ExoName"),
-                        rs.getString("Instruction"),
-                        rs.getInt("SolutionLang"),
-                        rs.getString("SolutionCode"),
-                        rs.getString("GeneratorCode"),
-                        rs.getInt("NbTry"),
-                        rs.getInt("NbSucess"),
-                        rs.getInt("NbSessionSucess"),
-                        rs.getInt("NbFirstTry")
-                );
+                if (rs.getInt("Id") == 0) {
+                    exo = new ExerciseStdinStdout(
+                            rs.getInt("Id"),
+                            rs.getInt("ExoType"),
+                            rs.getString("ExoName"),
+                            rs.getString("Instruction"),
+                            rs.getInt("SolutionLang"),
+                            rs.getString("SolutionCode"),
+                            rs.getString("GeneratorCode"),
+                            rs.getInt("NbTry"),
+                            rs.getInt("NbSucess"),
+                            rs.getInt("NbSessionSucess"),
+                            rs.getInt("NbFirstTry")
+                    );
+                }
+                else {
+                    exo = new ExerciseInclude(
+                            rs.getInt("Id"),
+                            rs.getInt("ExoType"),
+                            rs.getString("ExoName"),
+                            rs.getString("Instruction"),
+                            rs.getInt("SolutionLang"),
+                            rs.getString("SolutionCode"),
+                            rs.getString("GeneratorCode"),
+                            rs.getString("MainCode"),
+                            rs.getInt("NbTry"),
+                            rs.getInt("NbSucess"),
+                            rs.getInt("NbSessionSucess"),
+                            rs.getInt("NbFirstTry")
+                    );
+                }
             } else {
                 System.out.println("No question find with this ID : " + Id);
             }
@@ -140,36 +174,53 @@ public class Bdd {
 
     // Add an exercise to the database (question)
 
-    public static void addEx(int ExoType, String ExoName, String Instruction, int SolutionLang, String SolutionCode, String GeneratorCode, int NbTry, int NbSucess, int NbSessionSucess, int NbFirstTry) {
+    public static void addEx(int ExoType, String ExoName, String Instruction, int SolutionLang, String SolutionCode, String GeneratorCode, String MainCode) {
 
-        String sql = "INSERT INTO Question (ExoType, ExoName, Instruction, SolutionLang, SolutionCode, GeneratorCode, NbTry, NbSucess, NbSessionSucess, NbFirstTry) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        int NbTry = 0;
+        int NbSucess = 0;
+        int NbSessionSucess = 0;
+        int NbFirstTry = 0;
+
+        String checkSql = "SELECT COUNT(*) FROM Question WHERE ExoName = ?";
+        String insertSql = "INSERT INTO Question (ExoType, ExoName, Instruction, SolutionLang, SolutionCode, GeneratorCode,MainCode, NbTry, NbSucess, NbSessionSucess, NbFirstTry) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
 
         try {
-
             Connection con = start();
-            PreparedStatement pstmt = con.prepareStatement(sql);
 
-            pstmt.setInt(1, ExoType);
-            pstmt.setString(2, ExoName);
-            pstmt.setString(3, Instruction);
-            pstmt.setInt(4, SolutionLang);
-            pstmt.setString(5, SolutionCode);
-            pstmt.setString(6, GeneratorCode);
-            pstmt.setInt(7, NbTry);
-            pstmt.setInt(8, NbSucess);
-            pstmt.setInt(9, NbSessionSucess);
-            pstmt.setInt(10, NbFirstTry);
+            PreparedStatement checkStmt = con.prepareStatement(checkSql);
+            checkStmt.setString(1, ExoName);
+            ResultSet rs = checkStmt.executeQuery();
 
+            if (rs.next() && rs.getInt(1) == 0) {
 
-            pstmt.executeUpdate();
+                PreparedStatement insertStmt = con.prepareStatement(insertSql);
 
-            end(con);
-            pstmt.close();
+                insertStmt.setInt(1, ExoType);
+                insertStmt.setString(2, ExoName);
+                insertStmt.setString(3, Instruction);
+                insertStmt.setInt(4, SolutionLang);
+                insertStmt.setString(5, SolutionCode);
+                insertStmt.setString(6, GeneratorCode);
+                insertStmt.setString(7, MainCode);
+                insertStmt.setInt(8, NbTry);
+                insertStmt.setInt(9, NbSucess);
+                insertStmt.setInt(10, NbSessionSucess);
+                insertStmt.setInt(11, NbFirstTry);
+                insertStmt.executeUpdate();
 
+                rs.close();
+                checkStmt.close();
+                insertStmt.close();
+                end(con);
+            }
         } catch (SQLException e) {
-            System.out.println("Error during the addition of a new question : " + e.getMessage());
+            System.out.println("Error during the addition of a new question: " + e.getMessage());
         }
     }
+
+
+
 
 
 

@@ -1,5 +1,7 @@
 package M;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
@@ -7,14 +9,16 @@ import java.nio.file.Paths;
 
 public class Exercise {
 
-    int Id;
-    int ExoType;
-    String ExoName;
-    String Instruction;
-    int NbTry;
-    int NbSucess;
-    int NbSessionSucess;
-    int NbFirstTry;
+    public int Id;
+    public int ExoType;
+    public String ExoName;
+    public String Instruction;
+    public int NbTry;
+    public int NbSucess;
+    public int NbSessionSucess;
+    public int NbFirstTry;
+    public String[] outputData;
+    public String[] inputData;
 
 
     // Constructor of Exercise
@@ -33,16 +37,16 @@ public class Exercise {
                 this.write(SolutionCode,GeneratorCode,"c");
                 break;
             case 1:
-                this.write(SolutionCode,GeneratorCode,"php");
+                this.write(SolutionCode,GeneratorCode,"py");
                 break;
             case 2:
-                this.write(SolutionCode,GeneratorCode,"js");
-                break;
-            case 3:
                 this.write(SolutionCode,GeneratorCode,"java");
                 break;
+            case 3:
+                this.write(SolutionCode,GeneratorCode,"php");
+                break;
             case 4:
-                this.write(SolutionCode,GeneratorCode,"py");
+                this.write(SolutionCode,GeneratorCode,"js");
                 break;
         }
 

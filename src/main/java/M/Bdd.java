@@ -15,7 +15,7 @@ public class Bdd {
         Connection con = null;
 
         try{
-            con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","");
+            con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/","root","280945");
             Statement stmt = con.createStatement();
 
             String sql = "CREATE DATABASE IF NOT EXISTS Exercise";
@@ -24,7 +24,7 @@ public class Bdd {
             stmt.close();
             end(con);
 
-            con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/Exercise","root","");
+            con =  DriverManager.getConnection("jdbc:mysql://localhost:3306/Exercise","root","280945");
 
         } catch (SQLException e) {
             System.out.println("Error during the connexion to the database : " + e.getMessage());
@@ -69,8 +69,7 @@ public class Bdd {
                     + "Instruction TEXT,\n"
                     + "SolutionLang TINYINT,\n"
                     + "SolutionCode TEXT,\n"
-                    + "InputData TEXT,\n"
-                    + "OutputData TEXT,\n"
+                    + "GeneratorCode TEXT,\n"
                     + "NbTry INT,\n"
                     + "NbSucess INT,\n"
                     + "NbSessionSucess INT,\n"
@@ -116,8 +115,7 @@ public class Bdd {
                         rs.getString("Instruction"),
                         rs.getInt("SolutionLang"),
                         rs.getString("SolutionCode"),
-                        rs.getString("InputData"),
-                        rs.getString("OutputData"),
+                        rs.getString("GeneratorCode"),
                         rs.getInt("NbTry"),
                         rs.getInt("NbSucess"),
                         rs.getInt("NbSessionSucess"),
@@ -142,9 +140,9 @@ public class Bdd {
 
     // Add an exercise to the database (question)
 
-    public static void addEx(int ExoType, String ExoName, String Instruction, int SolutionLang, String SolutionCode, String InputData, String OutputData, int NbTry, int NbSucess, int NbSessionSucess, int NbFirstTry) {
+    public static void addEx(int ExoType, String ExoName, String Instruction, int SolutionLang, String SolutionCode, String GeneratorCode, int NbTry, int NbSucess, int NbSessionSucess, int NbFirstTry) {
 
-        String sql = "INSERT INTO Question (ExoType, ExoName, Instruction, SolutionLang, SolutionCode, InputData, OutputData, NbTry, NbSucess, NbSessionSucess, NbFirstTry) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO Question (ExoType, ExoName, Instruction, SolutionLang, SolutionCode, GeneratorCode, NbTry, NbSucess, NbSessionSucess, NbFirstTry) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
 
@@ -156,12 +154,11 @@ public class Bdd {
             pstmt.setString(3, Instruction);
             pstmt.setInt(4, SolutionLang);
             pstmt.setString(5, SolutionCode);
-            pstmt.setString(6, InputData);
-            pstmt.setString(7, OutputData);
-            pstmt.setInt(8, NbTry);
-            pstmt.setInt(9, NbSucess);
-            pstmt.setInt(10, NbSessionSucess);
-            pstmt.setInt(11, NbFirstTry);
+            pstmt.setString(6, GeneratorCode);
+            pstmt.setInt(7, NbTry);
+            pstmt.setInt(8, NbSucess);
+            pstmt.setInt(9, NbSessionSucess);
+            pstmt.setInt(10, NbFirstTry);
 
 
             pstmt.executeUpdate();

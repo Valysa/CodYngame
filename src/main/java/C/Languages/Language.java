@@ -7,6 +7,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import C.Exercise.ExerciseStdinStdout;
 
@@ -47,5 +49,7 @@ public class Language {
         }
         return outputResult.toArray(new String[0]); // Convert list in String[]
     }
-    
+
+    public void checkLanguage(StringBuilder program){
+    }
 }

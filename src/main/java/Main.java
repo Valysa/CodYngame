@@ -7,6 +7,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import C.Exercise.Exercise;
 import C.Exercise.ExerciseInclude;
 import C.Exercise.ExerciseStdinStdout;
 import C.Languages.CLanguage;
@@ -159,34 +160,46 @@ public class Main {
                     System.out.println("Enter the file name");
                     String filePathInclude = "src/main/java/C/ExercisesInclude/" + bufferRead.readLine();
                     String codeLine = ex.readLineFromFile(filePathInclude);
+                    System.out.println(ex.name);
+                    System.out.println(ex.description);
                     if (codeLine != null) {
                         System.out.println(codeLine);
                     } else {
                         System.out.println("No lines with '{' or ':' were found");
                     }
+                    Language Exercise = LanguageFactory.assignLanguage(filePathInclude);
+                    //Part that reads a file and checks that its language has the same syntax as the language requested by the exercise.
+                    /*System.out.println("Enter the solution file name");
+                    String filePathIncludeSolution = "src/main/java/C/ExercisesInclude/" + bufferRead.readLine();
+                    try (BufferedReader FileReader = new BufferedReader(new FileReader(filePathIncludeSolution))) {
+                        String line;
+                        StringBuilder content = new StringBuilder();
+                        while ((line = FileReader.readLine()) != null) {
+                            content.append(line).append(("\n"));
+                        }
+                        Exercise.checkLanguage(content);
+                    } catch (IOException es) {
+                        System.err.println("Error during the reading file " + es.getMessage());
+                    }*/
+                    //Part that asks the user to enter code and checks that its language has the same syntax as the language requested by the exercise
+                    BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+                    System.out.println("Enter your program to resolve this exercise (Write exit at the end of your program to send him)");
+                    try {
+                        StringBuilder program = new StringBuilder();
+                        String line;
+                        while (!(line = reader.readLine()).equalsIgnoreCase("exit")) {
+                            program.append(line).append("\n");
+                        }
+                        System.out.println("You have coded this program :");
+                        System.out.println(program.toString());
+                        Exercise.checkLanguage(program);
+                    } catch (IOException es){
+                        es.printStackTrace();
+                    }
+                    reader.close();
                 } catch (IOException er) {
-                    System.out.println("An error has occurred " + er.getMessage());
+                    System.err.println("An error has occurred " + er.getMessage());
                 }
-                /*String BadCSyntax = "(#include\\s*<.*>|#include\\s*\".*\"|\\bint\\b|\\bchar\\b|\\bfloat\\b|\\bdouble\\b|\\bvoid\\b|\\breturn\\b|\\bif\\b|\\belse\\b|\\bfor\\b|\\bwhile\\b|\\bdo\\b|\\bswitch\\b|\\bcase\\b|\\bbreak\\b|\\bcontinue\\b|\\bdefault\\b|\\bsizeof\\b|\\bstruct\\b|\\btypedef\\b|\\bunion\\b|\\bextern\\b|\\bstatic\\b|\\bconst\\b|\\bvolatile\\b|\\bregister\\b|\\bauto\\b|\\bsigned\\b|\\bunsigned\\b|\\blong\\b|\\bshort\\b|\\bgoto\\b|\\binclude\\b|\\bdefine\\b|\\bifdef\\b|\\bifndef\\b|\\bendif\\b|\\bdefine\\b|\\bundef\\b|\\bpragma\\b|\\berror\\b|\\bline\\b|\\bwarning\\b|\\b__FILE__\\b|\\b__LINE__\\b|\\b__DATE__\\b|\\b__TIME__\\b|\\b__TIMESTAMP__\\b|\\/\\/.*|\\/\\*.*\\*\\/|\\b0[xX][0-9a-fA-F]+\\b|\\b[0-9]+\\b|\\b[0-9]+\\.[0-9]*\\b|\\b[0-9]*\\.[0-9]+\\b|\\b\".*\"\\b|\\b'.*'\\b|\\b[_a-zA-Z][_a-zA-Z0-9]*\\b|\\[|\\]|\\(|\\)|\\{|\\}|\\,|\\;|\\+|\\-|\\*|\\/|\\%|\\&\\&|\\|\\||\\!|\\=|\\<|\\>|\\<\\<|\\>\\>|\\<\\=|\\>\\=|\\=\\=|\\!\\=|\\&|\\||\\^|\\~|\\?|\\:)";
-                String CSyntax = "\\b(?:int|char|float|double|void)\\s+[a-zA-Z_]\\w*\\s*\\([^\\)]*\\)\\s*\\{.*\\}";
-                String JavaSyntax = "(import\\s.*|package\\s.*|class\\s.*|public\\s.*|private\\s.*|protected\\s.*|interface\\s.*|extends\\s.*|implements\\s.*|abstract\\s.*|final\\s.*|static\\s.*|void\\s.*|int\\s.*|long\\s.*|float\\s.*|double\\s.*|char\\s.*|boolean\\s.*|String\\s.*|if\\s.*|else\\s.*|for\\s.*|while\\s.*|do\\s.*|switch\\s.*|case\\s.*|break\\s.*|continue\\s.*|default\\s.*|return\\s.*|try\\s.*|catch\\s.*|finally\\s.*|throw\\s.*|throws\\s.*|assert\\s.*|new\\s.*|instanceof\\s.*|super\\s.*|this\\s.*|null\\s.*)";
-                try (BufferedReader FileReader = new BufferedReader(new FileReader(c3File))) {
-                    String line;
-                    StringBuilder content = new StringBuilder();
-                    while ((line = FileReader.readLine()) != null) {
-                        content.append(line).append(("\n"));
-                    }
-                    Pattern patternC = Pattern.compile(CSyntax, Pattern.DOTALL);
-                    Matcher matcherC = patternC.matcher(content);
-                    boolean GoodLanguage = matcherC.matches();
-                    if (GoodLanguage) {
-                        System.out.println("Yes, you understand this language !");
-                    } else {
-                        System.out.println("No, you haven't programming in the correct language");
-                    }
-                } catch (IOException es){
-                    System.err.println("Error during the reading file " + es.getMessage());
-                }*/
             }
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();

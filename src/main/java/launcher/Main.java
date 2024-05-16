@@ -5,8 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
 
-import C.Exercise.ExerciseInclude;
-import C.Exercise.ExerciseStdinStdout;
+
 import C.Languages.CLanguage;
 import C.Languages.JavaLanguage;
 import C.Languages.Language;

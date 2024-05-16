@@ -124,7 +124,7 @@ public class Bdd {
 
             if (rs.next()) {
 
-                if (rs.getInt("Id") == 0) {
+                if (rs.getInt("ExoType") == 0) {
                     exo = new ExerciseStdinStdout(
                             rs.getInt("Id"),
                             rs.getInt("ExoType"),

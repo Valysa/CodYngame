@@ -1,1 +1,0 @@
-console.log ("This hello world was sent by a js script");

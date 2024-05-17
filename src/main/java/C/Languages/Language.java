@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import C.Exercise.ExerciseStdinStdout;
 
 public class Language {
 

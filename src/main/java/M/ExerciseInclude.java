@@ -10,9 +10,8 @@ import java.nio.file.Paths;
 public class ExerciseInclude extends Exercise {
 
     public String SolutionLang;
-    ExerciseInclude(int id, int ExoType, String ExoName, String Instruction, int SolutionLang, String SolutionCode, String MainCode, String GeneratorCode, int NbTry, int NbSucess, int NbSessionSucess, int NbFirstTry){
+    ExerciseInclude(int id, int ExoType, String ExoName, String Instruction, int SolutionLang, String SolutionCode, String GeneratorCode, String MainCode, int NbTry, int NbSucess, int NbSessionSucess, int NbFirstTry){
         super(id, ExoType, ExoName, Instruction, SolutionLang, SolutionCode, GeneratorCode, NbTry, NbSucess, NbSessionSucess, NbFirstTry);
-
 
         switch (SolutionLang) {
             case 0:

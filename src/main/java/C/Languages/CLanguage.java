@@ -7,7 +7,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
-import C.Exercise.ExerciseStdinStdout;
 
 public class CLanguage extends Language {
 
@@ -82,12 +81,12 @@ public class CLanguage extends Language {
 
     public void checkLanguage(StringBuilder program) {
         try {
-            String CSyntax = "(#include\\s*<.*>|#include\\s*\".*\")?\\s*\\b(?:int|char|float|double|void)\\s+[a-zA-Z_]\\w*\\s*(?:\\[\\d*\\])?\\s*(?:=[^;]+)?\\s*;|\\bif\\s*\\(|\\bwhile\\s*\\(|\\bdo\\s*\\{|\\bswitch\\s*\\(|\\bfor\\s*\\(";
+            String CSyntax = "\\b(?:int|char|float|double|void)\\s+[a-zA-Z_]\\w*\\s*(?:\\[\\d*\\])?\\s*(?:=[^;]+)?\\s*;|\\bif\\s*\\(|\\bwhile\\s*\\(|\\bdo\\s*\\{|\\bswitch\\s*\\(|\\bfor\\s*\\(";
             Pattern patternC = Pattern.compile(CSyntax, Pattern.DOTALL);
             Matcher matcherC = patternC.matcher(program);
             boolean foundCCode = false;
             while (matcherC.find()) {
-                if (program.toString().contains("#include")) {
+                if (!program.toString().contains("def") && !program.toString().contains("function") && !program.toString().contains("class")){
                     foundCCode = true;
                     break;
                 }

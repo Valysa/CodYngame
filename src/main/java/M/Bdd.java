@@ -1,4 +1,6 @@
 package M;
+import launcher.Main;
+
 import java.sql.*;
 
 
@@ -102,8 +104,8 @@ public class Bdd {
 
         addEx(0,"Exercise 1","You will be given in entry a list of 10 integer and we ask you to give back their values multiplied by two",0,"int main(){\n\tint entry;\n\tint exit;\n\tfor(int i=0; i<10; i++){\n\t\tscanf(\"%d\",&entry);\n\t\texit = entry*2;\n\t\tprintf(\"%d\\n\",exit);\n\t}\n\treturn 0;\n}","","");
         addEx(0,"Exercise 2","You will be given in entry a list of 10 integer and we ask you to give back their values multiplied by ten",0,"int main(){\n\tint entry;\n\tint exit;\n\tfor(int i=0; i<10; i++){\n\t\tscanf(\"%d\",&entry);\n\t\texit = entry*10;\n\t\tprintf(\"%d\\n\",exit);\n\t}\n\treturn 0;\n}","","");
-        addEx(1,"Exercise 3","You will be create a function that calculates the sum of an array",0,"#include <stdio.h>\n\nint main(){\n\tint array1[] = {1,2,3,4,5};\n\tint array2[] = {10,20,30,40,50};\n\t//Test games\n\tprintf(\"C : Exercise 1\\n\");\n\tprintf(\"Sum array1 : %d\\n\", array_sum(array1, 5));\n\tprintf(\"Sum array2 : %d\\n\", array_sum(array2, 5));\n\treturn 0;\n}","","#include <stdio.h>\n\nint main(){\n\tint array1[] = {1,2,3,4,5};\n\tint array2[] = {10,20,30,40,50};\n\t//Test games\n\tprintf(\"C : Exercise 1\\n\");\n\tprintf(\"Sum array1 : %d\\n\", array_sum(array1, 5));\n\tprintf(\"Sum array2 : %d\\n\", array_sum(array2, 5));\n\treturn 0;\n}");
-
+        addEx(1,"Exercise 3","You will be create a function that calculates the sum of an array",0,"int array_sum(int array[], int size){\n\tint sum = 0;\n\tfor(int i = 0; i < size; i++){\n\t\tsum += array[i];\n\t}\n\treturn sum;\n}","","#include <stdio.h>\n#include \"soluceExo.c\"\n\nint main(){\n\tint array1[] = {1,2,3,4,5};\n\tint array2[] = {10,20,30,40,50};\n\t//Test games\n\tprintf(\"C : Exercise 1\\n\");\n\tprintf(\"Sum array1 : %d\\n\", array_sum(array1, 5));\n\tprintf(\"Sum array2 : %d\\n\", array_sum(array2, 5));\n\treturn 0;\n}");
+        addEx(1,"Exercise 4","You will be create a function that calculates the sum of an array",1,"def array_sum(array, size):\n\tsum = 0\n\tfor i in range(size):\n\t\tsum += array[i]\n\treturn sum","","import soluceExo.py\n\ndef main():\n\tarray1 = [1,2,3,4,5]\n\tarray2 = [10,20,30,40,50]\n\t#Test games\n\tprint(\"Python : Exercise 1\")\n\tprint(\"Sum array1 :\", ex1Soluce.array_sum(array1, len(array1)))\n\tprint(\"Sum array2 :\", ex1Soluce.array_sum(array2, len(array2)))\n\tprint()\n\nmain()");
     }
 
     // Take a Question (Id) from the database and stock it in the class Excercise
@@ -182,7 +184,7 @@ public class Bdd {
         int NbFirstTry = 0;
 
         String checkSql = "SELECT COUNT(*) FROM Question WHERE ExoName = ?";
-        String insertSql = "INSERT INTO Question (ExoType, ExoName, Instruction, SolutionLang, SolutionCode, GeneratorCode,MainCode, NbTry, NbSucess, NbSessionSucess, NbFirstTry) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String insertSql = "INSERT INTO Question (ExoType, ExoName, Instruction, SolutionLang, SolutionCode, GeneratorCode, MainCode, NbTry, NbSucess, NbSessionSucess, NbFirstTry) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
 
         try {
@@ -193,7 +195,6 @@ public class Bdd {
             ResultSet rs = checkStmt.executeQuery();
 
             if (rs.next() && rs.getInt(1) == 0) {
-
                 PreparedStatement insertStmt = con.prepareStatement(insertSql);
 
                 insertStmt.setInt(1, ExoType);

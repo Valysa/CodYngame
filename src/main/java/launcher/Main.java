@@ -12,24 +12,25 @@ import C.Languages.Language;
 import C.Languages.LanguageFactory;
 import M.Bdd;
 import M.Exercise;
+import M.ExerciseStdinStdout;
+import M.ExerciseInclude;
 
 public class Main {
     public static void main(String[] args) {
 
-
-        /*Bdd.idBdd("3306","root","280945");
+        Bdd.idBdd("3306", "root", "MyS3cur3P@sswOrd!");
         Bdd.create();
         Exercise[] exo = Exercise.allExo();
 
-        for(Exercise ex : exo){
+        for (Exercise ex : exo) {
 
-            System.out.println(ex.toString() +"\n");
-        }*/
+            System.out.println(ex.toString() + "\n");
+        }
         try {
             System.out.println("Java hello");
 
             // Call of the C part
-            String cFile = "src/main/java/C/Test/codes-test/helloworld.c";
+/*            String cFile = "src/main/java/C/Test/codes-test/helloworld.c";
             Language cLanguage = LanguageFactory.assignLanguage(cFile);
             cLanguage.execute(cFile);
 
@@ -52,9 +53,9 @@ public class Main {
             String javaFile = "src/main/java/C/Test/codes-test/helloworld.java";
             Language javaLanguage = LanguageFactory.assignLanguage(javaFile);
             javaLanguage.execute(javaFile);
-
+*/
             //Call of the c part for two files
-            String c2File = "src/main/java/C/ExercisesInclude/mainEx1.c";
+/*            String c2File = "src/main/java/C/ExercisesInclude/mainEx1.c";
             String c3File = "src/main/java/C/ExercisesInclude/ex1Soluce.c";
             CLanguage c2Language = new CLanguage();
             String[] cFiles = {c2File, c3File};
@@ -81,7 +82,7 @@ public class Main {
             JavaLanguage java2Language = new JavaLanguage();
             String[] javaFiles = {java2File, java3File};
             java2Language.execute(javaFiles, javaMainFile);
-
+*/
             // Sort of menu displays
             System.out.println("------------------------------");
             System.out.println("             Menu             ");
@@ -90,7 +91,7 @@ public class Main {
 
             BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
             String s = bufferRead.readLine();
-            if (s.equals("1")) {
+            /*if (s.equals("1")) {
                 // ---------------------------------------------
                 // ExerciseStdinStdout part
                 // ---------------------------------------------
@@ -98,13 +99,11 @@ public class Main {
                 System.out.println("Select the exercise you want to do");
                 String selectedExercise = bufferRead.readLine();
 
-                // Creates exercises
-                ExerciseStdinStdout exo = new ExerciseStdinStdout();
                 // if exo1 selected
                 if (selectedExercise.equals("1")) {
                     // initialing the exercise with name description entry and expected exit
-                    exo.name = "exo1";
-                    exo.description = "You will be given in entry a list of 10 integer and we ask you to give back their values multiplied by two";
+                    System.out.println(exo[1].ExoName);
+                    System.out.println(exo[1].ExoType);
                     exo.entryData = new String[10];
                     exo.outputData = new String[10];
                     for (int i = 0; i < 10; i++) {
@@ -156,20 +155,13 @@ public class Main {
                     System.out.println("You loose, try again by modifing your source code");
                 }
 
-            }
+            }*/
             if (s.equals("2")) {
-                ExerciseInclude ex = new ExerciseInclude();
-                ex.name = "ex1";
-                ex.description = "You will be create a function that calculates the sum of an array";
-                ex.entryData = new String[1];
-                ex.entryData[0] = "Test";
+                System.out.println(exo[2].toString());
+                ExerciseInclude ex = (ExerciseInclude) exo[2];
                 try {
-                    //Write the name of the good name of solution file : ex1Soluce.c or any other language
-                    System.out.println("Enter the file name");
-                    String filePathInclude = "src/main/java/C/ExercisesInclude/" + bufferRead.readLine();
+                    String filePathInclude = "src/main/resources/Exercise/Exo3/soluceExo.c";
                     String codeLine = ex.readLineFromFile(filePathInclude);
-                    System.out.println(ex.name);
-                    System.out.println(ex.description);
                     if (codeLine != null) {
                         System.out.println(codeLine);
                     } else {
@@ -209,7 +201,7 @@ public class Main {
                     System.err.println("An error has occurred " + er.getMessage());
                 }
             }
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

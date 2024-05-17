@@ -102,7 +102,6 @@ public class Exercise {
         String generator = PATH + "genExo." + SolutionLang;
         try {
 
-
             FileWriter soluceF = new FileWriter(soluce);
             soluceF.write(SolutionCode);
             soluceF.close();
@@ -115,8 +114,5 @@ public class Exercise {
             System.out.println("Cannot write the file soluce and generator : " + e.getMessage());
         }
 
-
-
     }
-
 }

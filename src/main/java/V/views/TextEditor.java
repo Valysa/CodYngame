@@ -3,6 +3,7 @@ package V.views;
 import javafx.application.Application;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.scene.control.*;
 import javafx.scene.layout.*;
 import javafx.event.ActionEvent;
@@ -19,7 +20,8 @@ public class TextEditor extends Application {
         textArea.setPrefWidth(1000);
         textArea.setPrefHeight(600);
         Button submitButton = new Button("Submit");
-
+        submitButton.setTextFill(Color.BLACK);
+        submitButton.setStyle("-fx-background-color: green;");
         submitButton.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {

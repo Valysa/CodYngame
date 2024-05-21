@@ -18,7 +18,8 @@ public class PHPLanguage extends Language {
         return readStdout(process);
     }
 
-    public void checkLanguage(StringBuilder program) {
+    @Override
+    public boolean checkLanguage(StringBuilder program) {
         try {
             String PHPSyntax = "<\\?php\\s*function\\s+[a-zA-Z_][a-zA-Z0-9_]*\\s*\\(.*\\)\\s*\\{.*\\}\\s*\\?>";
             Pattern patternPHP = Pattern.compile(PHPSyntax, Pattern.DOTALL);
@@ -32,13 +33,16 @@ public class PHPLanguage extends Language {
             }
             if (foundPHPCode) {
                 System.out.println("Yes, you understand PHP language !");
+                return true;
             } else {
                 System.out.println("No, you haven't programming in PHP language");
+                return false;
             }
         } catch (PatternSyntaxException pse) {
             System.err.println("There was in the regular expression pattern: " + pse.getMessage());
         } catch (Exception e) {
             System.err.println("An unexpected error occurred: " + e.getMessage());
         }
+        return false;
     }
 }

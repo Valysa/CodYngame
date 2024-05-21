@@ -19,7 +19,8 @@ public class PythonLanguage extends Language {
         return readStdout(process);
     }
 
-    public void checkLanguage(StringBuilder program) {
+    @Override
+    public boolean checkLanguage(StringBuilder program) {
         try {
             String PythonSyntax = "\\s*def\\s+[a-zA-Z_][a-zA-Z0-9_]*\\s*\\(.*\\)\\s*:";
             Pattern patternPython = Pattern.compile(PythonSyntax, Pattern.DOTALL);
@@ -33,13 +34,16 @@ public class PythonLanguage extends Language {
             }
             if (foundPythonCode) {
                 System.out.println("Yes, you understand Python language !");
+                return true;
             } else {
                 System.out.println("No, you haven't programming in Python language");
+                return false;
             }
         } catch (PatternSyntaxException pse) {
             System.err.println("There was in the regular expression pattern: " + pse.getMessage());
         } catch (Exception e) {
             System.err.println("An unexpected error occurred: " + e.getMessage());
         }
+        return false;
     }
 }

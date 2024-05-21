@@ -1,8 +1,6 @@
 package C.Languages;
 
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -79,7 +77,8 @@ public class CLanguage extends Language {
         readStdout(process);
     }
 
-    public void checkLanguage(StringBuilder program) {
+    @Override
+    public boolean checkLanguage(StringBuilder program) {
         try {
             String CSyntax = "\\b(?:int|char|float|double|void)\\s+[a-zA-Z_]\\w*\\s*(?:\\[\\d*\\])?\\s*(?:=[^;]+)?\\s*;|\\bif\\s*\\(|\\bwhile\\s*\\(|\\bdo\\s*\\{|\\bswitch\\s*\\(|\\bfor\\s*\\(";
             Pattern patternC = Pattern.compile(CSyntax, Pattern.DOTALL);
@@ -93,13 +92,16 @@ public class CLanguage extends Language {
             }
             if (foundCCode) {
                 System.out.println("Yes, you understand C language !");
+                return true;
             } else {
                 System.out.println("No, you haven't programming in C language");
+                return false;
             }
         } catch (PatternSyntaxException pse) {
             System.err.println("There was in the regular expression pattern: " + pse.getMessage());
         } catch (Exception e) {
             System.err.println("An unexpected error occurred: " + e.getMessage());
         }
+        return false;
     }
 }

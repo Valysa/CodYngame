@@ -1,9 +1,6 @@
 package M;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -59,7 +56,6 @@ public class ExerciseInclude extends Exercise {
         reader.close();
         return null; //returns null if no line with '{' or ':' is found in the file
     }
-
     public void writeInclude(String MainCode, String SolutionLang) {
 
         String PATH = "src/main/resources/Exercise/Exo"+this.Id+"/";
@@ -68,7 +64,7 @@ public class ExerciseInclude extends Exercise {
         }catch (IOException e){
             System.out.println("Cannot access resources directory : " + e.getMessage());
         }
-        String main = PATH + "mainExo." + SolutionLang;;
+        String main = PATH + "mainExo." + SolutionLang;
         try {
 
 
@@ -79,9 +75,25 @@ public class ExerciseInclude extends Exercise {
         } catch (IOException e){
             System.out.println("Cannot write the file main : " + e.getMessage());
         }
+    }
 
-
-
+    //This function saves the code entered by the user in a file named userExo.extension ie c,py,js,php,java
+    public void saveToFile(StringBuilder program, String SolutionLang) {
+        String PATH = "src/main/resources/Exercise/Exo"+this.Id+"/";
+        try {
+            Files.createDirectories(Paths.get(PATH));
+        }catch (IOException e){
+            System.out.println("Cannot access resources directory : " + e.getMessage());
+        }
+        String filePath = PATH + "userExo." + SolutionLang;
+        File file = new File(filePath);
+        try {
+            FileWriter mainF = new FileWriter(filePath);
+            mainF.write(String.valueOf(program));
+            mainF.close();
+        } catch (IOException e){
+            System.out.println("Cannot write the file main : " + e.getMessage());
+        }
     }
 
 }

@@ -68,7 +68,8 @@ public class JavaLanguage extends Language {
         readStdout(process);
     }
 
-    public void checkLanguage(StringBuilder program) {
+    @Override
+    public boolean checkLanguage(StringBuilder program) {
         try {
             String JavaSyntax = "(import\\s.*|package\\s.*|class\\s.*|public\\s.*|private\\s.*|protected\\s.*|interface\\s.*|extends\\s.*|implements\\s.*|abstract\\s.*|final\\s.*|static\\s.*|void\\s.*|int\\s.*|long\\s.*|float\\s.*|double\\s.*|char\\s.*|boolean\\s.*|String\\s.*|if\\s.*|else\\s.*|for\\s.*|while\\s.*|do\\s.*|switch\\s.*|case\\s.*|break\\s.*|continue\\s.*|default\\s.*|return\\s.*|try\\s.*|catch\\s.*|finally\\s.*|throw\\s.*|throws\\s.*|assert\\s.*|new\\s.*|instanceof\\s.*|super\\s.*|this\\s.*|null\\s.*)";
             Pattern patternJava = Pattern.compile(JavaSyntax, Pattern.DOTALL);
@@ -82,13 +83,16 @@ public class JavaLanguage extends Language {
             }
             if (foundJavaCode) {
                 System.out.println("Yes, you understand Java language !");
+                return true;
             } else {
                 System.out.println("No, you haven't programming in Java language");
+                return false;
             }
         } catch (PatternSyntaxException pse) {
             System.err.println("There was in the regular expression pattern: " + pse.getMessage());
         } catch (Exception e) {
             System.err.println("An unexpected error occurred: " + e.getMessage());
         }
+        return false;
     }
 }

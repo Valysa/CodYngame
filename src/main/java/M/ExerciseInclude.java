@@ -1,8 +1,13 @@
 package M;
 
+import C.Languages.Language;
+import C.Languages.LanguageFactory;
+
 import java.io.*;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Objects;
 
 public class ExerciseInclude extends Exercise {
 
@@ -25,19 +30,25 @@ public class ExerciseInclude extends Exercise {
                 break;
             case 3:
                 this.SolutionLang = "php";
-                this.write(SolutionCode,GeneratorCode,"php");
+                this.writeInclude(MainCode,"php");
                 break;
             case 4:
                 this.SolutionLang = "js";
-                this.write(SolutionCode,GeneratorCode,"js");
+                this.writeInclude(MainCode,"js");
+                break;
+            case 5:
+                this.SolutionLang = "mjs";
+                this.writeInclude(MainCode,"mjs"); //This extension serve for import and export functions in JS in the include mode
                 break;
         }
 
     }
 
-    public String readLineFromFile(String filePath) throws IOException {
+    //We read the genExo file and display the type, name and parameters of the function
+    public String readLineFromFile() throws IOException {
+        String genExoFile = "src/main/resources/Exercise/Exo" + this.Id + "/genExo." + this.SolutionLang;
         //Creates a BufferedReader to read the file
-        BufferedReader reader = new BufferedReader(new FileReader(filePath));
+        BufferedReader reader = new BufferedReader(new FileReader(genExoFile));
         String line;
         //Reads each line until a line with '{' or ':' is found
         while ((line = reader.readLine()) != null) {
@@ -78,22 +89,89 @@ public class ExerciseInclude extends Exercise {
     }
 
     //This function saves the code entered by the user in a file named userExo.extension ie c,py,js,php,java
-    public void saveToFile(StringBuilder program, String SolutionLang) {
+    public void saveToFile(StringBuilder program) {
         String PATH = "src/main/resources/Exercise/Exo"+this.Id+"/";
         try {
             Files.createDirectories(Paths.get(PATH));
         }catch (IOException e){
             System.out.println("Cannot access resources directory : " + e.getMessage());
         }
-        String filePath = PATH + "userExo." + SolutionLang;
+        String filePath = PATH + "userExo." + this.SolutionLang;
         File file = new File(filePath);
         try {
             FileWriter mainF = new FileWriter(filePath);
-            mainF.write(String.valueOf(program));
+            if(Objects.equals(SolutionLang, "mjs")){
+                mainF.write("export " + program);
+            }
+            else {
+                mainF.write(String.valueOf(program));
+            }
             mainF.close();
         } catch (IOException e){
             System.out.println("Cannot write the file main : " + e.getMessage());
         }
+    }
+
+    public void deleteUserFile(){
+        Path path = Paths.get( "src/main/resources/Exercise/Exo"+this.Id+"/userExo."+SolutionLang);
+        try {
+            Files.delete(path);
+        } catch (IOException e){
+            System.err.println("Failed to delete the file: " +e.getMessage());
+        }
+    }
+
+    public void ExerciseResolution() {
+        System.out.println(this.ExoName);
+        System.out.println(this.Instruction);
+        String function = null;
+        try {
+            function = this.readLineFromFile();
+            //Display the type, name and various parameters of the function requested for this exercise
+            if (function != null) {
+                System.out.println(function);
+            } else {
+                System.out.println("No lines with '{' or ':' were found");
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        String soluceExoFile = "src/main/resources/Exercise/Exo" + this.Id + "/soluceExo." + this.SolutionLang;
+        Language Exercise = LanguageFactory.assignLanguage(soluceExoFile);
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        boolean isProgramCorrect = false;
+        //Repeat this loop until the code entered by the user is correct
+        while(!isProgramCorrect) {
+            System.out.println("Enter your program to resolve this exercise (Write exit at the end of your program to send him)");
+            try {
+                this.NbTry++;
+                StringBuilder program = new StringBuilder();
+                String line;
+                //Repeat this loop until the user has entered "exit"
+                while (!(line = reader.readLine()).equalsIgnoreCase("exit")) {
+                    program.append(line).append("\n");
+                }
+                //Display the code entered by the user
+                System.out.println("You have coded this program :");
+                System.out.println(program.toString());
+                //Check if the code entered by the user is in the good language
+                if (Exercise.checkLanguage(program)) {
+                    //Save the code in a file named userExo.c here
+                    this.saveToFile(program);
+                    String File = "src/main/resources/Exercise/Exo" + this.Id + "/mainExo." + this.SolutionLang;
+                    Language Language = LanguageFactory.assignLanguage(File);
+                    Language.execute(File);
+                    //We need to change the management of exception cases in the various functions like compile and execute
+                    isProgramCorrect = true;
+                }
+            } catch (IOException es) {
+                es.printStackTrace();
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        //We delete the file containing the user's code when he has successfully completed the exercise
+        this.deleteUserFile();
     }
 
 }

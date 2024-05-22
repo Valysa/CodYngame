@@ -48,6 +48,9 @@ public class Exercise {
             case 4:
                 this.write(SolutionCode,GeneratorCode,"js");
                 break;
+            case 5:
+                this.write(SolutionCode,GeneratorCode,"mjs");
+                break;
         }
 
     }

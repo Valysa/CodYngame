@@ -172,102 +172,25 @@ public class Main {
                         System.err.println("Error during the reading file " + es.getMessage());
                     }*/
                     //Part that asks the user to enter code and checks that its language has the same syntax as the language requested by the exercise
-                System.out.println(exo[2].ExoName);
-                System.out.println(exo[2].Instruction);
-                String cgenExoFile = "src/main/resources/Exercise/Exo3/genExo.c";
-                ExerciseInclude example = (ExerciseInclude) exo[2];
-                String functionC = example.readLineFromFile(cgenExoFile);
-                //Display the type, name and various parameters of the function requested for this exercise
-                if (functionC != null) {
-                    System.out.println(functionC);
-                } else {
-                    System.out.println("No lines with '{' or ':' were found");
-                }
-                String csoluceExoFile = "src/main/resources/Exercise/Exo3/soluceExo.c";
-                Language ExerciseTest = LanguageFactory.assignLanguage(csoluceExoFile);
-                BufferedReader readerFile = new BufferedReader(new InputStreamReader(System.in));
-                boolean isProgramCorrect = false;
-
-                //Repeat this loop until the code entered by the user is correct
-                while(!isProgramCorrect) {
-                    System.out.println("Enter your program to resolve this exercise (Write exit at the end of your program to send him)");
-                    try {
-                        StringBuilder program = new StringBuilder();
-                        String line;
-                        //Repeat this loop until the user has entered "exit"
-                        while (!(line = readerFile.readLine()).equalsIgnoreCase("exit")) {
-                            program.append(line).append("\n");
-                        }
-                        //Display the code entered by the user
-                        System.out.println("You have coded this program :");
-                        System.out.println(program.toString());
-                        //Check if the code entered by the user is in the good language
-                        if (ExerciseTest.checkLanguage(program)) {
-                            //Save the code in a file named userExo.c here
-                            example.saveToFile(program, "c");
-                            String c2File = "src/main/resources/Exercise/Exo3/mainExo.c";
-                            Language c2Language = LanguageFactory.assignLanguage(c2File);
-                            c2Language.execute(c2File);
-                            //We need to change the management of exception cases in the various functions like compile and execute
-                            isProgramCorrect = true;
-                        }
-                    } catch (IOException es) {
-                        es.printStackTrace();
-                    }
-                }
-
+                ExerciseInclude exampleC = (ExerciseInclude) exo[2];
+                exampleC.ExerciseResolution();
                 System.out.println("Well done ! You have successfully completed this exercise in C language");
 
-                System.out.println("Now, you are the same exercise in python");
-                //Display the type, name and various parameters of the function requested for this exercise
-                System.out.println(exo[3].ExoName);
-                System.out.println(exo[3].Instruction);
-                String pygenExoFile = "src/main/resources/Exercise/Exo4/genExo.py";
-                ExerciseInclude pyExample = (ExerciseInclude) exo[3];
-                String functionPy = pyExample.readLineFromFile(pygenExoFile);
-                if (functionPy != null) {
-                    System.out.println(functionPy);
-                } else {
-                    System.out.println("No lines with '{' or ':' were found");
-                }
-                String pySoluceExoFile = "src/main/resources/Exercise/Exo4/soluceExo.py";
-                Language ExercisePyTest = LanguageFactory.assignLanguage(pySoluceExoFile);
-                BufferedReader readerFilePy = new BufferedReader(new InputStreamReader(System.in));
-                boolean isPyProgramCorrect = false;
-                //Repeat this loop until the code entered by the user is correct
-                while(!isPyProgramCorrect) {
-                    System.out.println("Enter your program to resolve this exercise (Write exit at the end of your program to send him)");
-                    try {
-                        StringBuilder programPy = new StringBuilder();
-                        String line;
-                        //Repeat this loop until the user has entered "exit"
-                        while (!(line = readerFilePy.readLine()).equalsIgnoreCase("exit")) {
-                            programPy.append(line).append("\n");
-                        }
-                        //Display the code entered by the user
-                        System.out.println("You have coded this program :");
-                        System.out.println(programPy.toString());
-                        //Check if the code entered by the user is in the good language
-                        if (ExercisePyTest.checkLanguage(programPy)) {
-                            //Save the code in a file named userExo.py here
-                            pyExample.saveToFile(programPy, "py");
-                            String py2File = "src/main/resources/Exercise/Exo4/mainExo.py";
-                            Language py2Language = LanguageFactory.assignLanguage(py2File);
-                            py2Language.execute(py2File);
-                            //We need to change the management of exception cases in the various functions like compile and execute
-                            isPyProgramCorrect = true;
-                        }
-                    } catch (IOException es) {
-                        es.printStackTrace();
-                    }
-                }
+                ExerciseInclude examplePy = (ExerciseInclude) exo[3];
+                examplePy.ExerciseResolution();
+                System.out.println("Well done ! You have successfully completed this exercise in Py language");
 
-                System.out.println("Well done ! You have successfully completed this exercise in Python language");
+                ExerciseInclude examplePHP = (ExerciseInclude) exo[4];
+                examplePHP.ExerciseResolution();
+                System.out.println("Well done ! You have successfully completed this exercise in PHP language");
+
+                ExerciseInclude exampleJS = (ExerciseInclude) exo[5];
+                exampleJS.ExerciseResolution();
+                System.out.println("Well done ! You have successfully completed this exercise in JS language");
+
             }
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
         }
     }
 }

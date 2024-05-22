@@ -6,24 +6,20 @@ import javafx.event.EventHandler;
 import javafx.scene.control.Label;
 
 public class ButtonScene implements EventHandler<ActionEvent> {
-    public int i;
-    private Label lbl;
-    public Exercise[] exo;
-    public int idExo;
+    private MainView mainApp;
+    private int i;
 
-    public ButtonScene(int i, Label lbl, Exercise[] exo, int idExo) {
+    // Constructeur qui prend une référence à la classe principale
+    public ButtonScene(MainView mainApp, int i) {
+        this.mainApp = mainApp;
         this.i = i;
-        this.lbl = lbl;
-        this.exo = exo;
-        this.idExo = idExo;
     }
 
     @Override
     public void handle(ActionEvent event)
     {
         System.out.println("L'exercise "+ this.i + " a été sélectioné");
-        this.lbl.setText(exo[i].Instruction);
-        this.idExo = i;
+        mainApp.updateIdExo(i);
     }
 
 }

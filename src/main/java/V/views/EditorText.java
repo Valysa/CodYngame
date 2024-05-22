@@ -1,11 +1,11 @@
 package V.views;
 
+import M.Exercise;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
@@ -15,30 +15,44 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 public class EditorText extends VBox {
+    /*
     TextArea textArea = new TextArea();
+    public Exercise[] exo;
+    public int idExo;
 
-    public EditorText(TextArea textArea){
+     */
+    private MainView mainApp;
+
+    public EditorText(MainView mainApp){
+        /*
+        TextArea textArea, Exercise[] exo, int idExo
         this.textArea = textArea;
+        this.exo = exo;
+        this.idExo = idExo;
+
+         */
+        this.mainApp = mainApp;
 
         HBox choicesExerciseType = new HBox();
 
-        String[] mods = {"STDIN/STDOUT", "Include"};
-        ChoiceBox<String> choiceMods = new ChoiceBox<>();
-        //je suppose que pas tous les exercices ont les 2 modes donc il faut faire une boucle for et if avant pour verifier selon l'exercise
-        choiceMods.getItems().addAll(mods);
-        String usingMods = choiceMods.getValue();
-        //if ussingMods == null when we compile --> error
+        mainApp.getLanguages().setVisible(false);
+        //String usingLanguage = mainApp.getLanguages().getId();
 
-        String[] languages = {"C", "Python", "Java", "JavaScript", "PHP"};
-        ChoiceBox<String> choiceLanguages = new ChoiceBox<>();
-        choiceLanguages.getItems().addAll(languages);
-        String usingLanguage = choiceLanguages.getValue();
+        choicesExerciseType.getChildren().addAll(mainApp.getMods(), mainApp.getLanguages());
 
-        choicesExerciseType.getChildren().addAll(choiceLanguages, choiceMods);
+/*
+        mainApp.getInitTextArea().textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                mainApp.setInitTextArea(newValue);
+            }
+        });
+
+ */
 
 
-        textArea.setPrefWidth(600);
-        textArea.setPrefHeight(600);
+        mainApp.getInitTextArea().setPrefWidth(600);
+        mainApp.getInitTextArea().setPrefHeight(600);
         /*
         Button submitButton = new Button("Submit");
 
@@ -50,7 +64,7 @@ public class EditorText extends VBox {
         });
          */
 
-        this.getChildren().addAll(choicesExerciseType, textArea);
+        this.getChildren().addAll(choicesExerciseType, mainApp.getInitTextArea());
 
 
     }

@@ -1,6 +1,7 @@
 package V.views;
 
 
+import M.Exercise;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -8,27 +9,17 @@ import javafx.scene.control.TextArea;
 
 
 public class MainView extends HBox {
+
+    Exercise[] exo;
+
+    int idExo;
     //Constructor VBox
-    public MainView(double v) {
-        super(v);
-/*
-        Menu mainMenu = new Menu("Menu Principal");
-        MenuItem testMenu = new MenuItem("testbug");
-        mainMenu.getItems().addAll(testMenu);
+        public MainView(Exercise[] exo) {
+        this.exo = exo;
 
-        //SeparatorMenuItem sep = new SeparatorMenuItem();
-        Menu exerciceOne = new Menu("Exercice 1");
-        MenuItem stdItem = new MenuItem("stdin/stdout");
-        MenuItem includeItem = new MenuItem("Include");
-        exerciceOne.getItems().addAll(stdItem, includeItem);
 
-        MenuBar someMenuBar = new MenuBar(mainMenu, exerciceOne);
-
-        HBox vbox = new HBox();
-        vbox.getChildren().add(someMenuBar);
-*/
         Label lblSTTest = new Label("Veuillez selectionner votre Consigne \n test");
-        ScrollPane menuBar = new ScrollPane(new Summary(lblSTTest));
+        ScrollPane menuBar = new ScrollPane(new Summary(lblSTTest, exo, idExo));
 
 
 
@@ -36,7 +27,7 @@ public class MainView extends HBox {
         //labelText.setPrefHeight(400);
         //IL FAUT MODIFIER LA CONSIGNE ICI
         Label lbl = new Label("BIENVENUE SUR CODYINGGAME");
-        Label lblTwo = new Label("Voici votre consigne :");
+        Label lblTwo = new Label("Voici votre consigne : ");
 
         HBox editorAndTerminal = new HBox();
 

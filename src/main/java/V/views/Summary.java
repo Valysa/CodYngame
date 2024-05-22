@@ -1,5 +1,6 @@
 package V.views;
 
+import M.Exercise;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
@@ -7,7 +8,13 @@ import javafx.scene.layout.VBox;
 
 public class Summary extends ScrollPane{
 
-    public Summary(Label lbl){
+    Exercise[] exo;
+    int idExo;
+
+    public Summary(Label lbl, Exercise[] exo, int idExo){
+        this.exo = exo;
+        this.idExo = idExo;
+
         VBox menuBar = new VBox();
         menuBar.setPrefWidth(300);
 
@@ -20,14 +27,17 @@ public class Summary extends ScrollPane{
         searching.setPromptText("Tapez pour rechercher...");
         menuBar.getChildren().addAll(searching);
 
+        //import number of exercice (bdd)
+        final int NUMBER_EX = exo.length;
 
-        //J'ai défini pour l'instant à 20 mais ça va dépendre de la base de données
-        for(int i=1; i<20; i++){
-            Button exercice = new Button("Exercice "+i);
-            exercice.setPrefSize(300.0, 100.0 );
-            exercice.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
-            exercice.addEventHandler(ActionEvent.ACTION, new ButtonScene(i, lbl));
-            menuBar.getChildren().addAll(exercice);
+        for(int i=1; i<NUMBER_EX; i++){
+            //import title of each exercice (bdd)
+            String nameExercise = exo[i].ExoName;
+            Button exercise = new Button(nameExercise);
+            exercise.setPrefSize(300.0, 100.0 );
+            exercise.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);
+            exercise.addEventHandler(ActionEvent.ACTION, new ButtonScene(i, lbl, exo, idExo));
+            menuBar.getChildren().addAll(exercise);
         }
 
 

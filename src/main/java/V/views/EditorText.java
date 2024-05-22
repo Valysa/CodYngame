@@ -20,10 +20,22 @@ public class EditorText extends VBox {
     public EditorText(TextArea textArea){
         this.textArea = textArea;
 
+        HBox choicesExerciseType = new HBox();
+
+        String[] mods = {"STDIN/STDOUT", "Include"};
+        ChoiceBox<String> choiceMods = new ChoiceBox<>();
+        //je suppose que pas tous les exercices ont les 2 modes donc il faut faire une boucle for et if avant pour verifier selon l'exercise
+        choiceMods.getItems().addAll(mods);
+        String usingMods = choiceMods.getValue();
+        //if ussingMods == null when we compile --> error
+
         String[] languages = {"C", "Python", "Java", "JavaScript", "PHP"};
         ChoiceBox<String> choiceLanguages = new ChoiceBox<>();
         choiceLanguages.getItems().addAll(languages);
         String usingLanguage = choiceLanguages.getValue();
+
+        choicesExerciseType.getChildren().addAll(choiceLanguages, choiceMods);
+
 
         textArea.setPrefWidth(600);
         textArea.setPrefHeight(600);
@@ -38,7 +50,7 @@ public class EditorText extends VBox {
         });
          */
 
-        this.getChildren().addAll(choiceLanguages, textArea);
+        this.getChildren().addAll(choicesExerciseType, textArea);
 
 
     }

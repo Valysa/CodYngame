@@ -4,6 +4,8 @@ package V.views;
 import M.Exercise;
 import M.ExerciseInclude;
 import M.ExerciseStdinStdout;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -65,6 +67,19 @@ public class MainView extends HBox {
                 mods.setText("Mode Stdin/Stdout ");
                 languages.getItems().setAll("C", "Python", "Java", "JavaScript", "PHP");
                 languages.setValue("C");
+                languages.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+                    @Override
+                    public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                        /*
+                        switch (newValue){
+                            case "C":
+                                stringInitTextArea = exo[idExo].inputData;
+                        }
+
+                         */
+                        System.out.println("Vous avez sélectionné : " + newValue);
+                    }
+                });
                 //updateEditor(exerciseStdinStdout.inputData);
 
             } else if (exo[idExo].ExoType == 1) {
@@ -72,7 +87,7 @@ public class MainView extends HBox {
                 mods.setText("Mode Include ");
                 languages.getItems().setAll(exerciseInclude.SolutionLang);
                 languages.setValue(exerciseInclude.SolutionLang);
-                //updateEditor(exerciseInclude.inputData);
+
 
             }
 
@@ -109,10 +124,10 @@ public class MainView extends HBox {
     public Label getLabelInstruction() {
         return labelInstruction;
     }
-/*
+
     public String[] getStringInitTextArea() {
         return stringInitTextArea;
     }
 
- */
+
 }

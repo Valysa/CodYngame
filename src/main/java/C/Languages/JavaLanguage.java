@@ -63,7 +63,7 @@ public class JavaLanguage extends Language {
             System.out.println("Compilation error");
             throw new InterruptedException("Error");
         }
-        Process process = Runtime.getRuntime().exec("java -cp src/main/java " + mainFileName);
+        Process process = Runtime.getRuntime().exec("java -cp src/main/resources/Exercise " + mainFileName);
 
         readStdout(process);
     }

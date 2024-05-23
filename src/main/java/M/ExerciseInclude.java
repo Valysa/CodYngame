@@ -1,7 +1,9 @@
 package M;
 
+import C.Languages.JavaLanguage;
 import C.Languages.Language;
 import C.Languages.LanguageFactory;
+import javafx.beans.property.adapter.JavaBeanBooleanProperty;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -119,6 +121,26 @@ public class ExerciseInclude extends Exercise {
         } catch (IOException e){
             System.err.println("Failed to delete the file: " +e.getMessage());
         }
+        if(Objects.equals(this.SolutionLang, "java")){
+            Path Solucepath = Paths.get( "src/main/resources/Exercise/Exo"+this.Id+"/soluceExo.class");
+            Path Userpath = Paths.get( "src/main/resources/Exercise/Exo"+this.Id+"/userExo.class");
+            Path Mainpath = Paths.get( "src/main/resources/Exercise/Exo"+this.Id+"/mainExo.class");
+            try {
+                Files.delete(Solucepath);
+            } catch (IOException e){
+                System.err.println("Failed to delete the file: " +e.getMessage());
+            }
+            try {
+                Files.delete(Userpath);
+            } catch (IOException e){
+                System.err.println("Failed to delete the file: " +e.getMessage());
+            }
+            try {
+                Files.delete(Mainpath);
+            } catch (IOException e){
+                System.err.println("Failed to delete the file: " +e.getMessage());
+            }
+        }
     }
 
     public void ExerciseResolution() {
@@ -160,7 +182,15 @@ public class ExerciseInclude extends Exercise {
                     this.saveToFile(program);
                     String File = "src/main/resources/Exercise/Exo" + this.Id + "/mainExo." + this.SolutionLang;
                     Language Language = LanguageFactory.assignLanguage(File);
-                    Language.execute(File);
+                    if(Language instanceof JavaLanguage){
+                        String soluceExo = "src/main/resources/Exercise/Exo" + this.Id + "/soluceExo." + this.SolutionLang;
+                        String userExo = "src/main/resources/Exercise/Exo" + this.Id + "/userExo." + this.SolutionLang;
+                        String mainFile = "Exo" + this.Id + "/mainExo";
+                        String[] files = {File, soluceExo, userExo};
+                        ((JavaLanguage) Language).execute(files, mainFile);
+                    }else {
+                        Language.execute(File);
+                    }
                     //We need to change the management of exception cases in the various functions like compile and execute
                     isProgramCorrect = true;
                 }

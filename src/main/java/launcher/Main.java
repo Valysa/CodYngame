@@ -76,9 +76,9 @@ public class Main {
             js2Language.execute(js2File);
 
             // Call of the java part for two files (its javasception time)
-            String java2File = "src/main/java/C/ExercisesInclude/MainEx1.java";
-            String java3File = "src/main/java/C/ExercisesInclude/Ex1Soluce.java";
-            String javaMainFile = "C.ExercisesInclude.MainEx1";
+            String java2File = "src/main/java/C/ExercisesInclude/launcher.MainEx1.java";
+            String java3File = "src/main/java/C/ExercisesInclude/launcher.Ex1Soluce.java";
+            String javaMainFile = "C.ExercisesInclude.launcher.MainEx1";
             JavaLanguage java2Language = new JavaLanguage();
             String[] javaFiles = {java2File, java3File};
             java2Language.execute(javaFiles, javaMainFile);
@@ -172,6 +172,10 @@ public class Main {
                         System.err.println("Error during the reading file " + es.getMessage());
                     }*/
                     //Part that asks the user to enter code and checks that its language has the same syntax as the language requested by the exercise
+                ExerciseInclude exampleJava = (ExerciseInclude) exo[6];
+                exampleJava.ExerciseResolution();
+                System.out.println("Well done ! You have successfully completed this exercise in Java language");
+
                 ExerciseInclude exampleC = (ExerciseInclude) exo[2];
                 exampleC.ExerciseResolution();
                 System.out.println("Well done ! You have successfully completed this exercise in C language");

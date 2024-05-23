@@ -15,25 +15,26 @@ public class ControllerText extends VBox{
     private MainView mainApp;
 
     public ControllerText(MainView mainApp) {
-        CodeArea codeArea = new CodeArea();
+        this.mainApp = mainApp;
 
+        //CodeArea codeArea = new CodeArea();
         //Définir la taille du CodeArea
-        codeArea.setPrefSize(700, 800);
+        mainApp.getInitTextArea().setPrefSize(700, 800);
         // add ligne number
-        codeArea.setParagraphGraphicFactory(LineNumberFactory.get(codeArea));
+        mainApp.getInitTextArea().setParagraphGraphicFactory(LineNumberFactory.get(mainApp.getInitTextArea()));
 
         // add patterns
         Pattern keywordPattern = Pattern.compile("\\b(public|private|protected|class|static|void|int|double|new|if|else|extends|import|package)\\b");
         Pattern stringPattern = Pattern.compile("\"([^\"\\\\]|\\\\.)*\"");
         Pattern intPattern = Pattern.compile("\\b\\d+\\b");
         // pay attention to changes in the text
-        codeArea.textProperty().addListener((obs, oldText, newText) -> applyHighlighting(codeArea, keywordPattern, stringPattern,intPattern));
+        mainApp.getInitTextArea().textProperty().addListener((obs, oldText, newText) -> applyHighlighting(mainApp.getInitTextArea(), keywordPattern, stringPattern,intPattern));
 
         // Initial application of syntax highlighting
-        applyHighlighting(codeArea, keywordPattern, stringPattern,intPattern);
+        applyHighlighting(mainApp.getInitTextArea(), keywordPattern, stringPattern,intPattern);
 
         // Ajout du CodeArea à la VBox avec un VirtualizedScrollPane
-        this.getChildren().add(new VirtualizedScrollPane<>(codeArea));
+        this.getChildren().add(new VirtualizedScrollPane<>(mainApp.getInitTextArea()));
 
     }
 

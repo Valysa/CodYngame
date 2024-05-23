@@ -24,22 +24,13 @@ public class EditorText extends VBox {
     private MainView mainApp;
 
     public EditorText(MainView mainApp){
-        /*
-        TextArea textArea, Exercise[] exo, int idExo
-        this.textArea = textArea;
-        this.exo = exo;
-        this.idExo = idExo;
-
-         */
         this.mainApp = mainApp;
 
         HBox choicesExerciseType = new HBox();
 
         mainApp.getLanguages().setVisible(false);
-        //String usingLanguage = mainApp.getLanguages().getId();
 
         choicesExerciseType.getChildren().addAll(mainApp.getMods(), mainApp.getLanguages());
-
 
         VBox editorText = new VBox(new ControllerText(mainApp));
 

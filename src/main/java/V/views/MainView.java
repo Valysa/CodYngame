@@ -22,7 +22,7 @@ public class MainView extends HBox {
 
     private Exercise[] exo;
     private int idExo;
-    private TextArea initTextArea = new TextArea();
+    private CodeArea initTextArea = new CodeArea();
     private String stringInitTextArea;
 
     private Label mods = new Label(" ");
@@ -36,20 +36,17 @@ public class MainView extends HBox {
         public MainView(Exercise[] exo) {
         this.exo = exo;
 
-
-        //ScrollPane menuBar = new ScrollPane(new Summary(lblSTTest, exo, idExo));
-
-            ScrollPane menuBar = new ScrollPane(new Summary(this));
+        ScrollPane menuBar = new ScrollPane(new Summary(this));
 
         VBox rightPart = new VBox();
-            Font fnt1 = new Font("Arial", 50);
-            Label lbl = new Label("CODYINGGAME");
-            lbl.setFont(fnt1);
-            rightPart.setAlignment(Pos.CENTER);
-            Text linejump = new Text("\n");
-            Font fntSubtitle = new Font("Arial",15);
-            labelInstruction = new Label("\nPlease click on an exercise on the left part to start ! ");
-            labelInstruction.setFont(fntSubtitle);
+        Font fnt1 = new Font("Arial", 50);
+        Label lbl = new Label("CODYINGGAME");
+        lbl.setFont(fnt1);
+        rightPart.setAlignment(Pos.CENTER);
+        Text linejump = new Text("\n");
+        Font fntSubtitle = new Font("Arial",15);
+        labelInstruction = new Label("\nPlease click on an exercise on the left part to start ! ");
+        labelInstruction.setFont(fntSubtitle);
 
         HBox editorAndTerminal = new HBox();
 
@@ -57,11 +54,6 @@ public class MainView extends HBox {
 
 
         VBox editorPart = new VBox(new EditorText(this));
-
-
-
-
-
 
         HBox editTerm = new HBox(new TerminalText(this));
 
@@ -103,7 +95,7 @@ public class MainView extends HBox {
             languages.setValue(exerciseInclude.SolutionLang);
             try {
                 stringInitTextArea = exerciseInclude.readLineFromFile();
-                initTextArea.setText(stringInitTextArea);
+                initTextArea.replaceText(stringInitTextArea);
             }catch (IOException e){
                 System.err.println("Can't read the file " + e.getMessage());
             }
@@ -130,7 +122,7 @@ public class MainView extends HBox {
         return idExo;
     }
 
-    public TextArea getInitTextArea() {
+    public CodeArea getInitTextArea() {
         return initTextArea;
     }
 

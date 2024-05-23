@@ -1,0 +1,155 @@
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"AutoImportSettings\">\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\n  </component>\n  <component name=\"ChangeListManager\">\n    <list default=\"true\" id=\"44b8040e-b4bd-4d28-95c1-fd67ece1cec3\" name=\"Changes\" comment=\"\">\n      <change afterPath=\"$PROJECT_DIR$/execName\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/Exercise/Exo7/genExo.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/Exercise/Exo7/mainExo.java\" afterDir=\"false\" />\n      <change afterPath=\"$PROJECT_DIR$/src/main/resources/Exercise/Exo7/soluceExo.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/.gitignore\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/.gitignore\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources.local.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources.local.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/dataSources.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/26e7d509-5191-434f-a14a-293b996014d6.xml\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/26e7d509-5191-434f-a14a-293b996014d6/storage_v2/_src_/schema/information_schema.FNRwLQ.meta\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/26e7d509-5191-434f-a14a-293b996014d6/storage_v2/_src_/schema/mysql.osA4Bg.meta\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/26e7d509-5191-434f-a14a-293b996014d6/storage_v2/_src_/schema/performance_schema.kIw0nw.meta\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/dataSources/26e7d509-5191-434f-a14a-293b996014d6/storage_v2/_src_/schema/sys.zb4BAA.meta\" beforeDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/misc.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/misc.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/vcs.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/vcs.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/C/Languages/JavaLanguage.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/C/Languages/JavaLanguage.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/M/Bdd.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/M/Bdd.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/M/ExerciseInclude.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/M/ExerciseInclude.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/launcher/Main.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/launcher/Main.java\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/C/Languages/JavaLanguage.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/C/Languages/JavaLanguage.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/M/Bdd.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/M/Bdd.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/M/ExerciseInclude.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/M/ExerciseInclude.class\" afterDir=\"false\" />\n      <change beforePath=\"$PROJECT_DIR$/target/classes/launcher/Main.class\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/target/classes/launcher/Main.class\" afterDir=\"false\" />\n    </list>\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\n  </component>\n  <component name=\"FileTemplateManagerImpl\">\n    <option name=\"RECENT_TEMPLATES\">\n      <list>\n        <option value=\"Class\" />\n      </list>\n    </option>\n  </component>\n  <component name=\"Git.Settings\">\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\n  </component>\n  <component name=\"MarkdownSettingsMigration\">\n    <option name=\"stateVersion\" value=\"1\" />\n  </component>\n  <component name=\"MavenImportPreferences\">\n    <option name=\"generalSettings\">\n      <MavenGeneralSettings>\n        <option name=\"mavenHome\" value=\"Use Maven wrapper\" />\n      </MavenGeneralSettings>\n    </option>\n  </component>\n  <component name=\"ProjectColorInfo\">{\n  &quot;customColor&quot;: &quot;&quot;,\n  &quot;associatedIndex&quot;: 1\n}</component>\n  <component name=\"ProjectId\" id=\"2grXUFJzp5OjKVqqd4kb2TnW7bx\" />\n  <component name=\"ProjectLevelVcsManager\">\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\n  </component>\n  <component name=\"ProjectViewState\">\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\n    <option name=\"showLibraryContents\" value=\"true\" />\n  </component>\n  <component name=\"PropertiesComponent\"><![CDATA[{\n  \"keyToString\": {\n    \"ASKED_ADD_EXTERNAL_FILES\": \"true\",\n    \"Application.Main.executor\": \"Run\",\n    \"Application.MainEx1.executor\": \"Run\",\n    \"Application.Starter.executor\": \"Run\",\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\n    \"kotlin-language-version-configured\": \"true\",\n    \"node.js.detected.package.eslint\": \"true\",\n    \"node.js.detected.package.tslint\": \"true\",\n    \"node.js.selected.package.eslint\": \"(autodetect)\",\n    \"node.js.selected.package.tslint\": \"(autodetect)\",\n    \"nodejs_package_manager_path\": \"npm\",\n    \"vue.rearranger.settings.migration\": \"true\"\n  },\n  \"keyToStringList\": {\n    \"DatabaseDriversLRU\": [\n      \"mysql\"\n    ]\n  }\n}]]></component>\n  <component name=\"RunManager\">\n    <configuration name=\"Starter\" type=\"Application\" factoryName=\"Application\">\n      <option name=\"MAIN_CLASS_NAME\" value=\"launcher.Starter\" />\n      <module name=\"codying-game\" />\n      <option name=\"VM_PARAMETERS\" value=\"-Djdk.gtk.version=2\" />\n      <method v=\"2\">\n        <option name=\"Make\" enabled=\"true\" />\n      </method>\n    </configuration>\n  </component>\n  <component name=\"SharedIndexes\">\n    <attachedChunks>\n      <set>\n        <option value=\"jdk-11.0.21-corretto-11.0.21-f644763e9732-a9dfd5e7\" />\n        <option value=\"jdk-11.0.22-corretto-11.0.22-f644763e9732-cf124b14\" />\n      </set>\n    </attachedChunks>\n  </component>\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\n  <component name=\"TaskManager\">\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\n      <changelist id=\"44b8040e-b4bd-4d28-95c1-fd67ece1cec3\" name=\"Changes\" comment=\"\" />\n      <created>1716456685354</created>\n      <option name=\"number\" value=\"Default\" />\n      <option name=\"presentableId\" value=\"Default\" />\n      <updated>1716456685354</updated>\n      <workItem from=\"1716456692009\" duration=\"4862000\" />\n      <workItem from=\"1716461858799\" duration=\"6528000\" />\n    </task>\n    <servers />\n  </component>\n  <component name=\"TypeScriptGeneratedFilesManager\">\n    <option name=\"version\" value=\"3\" />\n  </component>\n  <component name=\"VcsManagerConfiguration\">\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\n  </component>\n</project>
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,125 +4,31 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="44b8040e-b4bd-4d28-95c1-fd67ece1cec3" name="Changes" comment="">
++    <list default="true" id="d9ec5fc2-d11a-45fa-9949-c8170e30f32f" name="Changes" comment="">
+       <change afterPath="$PROJECT_DIR$/execName" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo7/genExo.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo7/mainExo.java" afterDir="false" />
+-      <change afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo7/soluceExo.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/26e7d509-5191-434f-a14a-293b996014d6.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/26e7d509-5191-434f-a14a-293b996014d6/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/26e7d509-5191-434f-a14a-293b996014d6/storage_v2/_src_/schema/mysql.osA4Bg.meta" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/26e7d509-5191-434f-a14a-293b996014d6/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/26e7d509-5191-434f-a14a-293b996014d6/storage_v2/_src_/schema/sys.zb4BAA.meta" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/C/Languages/JavaLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/C/Languages/JavaLanguage.java" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/M/Bdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/M/Bdd.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/M/ExerciseInclude.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/M/ExerciseInclude.java" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/src/main/java/launcher/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/launcher/Main.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/C/Languages/JavaLanguage.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/C/Languages/JavaLanguage.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/M/Bdd.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/M/Bdd.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/M/ExerciseInclude.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/M/ExerciseInclude.class" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/target/classes/launcher/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/launcher/Main.class" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo3/mainExo.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo3/mainExo.c" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+     <option name="LAST_RESOLUTION" value="IGNORE" />
+-  </component>
+-  <component name="FileTemplateManagerImpl">
+-    <option name="RECENT_TEMPLATES">
+-      <list>
+-        <option value="Class" />
+-      </list>
+-    </option>
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
+-  <component name="MarkdownSettingsMigration">
+-    <option name="stateVersion" value="1" />
+-  </component>
+-  <component name="MavenImportPreferences">
+-    <option name="generalSettings">
+-      <MavenGeneralSettings>
+-        <option name="mavenHome" value="Use Maven wrapper" />
+-      </MavenGeneralSettings>
+-    </option>
+-  </component>
+-  <component name="ProjectColorInfo">{
+-  &quot;customColor&quot;: &quot;&quot;,
+-  &quot;associatedIndex&quot;: 1
+-}</component>
+-  <component name="ProjectId" id="2grXUFJzp5OjKVqqd4kb2TnW7bx" />
+   <component name="ProjectLevelVcsManager">
+     <ConfirmationsSetting value="2" id="Add" />
+   </component>
+-  <component name="ProjectViewState">
+-    <option name="hideEmptyMiddlePackages" value="true" />
+-    <option name="showLibraryContents" value="true" />
+-  </component>
+   <component name="PropertiesComponent"><![CDATA[{
+   "keyToString": {
+-    "ASKED_ADD_EXTERNAL_FILES": "true",
+-    "Application.Main.executor": "Run",
+-    "Application.MainEx1.executor": "Run",
+-    "Application.Starter.executor": "Run",
+-    "RunOnceActivity.OpenProjectViewOnStart": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "kotlin-language-version-configured": "true",
+-    "node.js.detected.package.eslint": "true",
+-    "node.js.detected.package.tslint": "true",
+-    "node.js.selected.package.eslint": "(autodetect)",
+-    "node.js.selected.package.tslint": "(autodetect)",
+-    "nodejs_package_manager_path": "npm",
+-    "vue.rearranger.settings.migration": "true"
+-  },
+-  "keyToStringList": {
+-    "DatabaseDriversLRU": [
+-      "mysql"
+-    ]
++    "node.js.selected.package.tslint": "(autodetect)"
+   }
+ }]]></component>
+-  <component name="RunManager">
+-    <configuration name="Starter" type="Application" factoryName="Application">
+-      <option name="MAIN_CLASS_NAME" value="launcher.Starter" />
+-      <module name="codying-game" />
+-      <option name="VM_PARAMETERS" value="-Djdk.gtk.version=2" />
+-      <method v="2">
+-        <option name="Make" enabled="true" />
+-      </method>
+-    </configuration>
+-  </component>
+-  <component name="SharedIndexes">
+-    <attachedChunks>
+-      <set>
+-        <option value="jdk-11.0.21-corretto-11.0.21-f644763e9732-a9dfd5e7" />
+-        <option value="jdk-11.0.22-corretto-11.0.22-f644763e9732-cf124b14" />
+-      </set>
+-    </attachedChunks>
+-  </component>
+-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+-    <task active="true" id="Default" summary="Default task">
+-      <changelist id="44b8040e-b4bd-4d28-95c1-fd67ece1cec3" name="Changes" comment="" />
+-      <created>1716456685354</created>
+-      <option name="number" value="Default" />
+-      <option name="presentableId" value="Default" />
+-      <updated>1716456685354</updated>
+-      <workItem from="1716456692009" duration="4862000" />
+-      <workItem from="1716461858799" duration="6528000" />
+-    </task>
+     <servers />
+   </component>
+-  <component name="TypeScriptGeneratedFilesManager">
+-    <option name="version" value="3" />
+-  </component>
+-  <component name="VcsManagerConfiguration">
+-    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+-  </component>
+ </project>
+\ No newline at end of file
+Index: .idea/.gitignore
+===================================================================
+diff --git a/.idea/.gitignore b/.gitignore
+rename from .idea/.gitignore
+rename to .gitignore
+--- a/.idea/.gitignore	
++++ b/.gitignore	
+@@ -1,6 +1,6 @@
+ # Default ignored files
+ /shelf/
+-/workspace.xml
++.idea/workspace.xml
+ # Editor-based HTTP Client requests
+ /httpRequests/
+ # Datasource local storage ignored files

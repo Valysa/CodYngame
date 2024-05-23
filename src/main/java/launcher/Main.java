@@ -172,13 +172,17 @@ public class Main {
                         System.err.println("Error during the reading file " + es.getMessage());
                     }*/
                     //Part that asks the user to enter code and checks that its language has the same syntax as the language requested by the exercise
+                ExerciseInclude exampleJava1 = (ExerciseInclude) exo[8];
+                exampleJava1.ExerciseResolution();
+                System.out.println("Well done ! You have successfully completed this exercise in Java language");
+
+                ExerciseInclude exampleC = (ExerciseInclude) exo[7];
+                exampleC.ExerciseResolution();
+                System.out.println("Well done ! You have successfully completed this exercise in C language");
+
                 ExerciseInclude exampleJava = (ExerciseInclude) exo[6];
                 exampleJava.ExerciseResolution();
                 System.out.println("Well done ! You have successfully completed this exercise in Java language");
-
-                ExerciseInclude exampleC = (ExerciseInclude) exo[2];
-                exampleC.ExerciseResolution();
-                System.out.println("Well done ! You have successfully completed this exercise in C language");
 
                 ExerciseInclude examplePy = (ExerciseInclude) exo[3];
                 examplePy.ExerciseResolution();

@@ -18,7 +18,7 @@ public class ControllerText extends VBox{
         CodeArea codeArea = new CodeArea();
 
         //Définir la taille du CodeArea
-        codeArea.setPrefSize(600, 600);
+        codeArea.setPrefSize(700, 800);
         // add ligne number
         codeArea.setParagraphGraphicFactory(LineNumberFactory.get(codeArea));
 

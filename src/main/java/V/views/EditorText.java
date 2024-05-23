@@ -40,6 +40,9 @@ public class EditorText extends VBox {
 
         choicesExerciseType.getChildren().addAll(mainApp.getMods(), mainApp.getLanguages());
 
+
+        VBox editorText = new VBox(new ControllerText(mainApp));
+
 /*
         mainApp.getInitTextArea().textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -64,7 +67,7 @@ public class EditorText extends VBox {
         });
          */
 
-        this.getChildren().addAll(choicesExerciseType, mainApp.getInitTextArea());
+        this.getChildren().addAll(choicesExerciseType, editorText);
 
 
     }

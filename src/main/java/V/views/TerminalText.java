@@ -13,22 +13,23 @@ import java.io.InputStreamReader;
 
 public class TerminalText extends VBox{
 
-    public TerminalText(TextArea editorTextArea){
-        //CODE CHATGPT QUI SERA MODIFIE PLUS TARD POUR LE MOMENT C'EST POUR VOIR CE QUE çA POURRAIT DONNER VISUELLEMENT
+    private MainView mainApp;
 
-        // Création d'une TextArea pour afficher le contenu du terminal
+    public TerminalText(MainView mainApp){
+        this.mainApp = mainApp;
+
         TextArea terminalTextArea = new TextArea();
-        terminalTextArea.setPrefWidth(600);
-        terminalTextArea.setPrefHeight(600);
+        terminalTextArea.setPrefWidth(700);
+        terminalTextArea.setPrefHeight(800);
         terminalTextArea.setEditable(false);
         terminalTextArea.setStyle("-fx-control-inner-background: #1e1e1e; -fx-text-fill: #c5c5c5; -fx-font-family: monospace;");
 
         Button submitButton = new Button("Submit");
         submitButton.setOnAction(e -> {
-            String command = editorTextArea.getText();
+            String command = mainApp.getInitTextArea().getText();
             terminalTextArea.appendText("$ " + command + "\n");
             executeCommand(command, terminalTextArea);
-            editorTextArea.clear();
+            mainApp.getInitTextArea().clear();
         });
 
 

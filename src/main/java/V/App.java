@@ -16,8 +16,8 @@ public class App extends Application {
     public void start(Stage stage) {
         //Def initial constants
         final String MAIN_TITLE = "CodYingGame";
-        final int MAIN_WIDTH = 1640;
-        final int MAIN_HEIGHT = 780;
+        final int MAIN_WIDTH = 2640;
+        final int MAIN_HEIGHT = 1680;
 
 
         Bdd.idBdd("3306", "root", "MyS3cur3P@sswOrd!");

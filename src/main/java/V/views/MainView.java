@@ -10,6 +10,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.control.TextArea;
+import org.fxmisc.richtext.CodeArea;
 
 
 public class MainView extends HBox {
@@ -22,6 +23,8 @@ public class MainView extends HBox {
     private Label mods = new Label(" ");
     private ChoiceBox languages = new ChoiceBox<>();
     private Label labelInstruction;
+
+    private CodeArea codeArea = new CodeArea();
 
 
     //Constructor VBox
@@ -36,14 +39,14 @@ public class MainView extends HBox {
         VBox rightPart = new VBox();
         //labelText.setPrefHeight(400);
         //IL FAUT MODIFIER LA CONSIGNE ICI
-        Label lbl = new Label("WELCOLME ON CODYINGGAME");
+        Label lbl = new Label("WELCOLME TO CODYINGGAME");
         labelInstruction = new Label("Please click on an exercise on the left part to start !");
 
         HBox editorAndTerminal = new HBox();
 
         //Initialiser selon la base de données
 
-        VBox editorText = new VBox(new EditorText(this));
+        VBox editorText = new VBox(new ControllerText(this));
 
 
         HBox editTerm = new HBox(new TerminalText(initTextArea));

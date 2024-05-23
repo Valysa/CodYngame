@@ -25,7 +25,13 @@ public class App extends Application {
         Exercise[] exo = Exercise.allExo();
 
         Scene mainViewScene = new Scene(new MainView(exo));
-
+// Chargement du fichier CSS
+        String css = getClass().getResource("/styles.css").toExternalForm();
+        if (css != null) {
+            mainViewScene.getStylesheets().add(css);
+        } else {
+            System.err.println("CSS file not found");
+        }
 
 
         stage.setScene(mainViewScene);

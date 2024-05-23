@@ -1,0 +1,12 @@
+.keyword {
+    -fx-fill: orange;
+    -fx-font-weight: bold;
+}
+
+.string {
+    -fx-fill: green;
+}
+
+.int {
+    -fx-fill : blue;
+}

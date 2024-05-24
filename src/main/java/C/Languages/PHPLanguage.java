@@ -21,12 +21,12 @@ public class PHPLanguage extends Language {
     @Override
     public boolean checkLanguage(StringBuilder program) {
         try {
-            String PHPSyntax = "<\\?php\\s*function\\s+[a-zA-Z_][a-zA-Z0-9_]*\\s*\\(.*\\)\\s*\\{.*\\}\\s*\\?>";
+            String PHPSyntax = "function\\s+\\w+\\s*\\(.*\\)\\s*\\{\\s*(.*?)\\s*\\}";
             Pattern patternPHP = Pattern.compile(PHPSyntax, Pattern.DOTALL);
             Matcher matcherPHP = patternPHP.matcher(program);
             boolean foundPHPCode = false;
             while (matcherPHP.find()) {
-                if (program.toString().contains("<?php") && program.toString().contains("function") && program.toString().contains("?>")) {
+                if (program.toString().contains("function") && program.toString().contains("$")) {
                     foundPHPCode = true;
                     break;
                 }

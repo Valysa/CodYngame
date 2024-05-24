@@ -172,7 +172,7 @@ public class Main {
                         System.err.println("Error during the reading file " + es.getMessage());
                     }*/
                     //Part that asks the user to enter code and checks that its language has the same syntax as the language requested by the exercise
-                ExerciseInclude exampleJava1 = (ExerciseInclude) exo[8];
+                ExerciseInclude exampleJava1 = (ExerciseInclude) exo[6];
                 exampleJava1.ExerciseResolution();
                 System.out.println("Well done ! You have successfully completed this exercise in Java language");
 
@@ -180,19 +180,19 @@ public class Main {
                 exampleC.ExerciseResolution();
                 System.out.println("Well done ! You have successfully completed this exercise in C language");
 
-                ExerciseInclude exampleJava = (ExerciseInclude) exo[6];
+                ExerciseInclude exampleJava = (ExerciseInclude) exo[8];
                 exampleJava.ExerciseResolution();
                 System.out.println("Well done ! You have successfully completed this exercise in Java language");
 
-                ExerciseInclude examplePy = (ExerciseInclude) exo[3];
+                ExerciseInclude examplePy = (ExerciseInclude) exo[9];
                 examplePy.ExerciseResolution();
                 System.out.println("Well done ! You have successfully completed this exercise in Py language");
 
-                ExerciseInclude examplePHP = (ExerciseInclude) exo[4];
+                ExerciseInclude examplePHP = (ExerciseInclude) exo[10];
                 examplePHP.ExerciseResolution();
                 System.out.println("Well done ! You have successfully completed this exercise in PHP language");
 
-                ExerciseInclude exampleJS = (ExerciseInclude) exo[5];
+                ExerciseInclude exampleJS = (ExerciseInclude) exo[11];
                 exampleJS.ExerciseResolution();
                 System.out.println("Well done ! You have successfully completed this exercise in JS language");
 

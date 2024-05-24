@@ -71,12 +71,12 @@ public class JavaLanguage extends Language {
     @Override
     public boolean checkLanguage(StringBuilder program) {
         try {
-            String JavaSyntax = "(import\\s.*|package\\s.*|class\\s.*|public\\s.*|private\\s.*|protected\\s.*|interface\\s.*|extends\\s.*|implements\\s.*|abstract\\s.*|final\\s.*|static\\s.*|void\\s.*|int\\s.*|long\\s.*|float\\s.*|double\\s.*|char\\s.*|boolean\\s.*|String\\s.*|if\\s.*|else\\s.*|for\\s.*|while\\s.*|do\\s.*|switch\\s.*|case\\s.*|break\\s.*|continue\\s.*|default\\s.*|return\\s.*|try\\s.*|catch\\s.*|finally\\s.*|throw\\s.*|throws\\s.*|assert\\s.*|new\\s.*|instanceof\\s.*|super\\s.*|this\\s.*|null\\s.*)";
+            String JavaSyntax = "public\\s+(static\\s+)?\\w+\\s+\\w+\\(.*?\\)\\s*\\{\\s*(.*?)\\s*\\}";
             Pattern patternJava = Pattern.compile(JavaSyntax, Pattern.DOTALL);
             Matcher matcherJava = patternJava.matcher(program);
             boolean foundJavaCode = false;
             while (matcherJava.find()) {
-                if (program.toString().contains("class")) {
+                if (program.toString().contains("public")) {
                     foundJavaCode = true;
                     break;
                 }

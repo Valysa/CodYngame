@@ -105,6 +105,12 @@ public class ExerciseInclude extends Exercise {
             if(Objects.equals(SolutionLang, "mjs")){
                 mainF.write("export " + program);
             }
+            else if(Objects.equals(SolutionLang, "php")){
+                mainF.write("<?php\n" + program + "?>");
+            }
+            else if(Objects.equals(SolutionLang, "java")){
+                mainF.write("package Exo" + this.Id + ";\n\n" + "public class userExo {" + "\n\n" + program + "}");
+            }
             else {
                 mainF.write(String.valueOf(program));
             }

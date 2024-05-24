@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc2928a6-f4dd-413c-b1a8-6ad3a11bc22e" name="Changes" comment="feat : add last exercises for include mode">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/40fcebab-3df3-4580-9b1a-23ddc055fa71.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/40fcebab-3df3-4580-9b1a-23ddc055fa71.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo12/genExo.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo12/genExo.mjs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +101,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1716541496406</updated>
-      <workItem from="1716541502407" duration="13298000" />
+      <workItem from="1716541502407" duration="13727000" />
     </task>
     <task id="LOCAL-00001" summary="feat : add last exercises for include mode">
       <option name="closed" value="true" />

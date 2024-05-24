@@ -29,4 +29,4 @@ function run_test(number){
 		return failed;
 	}
 
-	main();
+	process.exit(main());

@@ -30,5 +30,5 @@
 		return $failed;
 	}
 
-	main();
+	exit(main());
 ?>

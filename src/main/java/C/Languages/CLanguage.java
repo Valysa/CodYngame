@@ -36,17 +36,21 @@ public class CLanguage extends Language {
     @Override
     // Here its a void but I maybe want to take the output ? (thinking of returning
     // String[])
-    public void execute(String executablePath) throws IOException, InterruptedException {
+    public boolean execute(String executablePath){
         String executableFile = "execName";
         try {
             this.compile(executablePath, executableFile);
         } catch (Exception e) {
             System.out.println("Compilation error");
-            throw new InterruptedException("Error");
+            return false;
         }
-        ;
-        Process process = Runtime.getRuntime().exec("./" + executableFile);
-        readStdout(process);
+        try {
+            Process process = Runtime.getRuntime().exec("./" + executableFile);
+            return readStdout(process) != null;
+        } catch (IOException e){
+            System.out.println("Execution error");
+            return false;
+        }
     }
 
     @Override

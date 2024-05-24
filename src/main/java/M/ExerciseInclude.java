@@ -193,17 +193,16 @@ public class ExerciseInclude extends Exercise {
                         String userExo = "src/main/resources/Exercise/Exo" + this.Id + "/userExo." + this.SolutionLang;
                         String mainFile = "Exo" + this.Id + "/mainExo";
                         String[] files = {File, soluceExo, userExo};
-                        ((JavaLanguage) Language).execute(files, mainFile);
+                        if(((JavaLanguage) Language).execute(files, mainFile))
+                            isProgramCorrect = true;
                     }else {
-                        Language.execute(File);
+                        if(Language.execute(File)){
+                            isProgramCorrect = true;
+                        }
                     }
-                    //We need to change the management of exception cases in the various functions like compile and execute
-                    isProgramCorrect = true;
                 }
             } catch (IOException es) {
                 es.printStackTrace();
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
             }
         }
         //We delete the file containing the user's code when he has successfully completed the exercise

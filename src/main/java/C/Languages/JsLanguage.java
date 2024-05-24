@@ -6,10 +6,14 @@ import java.util.regex.PatternSyntaxException;
 
 public class JsLanguage extends Language {
     @Override
-    public void execute(String executablePath) throws IOException, InterruptedException {
-        Process process = Runtime.getRuntime().exec("node " + executablePath);
-
-        readStdout(process);
+    public boolean execute(String executablePath) {
+        try {
+            Process process = Runtime.getRuntime().exec("node " + executablePath);
+            return readStdout(process) != null;
+        } catch (IOException e){
+            System.out.println("Execution error");
+            return false;
+        }
     }
 
     @Override
@@ -27,7 +31,7 @@ public class JsLanguage extends Language {
             Matcher matcherJs = patternJs.matcher(program);
             boolean foundJsCode = false;
             while (matcherJs.find()) {
-                if (program.toString().contains("function") && !program.toString().contains("<?php") && !program.toString().contains("?>")) {
+                if (program.toString().contains("function") && !program.toString().contains("$")) {
                     foundJsCode = true;
                     break;
                 }

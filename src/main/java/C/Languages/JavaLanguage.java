@@ -30,16 +30,20 @@ public class JavaLanguage extends Language {
     }
 
     @Override
-    public void execute(String sourceFilePath) throws IOException, InterruptedException {
+    public boolean execute(String sourceFilePath) {
         /*try {
             compile(sourceFilePath);
         } catch (Exception e) {
             System.out.println("Compilation error");
             throw new InterruptedException("Error");
         }*/
-        Process process = Runtime.getRuntime().exec("java " + sourceFilePath);
-
-        readStdout(process);
+        try {
+            Process process = Runtime.getRuntime().exec("java " + sourceFilePath);
+            return readStdout(process) != null;
+        } catch (IOException e){
+            System.out.println("Execution error");
+            return false;
+        }
     }
 
 
@@ -56,16 +60,20 @@ public class JavaLanguage extends Language {
         return readStdout(process);
     }
 
-    public void execute(String[] sourceFilePath, String mainFileName) throws IOException, InterruptedException {
+    public boolean execute(String[] sourceFilePath, String mainFileName){
         try {
             this.compile(sourceFilePath);
         } catch (Exception e) {
             System.out.println("Compilation error");
-            throw new InterruptedException("Error");
+            return false;
         }
-        Process process = Runtime.getRuntime().exec("java -cp src/main/resources/Exercise " + mainFileName);
-
-        readStdout(process);
+        try {
+            Process process = Runtime.getRuntime().exec("java -cp src/main/resources/Exercise " + mainFileName);
+            return readStdout(process) != null;
+        } catch (IOException e){
+            System.out.println("Execution error");
+            return false;
+        }
     }
 
     @Override

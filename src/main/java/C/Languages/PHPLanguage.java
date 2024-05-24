@@ -6,9 +6,14 @@ import java.util.regex.PatternSyntaxException;
 
 public class PHPLanguage extends Language {
     @Override
-    public void execute(String executablePath) throws IOException, InterruptedException {
-        Process process = Runtime.getRuntime().exec("php " + executablePath);
-        readStdout(process);
+    public boolean execute(String executablePath) {
+        try {
+            Process process = Runtime.getRuntime().exec("php " + executablePath);
+            return readStdout(process) != null;
+        } catch (IOException e){
+            System.out.println("Execution error");
+            return false;
+        }
     }
 
     @Override

@@ -11,7 +11,8 @@ import java.util.ArrayList;
 
 public class Language {
 
-    public void execute(String executablePath) throws IOException, InterruptedException {
+    public boolean execute(String executablePath) {
+        return false;
     }
 
     public String[] execute(String executablePath, String[] entries) throws IOException, InterruptedException {
@@ -31,20 +32,36 @@ public class Language {
     }
 
     //this function return the standard output of a running programm (in any language)
-    public String[] readStdout(Process process) throws IOException, InterruptedException {
+    public String[] readStdout(Process process) {
         InputStream inputStream = process.getInputStream();
         BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
-        ArrayList<String> outputResult = new ArrayList<String>();
-        String line;
-        while ((line = reader.readLine()) != null) {
-            outputResult.add(line);
-            System.out.println(line);
+        try {
+            ArrayList<String> outputResult = new ArrayList<String>();
+            String line;
+            while ((line = reader.readLine()) != null) {
+                outputResult.add(line);
+                System.out.println(line);
+            }
+            int exitCode = process.waitFor();
+            if(exitCode == 1){
+                System.err.println("Your program hasn't passed all tests. Please modify");
+                return null;
+            } else if (exitCode != 0) {
+                System.err.println("Run error" + exitCode);
+                return null;
+            }
+            return outputResult.toArray(new String[0]); // Convert list in String[]
+        } catch (IOException | InterruptedException e){
+            System.err.println("Error reading stdout" + e.getMessage());
+            return null;
+        } finally {
+            try {
+                reader.close();
+                inputStream.close();
+            } catch (IOException e){
+                System.err.println("Error closing resources: " + e.getMessage());
+            }
         }
-        int exitCode = process.waitFor();
-        if (exitCode != 0) {
-            throw new RuntimeException("Run error");
-        }
-        return outputResult.toArray(new String[0]); // Convert list in String[]
     }
 
     public boolean checkLanguage(StringBuilder program){

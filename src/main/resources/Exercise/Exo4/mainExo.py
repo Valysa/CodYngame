@@ -1,4 +1,3 @@
-import sys
 import random
 import soluceExo
 import userExo
@@ -32,4 +31,4 @@ def main():
 	failed |= run_test(array4,0)
 	return failed
 
-sys.exit(main())
+main()

@@ -1,3 +1,5 @@
-function arraySum($array, $size){
+<?php
+	function arraySum($array, $size){
 
-}
+	}
+?>

@@ -41,4 +41,4 @@ function main(){
 	return failed;
 }
 
-process.exit(main());
+main();

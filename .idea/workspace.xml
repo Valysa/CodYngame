@@ -5,51 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc2928a6-f4dd-413c-b1a8-6ad3a11bc22e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/40fcebab-3df3-4580-9b1a-23ddc055fa71.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/V/views/SubmitButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/C/Languages/CLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/C/Languages/CLanguage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/C/Languages/JavaLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/C/Languages/JavaLanguage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/C/Languages/JsLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/C/Languages/JsLanguage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/C/Languages/Language.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/C/Languages/Language.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/C/Languages/PHPLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/C/Languages/PHPLanguage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/C/Languages/PythonLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/C/Languages/PythonLanguage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/M/Bdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/M/Bdd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/M/ExerciseInclude.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/M/ExerciseInclude.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo1/genExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo1/soluceExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo10/genExo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo10/mainExo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo10/soluceExo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo11/genExo.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo11/mainExo.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo11/soluceExo.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo12/genExo.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo12/mainExo.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo12/soluceExo.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo2/genExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo2/soluceExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo3/genExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo3/mainExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo3/soluceExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo4/genExo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo4/mainExo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo4/soluceExo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo5/genExo.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo5/mainExo.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo5/soluceExo.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo6/genExo.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo6/mainExo.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo6/soluceExo.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo7/genExo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo7/mainExo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo7/soluceExo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo8/genExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo8/mainExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo8/soluceExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo9/genExo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo9/mainExo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo9/soluceExo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/V/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/ButtonScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/ButtonScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/ControllerText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/ControllerText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/Summary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/Summary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/TerminalText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/TerminalText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo10/mainExo.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo10/mainExo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo11/mainExo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo11/mainExo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo12/genExo.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo12/genExo.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo12/mainExo.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo12/mainExo.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo9/genExo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo9/genExo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +77,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="JAR Application.codying-game-1.0.0.jar">
+  <component name="RunManager" selected="Application.Starter">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="launcher.Main" />
       <module name="codying-game" />
@@ -142,8 +110,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.codying-game-1.0.0.jar" />
         <item itemvalue="Application.Starter" />
+        <item itemvalue="JAR Application.codying-game-1.0.0.jar" />
       </list>
     </recent_temporary>
   </component>

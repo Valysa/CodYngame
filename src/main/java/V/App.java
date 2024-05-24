@@ -20,11 +20,9 @@ public class App extends Application {
         final int MAIN_HEIGHT = 1680;
 
 
-        Bdd.idBdd("3306", "root", "MyS3cur3P@sswOrd!");
-        Bdd.create();
-        Exercise[] exo = Exercise.allExo();
 
-        Scene mainViewScene = new Scene(new MainView(exo));
+
+        Scene mainViewScene = new Scene(new MainView());
 // Chargement du fichier CSS
         String css = getClass().getResource("/styles.css").toExternalForm();
         if (css != null) {

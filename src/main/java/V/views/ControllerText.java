@@ -30,8 +30,10 @@ public class ControllerText extends VBox {
         languages.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                System.out.println(newValue + " has changed");
-                applyHighlighting(initTextArea, newValue);
+                System.out.println("language "+newValue + " has been selected");
+                if (languages.getValue() != null){
+                    applyHighlighting(initTextArea, newValue);
+                }
             }
         });
 

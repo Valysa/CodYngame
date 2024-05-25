@@ -96,81 +96,55 @@ public class Main {
                 // ExerciseStdinStdout part
                 // ---------------------------------------------
                 // ask for the number of exercise
+                //should maybe put a verification of the exercise type
                 System.out.println("Select the exercise you want to do");
                 String selectedExercise = bufferRead.readLine();
-
-                // if exo1 selected
-                if (selectedExercise.equals("1")) {
-                    ExerciseStdinStdout exo1 = (ExerciseStdinStdout) exo[1];
-                    System.out.print("enter the solution file name\n");
-                    String filePath = bufferRead.readLine();
-
-                    // initialisating exercise file
-                    String file = filePath;
-                    Language solutionFile = LanguageFactory.assignLanguage(filePath);
-                    for(int i=1; i<4 ; i++){
-                        // initialing the exercise with name description entry and expected exit
-                        exo1.inputData = exo1.generateInputs(1);
-                        exo1.outputData = exo1.generateOutputs(exo1.inputData);
-                        //exo1.ExerciseResolution();
-                        // executing file, with this specific exercise (entry and expected output)
-                        // in 3 different ways; the classic, the random and the error one;
-                        String[] givenResult;
-                        givenResult = solutionFile.execute(file, exo1.inputData);
-                        if (exo1.checkResult(givenResult)) {
-                            // case where utilisator's programm output matches the expected output
-                            System.out.println("You win, congrats");
-                        } else {
-                            // case where it doesnt
-                            System.out.println("You loose, try again by modifing your source code");
-                        }
-                    }
-                    }
-                } /*else if (selectedExercise.equals("2")) {
-                    // initialing the exercise with name description entry and expected exit
-                    exo.name = "exo2";
-                    exo.description = "You will be given in entry a list of 10 integer and we ask you to give back their values multiplied by ten";
-                    exo.entryData = new String[10];
-                    exo.outputData = new String[10];
-                    for (int i = 0; i < 10; i++) {
-                        exo.entryData[i] = String.valueOf(i);
-                        exo.outputData[i] = String.valueOf(i * 10);
-                    }
-                    System.out.println("The selected exercise is : " + exo.name);
-                } else {
-                    // initialing the exercise with name description entry and expected exit
-                    exo.name = "error exo";
-                    exo.description = "This exercise does not exist";
-                    exo.entryData = new String[10];
-                    exo.outputData = new String[10];
-                    for (int i = 0; i < 10; i++) {
-                        exo.entryData[i] = String.valueOf(i);
-                        exo.outputData[i] = String.valueOf(i * 10);
-                    }
-                    System.out.println("The selected exercise is : " + exo.name);
-                }
-
-                // ask the file for the first exercise
-                System.out.print("enter the file name\n");
+                ExerciseStdinStdout exo1 = (ExerciseStdinStdout) exo[Integer.parseInt(selectedExercise)];
+                System.out.println(exo1.ExoName + " Selected");
+                System.out.println(exo1.Instruction);
+                System.out.print("enter the solution file name\n");
+                exo1.NbTry ++;
                 String filePath = bufferRead.readLine();
 
                 // initialisating exercise file
                 String file = filePath;
                 Language solutionFile = LanguageFactory.assignLanguage(filePath);
-                // executing file, with this specific exercise (entry and expected output)
-                String[] givenResult;
-                givenResult = solutionFile.execute(file, exo.entryData);
-                System.out.println(Arrays.toString(givenResult));
-                System.out.println(Arrays.toString(solutionFile.execute(file, exo.entryData)));
-                if (exo.checkResult(givenResult)) {
-                    // case where utilisator's programm output matches the expected output
-                    System.out.println("You win, congrats");
-                } else {
-                    // case where it doesnt
-                    System.out.println("You loose, try again by modifing your source code");
+                int succes = 0;
+                for (int i = 1; i < 4; i++) {
+                    // initialing the exercise with name description entry and expected exit
+                    exo1.inputData = exo1.generateInputs(1);
+                    exo1.outputData = exo1.generateOutputs(exo1.inputData);
+                    //exo1.ExerciseResolution();
+                    // executing file, with this specific exercise (entry and expected output)
+                    // in 3 different ways; the classic, the random and the error one;
+                    String[] givenResult;
+                    givenResult = solutionFile.execute(file, exo1.inputData);
+                    succes = 1;
+                    if (exo1.checkResult(givenResult)) {
+                        // case where utilisator's programm output matches the expected output
+                        System.out.println("You win, congrats");
+                    } else {
+                        // case where it doesnt
+                        System.out.println("You loose, try again by modifing your source code");
+                        succes = 0;
+                        if (i == 1) {
+                            System.out.println("You failed the basic part");
+                        }
+                        if (i == 2) {
+                            System.out.println("You failed the random part");
+                        }
+                        if (i == 1) {
+                            System.out.println("You failed the error part");
+                        }
+                    }
                 }
-
-            }*/
+                if (succes == 1) {
+                    exo1.NbSucess++;
+                }
+                System.out.println("Your stats on this exercise are : ");
+                System.out.println("Try :  " + exo1.NbTry);
+                System.out.println("Success :  " + exo1.NbSucess);
+            }
             if (s.equals("2")) {
 
                     //Part that reads a file and checks that its language has the same syntax as the language requested by the exercise.

@@ -5,19 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc2928a6-f4dd-413c-b1a8-6ad3a11bc22e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/40fcebab-3df3-4580-9b1a-23ddc055fa71.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/C/Languages/CLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/C/Languages/CLanguage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/C/Languages/JavaLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/C/Languages/JavaLanguage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/C/Languages/JsLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/C/Languages/JsLanguage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/C/Languages/Language.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/C/Languages/Language.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/C/Languages/PHPLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/C/Languages/PHPLanguage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/C/Languages/PythonLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/C/Languages/PythonLanguage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/M/Bdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/M/Bdd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/M/ExerciseInclude.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/M/ExerciseInclude.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo1/genExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo1/soluceExo.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/M/ExerciseStdinStdout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/M/ExerciseStdinStdout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/launcher/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/launcher/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo10/genExo.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo10/mainExo.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo10/soluceExo.py" beforeDir="false" />
@@ -88,28 +79,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainEx.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Starter.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.MainEx.executor": "Run",
+    "Application.Starter.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
-  <component name="RunManager" selected="JAR Application.codying-game-1.0.0.jar">
+}]]></component>
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="launcher.Main" />
       <module name="codying-game" />

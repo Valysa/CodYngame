@@ -1,3 +1,0 @@
-function arraySum($array, $size){
-
-}

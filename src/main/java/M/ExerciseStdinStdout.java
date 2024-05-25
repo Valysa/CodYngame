@@ -24,7 +24,7 @@ public class ExerciseStdinStdout extends Exercise {
         if (outputData != null && outputData.length == entries.length) {
             isOk = true;
             for (int i = 0; i < outputData.length; i++) {
-                System.out.println("Expected : " + outputData[i]  + "|||||||"    + "Given :  " + entries[i]);
+                System.out.println("Expected : " + outputData[i]  + " | "    + "Given :  " + entries[i]);
                 isOk = isOk && entries[i].equals(outputData[i]);
             }
         }
@@ -33,7 +33,7 @@ public class ExerciseStdinStdout extends Exercise {
 
     public String[] generateInputs(int mode) {
         try {
-            String genExoFile = "src/main/resources/Exercise/Exo" + "1"+  "/genExo.java";
+            String genExoFile = "src/main/resources/Exercise/Exo" + this.Id+  "/genExo.java";
             Language cLanguage = LanguageFactory.assignLanguage(genExoFile);
             System.out.println("----- Here are the generated inputs --------");
             return (cLanguage.execute(genExoFile, mode));
@@ -45,7 +45,7 @@ public class ExerciseStdinStdout extends Exercise {
 
     public String[] generateOutputs(String [] entries) {
         try {
-            String soluceExoFile = "src/main/resources/Exercise/Exo" + "1"+  "/soluceExo.java";
+            String soluceExoFile = "src/main/resources/Exercise/Exo" + this.Id+  "/soluceExo.java";
             Language cLanguage = LanguageFactory.assignLanguage(soluceExoFile);
             System.out.println("----- Here are the generated outputs  --------");
             return (cLanguage.execute(soluceExoFile, entries));

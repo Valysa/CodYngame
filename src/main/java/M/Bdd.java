@@ -102,7 +102,7 @@ public class Bdd {
 
     public static void basicExo(){
 
-        addEx(0,"Exercise 1","You will be given in entry a list of 10 integer and we ask you to give back their values multiplied by two",2,
+        addEx(0,"Exercise 1 : Intro Exercise","You will be given in entry a list of 10 integer and we ask you to give back their values multiplied by two",2,
                 "import java.util.Scanner;\n" +
                 "\n" +
                 "public class soluceExo {\n" +
@@ -172,7 +172,135 @@ public class Bdd {
         addEx(1,"Exercise 10","You will be create a function that checks whether a string is a palindrome.\nIt returns True if the string is a palindrome and False otherwise.",1,"def isPalindrome1(string):\n\tstring = string.lower()\n\tstring = ''.join(c for c in string if c.isalnum())\n\treturn string == string[::-1]","def isPalindrome(string):\n\t","import sys\nimport random\nimport string\nimport soluceExo\nimport userExo\n\ndef run_test(string):\n\tresult1 = soluceExo.isPalindrome1(string)\n\tresult2 = userExo.isPalindrome(string)\n\tif(result1 == result2):\n\t\tprint(\"Test passed\")\n\t\treturn 0\n\telse:\n\t\tprint(\"Test failed\")\n\t\treturn 1\n\ndef generateRandomString(length):\n\tcharacters = string.ascii_letters + string.digits\n\treturn ''.join(random.choice(characters) for _ in range(length))\n\ndef main():\n\tfailed = 0\n\tminSize = 1\n\tmaxSize = 100\n\tstringLength1 = random.randint(minSize, maxSize)\n\tstring1 = generateRandomString(stringLength1)\n\tfailed |= run_test(string1)\n\tstringLength2 = random.randint(minSize, maxSize)\n\tstring2 = generateRandomString(stringLength2)\n\tfailed |= run_test(string2)\n\tstring3 = \"radar\"\n\tfailed |= run_test(string3)\n\tstring4 = \"\"\n\tfailed |= run_test(string4)\n\treturn failed\n\nsys.exit(main())");
         addEx(1,"Exercise 11","You will be create a function that checks whether a number is prime.\nOnly positive or zero integers are considered.",3, "<?php\n\tfunction isPrime1($number){\n\t\tif($number <= 1){\n\t\t\treturn false;\n\t\t}\n\t\tfor($i = 2; $i <= sqrt($number); $i++){\n\t\t\tif($number % $i == 0){\n\t\t\t\treturn false;\n\t\t\t}\n\t\t}\n\t\treturn true;\n\t}\n?>","function isPrime($number){\n","<?php\n\tinclude 'soluceExo.php';\n\tinclude 'userExo.php';\n\n\tfunction run_test($number){\n\t\t$result1 = isPrime1($number);\n\t\t$result2 = isPrime($number);\n\t\tif($result1 == $result2){\n\t\t\techo \"Test passed\";\n\t\t\treturn 0;\n\t\t}\n\t\telse{\n\t\t\techo \"Test failed\";\n\t\t\treturn 1;\n\t\t}\n\t}\n\n\tfunction main(){\n\t\t$failed = 0;\n\t\t$minValue = 0;\n\t\t$maxValue = 1000;\n\t\t$number1 = rand($minValue, $maxValue);\n\t\t$failed |= run_test($number1);\n\t\t$number2 = rand($minValue, $maxValue);\n\t\t$failed |= run_test($number2);\n\t\t$number3 = 11;\n\t\t$failed |= run_test($number3);\n\t\t$number4 = 0;\n\t\t$failed |= run_test($number4);\n\t\treturn $failed;\n\t}\n\n\texit(main());\n?>");
         addEx(1,"Exercise 12","You will be create a function that checks whether a number is prime.\nOnly positive or zero integers are considered.",5, "export function isPrime1(number){\n\tif(number <= 1){\n\t\treturn false;\n\t}\n\tfor(let i = 2; i <= Math.sqrt(number); i++){\n\tif(number % i === 0){\n\t\treturn false;\n\t}\n\t}\n\treturn true;\n}","function isPrime(number){\n\n}","import { isPrime } from \"./userExo.mjs\";\nimport { isPrime1 } from \"./soluceExo.mjs\";\n\nfunction run_test(number){\n\tlet result1 = isPrime1(number);\n\tlet result2 = isPrime(number);\n\tif(result1 === result2){\n\t\tconsole.log(\"Test passed\");\n\t\treturn 0;\n\t}\n\telse{\n\t\tconsole.log(\"Test failed\");\n\t\treturn 1;\n\t}\n}\n\n\tfunction main(){\n\t\tlet failed = 0;\n\t\tconst minValue = 0;\n\t\tconst maxValue = 1000;\n\t\tconst number1 = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;\n\t\tfailed |= run_test(number1);\n\t\tconst number2 = Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;\n\t\tfailed |= run_test(number2);\n\t\tconst number3 = 11;\n\t\tfailed |= run_test(number3);\n\t\tconst number4 = 0;\n\t\tfailed |= run_test(number4);\n\t\treturn failed;\n\t}\n\n\tprocess.exit(main());");
+        addEx(0,"Exercise 13 : Average of ten numbers","You will be given 10 float and You have to give back the average",2,
+                "import java.util.Scanner;\n" +
+                        "\n" +
+                        "public class soluceExo {\n" +
+                        "    public static void main(String[] args) {\n" +
+                        "        Scanner scanner = new Scanner(System.in);\n" +
+                        "        int sum = 0;\n" +
+                        "        \n" +
+                        "        System.out.println(\"Enter 10 integers:\");\n" +
+                        "        for (int i = 0; i < 10; i++) {\n" +
+                        "            int num = scanner.nextInt();\n" +
+                        "            sum += num;\n" +
+                        "        }\n" +
+                        "        \n" +
+                        "        double average = (double) sum / 10;\n" +
+                        "        System.out.println(\"Average: \" + average);\n" +
+                        "        \n" +
+                        "        scanner.close();\n" +
+                        "    }\n" +
+                        "}\n",
+                "import java.util.Random;\n" +
+                        "\n" +
+                        "public class genExo {\n" +
+                        "    public static void main(String[] args) {\n" +
+                        "        if (args.length != 1) {\n" +
+                        "            System.out.println(\"Please provide a mode (1: normal, 2: random, 3: error)\");\n" +
+                        "            return;\n" +
+                        "        }\n" +
+                        "\n" +
+                        "        int mode = Integer.parseInt(args[0]);\n" +
+                        "        Random random = new Random();\n" +
+                        "\n" +
+                        "        switch (mode) {\n" +
+                        "            case 1:\n" +
+                        "                // Normal mode: predefined values\n" +
+                        "                int[] normalValues = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};\n" +
+                        "                for (int value : normalValues) {\n" +
+                        "                    System.out.println(value);\n" +
+                        "                }\n" +
+                        "                break;\n" +
+                        "\n" +
+                        "            case 2:\n" +
+                        "                // Random mode: generate random values\n" +
+                        "                for (int i = 0; i < 10; i++) {\n" +
+                        "                    int randomInt = random.nextInt(100); // Génère un entier aléatoire entre 0 et 99\n" +
+                        "                    System.out.println(randomInt);\n" +
+                        "                }\n" +
+                        "                break;\n" +
+                        "\n" +
+                        "            case 3:\n" +
+                        "                // Error mode: generate erroneous values\n" +
+                        "                int[] errorValues = {-1, 101, 200, -50, 0, 99, 100, 150, -100, 300};\n" +
+                        "                for (int value : errorValues) {\n" +
+                        "                    System.out.println(value);\n" +
+                        "                }\n" +
+                        "                break;\n" +
+                        "\n" +
+                        "            default:\n" +
+                        "                System.out.println(\"Invalid mode. Please provide a mode (1: normal, 2: random, 3: error)\");\n" +
+                        "        }\n" +
+                        "    }\n" +
+                        "}",
+                "");
+        addEx(0,"Exercise 14 : A bit odd isn't it ? ","You will receive an integer number as input and you have to determine whether it is even or odd.",2,
+                "import java.util.Scanner;\n" +
+                        "\n" +
+                        "public class soluceExo {\n" +
+                        "    public static void main(String[] args) {\n" +
+                        "        Scanner scanner = new Scanner(System.in);\n" +
+                        "        \n" +
+                        "        System.out.println(\"Enter a number:\");\n" +
+                        "        int num = scanner.nextInt();\n" +
+                        "        \n" +
+                        "        if (num % 2 == 0) {\n" +
+                        "            System.out.println(num + \" is even.\");\n" +
+                        "        } else {\n" +
+                        "            System.out.println(num + \" is odd.\");\n" +
+                        "        }\n" +
+                        "        \n" +
+                        "        scanner.close();\n" +
+                        "    }\n" +
+                        "}\n",
+                "import java.util.Random;\n" +
+                        "\n" +
+                        "public class genExo {\n" +
+                        "    public static void main(String[] args) {\n" +
+                        "        if (args.length != 1) {\n" +
+                        "            System.out.println(\"Please provide a mode (1: normal, 2: random, 3: error)\");\n" +
+                        "            return;\n" +
+                        "        }\n" +
+                        "\n" +
+                        "        int mode = Integer.parseInt(args[0]);\n" +
+                        "        Random random = new Random();\n" +
+                        "\n" +
+                        "        switch (mode) {\n" +
+                        "            case 1:\n" +
+                        "                // Normal mode: predefined values\n" +
+                        "                int[] normalValues = {2, 5, 8, 11, 14, 17, 20, 23, 26, 29};\n" +
+                        "                for (int value : normalValues) {\n" +
+                        "                    System.out.println(value);\n" +
+                        "                }\n" +
+                        "                break;\n" +
+                        "\n" +
+                        "            case 2:\n" +
+                        "                // Random mode: generate random values\n" +
+                        "                for (int i = 0; i < 10; i++) {\n" +
+                        "                    int randomInt = random.nextInt(100); // Generates a random integer between 0 and 99\n" +
+                        "                    System.out.println(randomInt);\n" +
+                        "                }\n" +
+                        "                break;\n" +
+                        "\n" +
+                        "            case 3:\n" +
+                        "                // Error mode: generate erroneous values\n" +
+                        "                int[] errorValues = {-2, 101, 200, -51, 0, 99, 100, 151, -101, 300};\n" +
+                        "                for (int value : errorValues) {\n" +
+                        "                    System.out.println(value);\n" +
+                        "                }\n" +
+                        "                break;\n" +
+                        "\n" +
+                        "            default:\n" +
+                        "                System.out.println(\"Invalid mode. Please provide a mode (1: normal, 2: random, 3: error)\");\n" +
+                        "        }\n" +
+                        "    }\n" +
+                        "}\n","");
+        addEx(0,"","",2,
+                "",
+                "","");
     }
+
 
     // Take a Question (Id) from the database and stock it in the class Excercise
     

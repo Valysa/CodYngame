@@ -15,7 +15,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) {
         //Def initial constants
-        final String MAIN_TITLE = "CodYingGame";
+        final String MAIN_TITLE = "CodYinGame";
         final int MAIN_WIDTH = 2640;
         final int MAIN_HEIGHT = 1680;
 

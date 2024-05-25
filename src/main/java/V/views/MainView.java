@@ -38,6 +38,7 @@ public class MainView extends HBox {
     private ChoiceBox languages = new ChoiceBox<>();
     private Label labelInstruction;
 
+
     private Language exerciseLang;
     private Label nbTry = new Label();
     private Label nbSuccess = new Label();
@@ -63,7 +64,7 @@ public class MainView extends HBox {
 
         VBox rightPart = new VBox();
         Font fnt1 = new Font("Arial", 50);
-        Label lbl = new Label("CODYINGGAME");
+        Label lbl = new Label("CODYINGAME");
         lbl.setFont(fnt1);
         rightPart.setAlignment(Pos.CENTER);
         Text linejump = new Text("\n");
@@ -149,6 +150,30 @@ public class MainView extends HBox {
         setScore();
     }
 
+    public void updateResult(boolean result, String errors){
+        Exercise exUpdated = Bdd.take(idExo);
+        if(errors.isBlank()){
+            terminalTextArea.setText("Error detected" + errors);
+        }else if (result){
+            terminalTextArea.setText("Good Job! You're function work \n Number of try : " + exUpdated.NbTry);
+            exUpdated.NbSucess++;
+            exUpdated.NbSessionSucess++;
+
+            if(nbTrySession == 1){
+                exUpdated.NbFirstTry++;
+                Bdd.update(idExo, 1, 1, 0, 1);
+            }
+            else{
+                Bdd.update(idExo, 1, 1, 0, 0);
+            }
+            nbTrySession = 0;
+        }else {
+            terminalTextArea.setText("The code isn't correct! Try again!");
+            Bdd.update(idExo, 1, 0, 0, 0);
+        }
+        setScore();
+    }
+
     public void updateIdExo(int i){
         idExo = i;
         Exercise exUpdated = Bdd.take(idExo);
@@ -209,7 +234,6 @@ public class MainView extends HBox {
         boolean result = false;
         String language = " ";
         language = languages.getValue().toString();
-        nbTrySession++;
         stringInitTextArea = initTextArea.getText();
         System.out.println("You have coded this program :");
         System.out.println(stringInitTextArea);
@@ -221,11 +245,10 @@ public class MainView extends HBox {
         if (langExecutor != null) {
             exerciseStdinStdout.saveToFile(initTextAreaStringBuilder, language);
             int succes = 0;
+            String errors = "";
             for (int i = 1; i < 4; i++) {
                 exerciseStdinStdout.inputData = exerciseStdinStdout.generateInputs(i);
-                System.out.println(exerciseStdinStdout.inputData);
                 exerciseStdinStdout.outputData = exerciseStdinStdout.generateOutputs(exerciseStdinStdout.inputData);
-                System.out.println(exerciseStdinStdout.outputData);
                 String[] givenResult;
                 try {
                     givenResult = langExecutor.execute(userExoFile, exerciseStdinStdout.inputData);
@@ -250,13 +273,14 @@ public class MainView extends HBox {
             }
             if (succes == 3) {
                 result = true;
-            }
 
+            }
             exerciseStdinStdout.deleteUserFile(language);
+            updateResult(result, errors);
         } else {
             System.out.println("Language executor not found for: " + language);
         }
-        updateResult(result);
+
     }
     public void exerciseResolutionFXInclude() {
         Exercise exUpdated = Bdd.take(idExo);

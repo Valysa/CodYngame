@@ -89,7 +89,7 @@ public class CLanguage extends Language {
             Matcher matcherC = patternC.matcher(program);
             boolean foundCCode = false;
             while (matcherC.find()) {
-                if (!program.toString().contains("def") && !program.toString().contains("function") && !program.toString().contains("class")){
+                if (!program.toString().contains("def") && !program.toString().contains("function") && !program.toString().contains("public")){
                     foundCCode = true;
                     break;
                 }

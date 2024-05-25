@@ -5,7 +5,7 @@ int main() {
     for (int i = 0; i < 10; i++) {
         int entry;
         scanf("%d", &entry);
-        int exit = entry * 2;
+        int exit = entry * 16;
         printf("%d\n", exit);
     }
     return 0;

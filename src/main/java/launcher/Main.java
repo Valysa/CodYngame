@@ -99,7 +99,7 @@ public class Main {
                 //should maybe put a verification of the exercise type
                 System.out.println("Select the exercise you want to do");
                 String selectedExercise = bufferRead.readLine();
-                ExerciseStdinStdout exo1 = (ExerciseStdinStdout) exo[Integer.parseInt(selectedExercise)];
+                /*ExerciseStdinStdout exo1 = (ExerciseStdinStdout) exo[Integer.parseInt(selectedExercise)];
                 System.out.println(exo1.ExoName + " Selected");
                 System.out.println(exo1.Instruction);
                 System.out.print("enter the solution file name\n");
@@ -112,7 +112,7 @@ public class Main {
                 int succes = 0;
                 for (int i = 1; i < 4; i++) {
                     // initialing the exercise with name description entry and expected exit
-                    exo1.inputData = exo1.generateInputs(1);
+                    exo1.inputData = exo1.generateInputs(i);
                     exo1.outputData = exo1.generateOutputs(exo1.inputData);
                     //exo1.ExerciseResolution();
                     // executing file, with this specific exercise (entry and expected output)
@@ -143,7 +143,9 @@ public class Main {
                 }
                 System.out.println("Your stats on this exercise are : ");
                 System.out.println("Try :  " + exo1.NbTry);
-                System.out.println("Success :  " + exo1.NbSucess);
+                System.out.println("Success :  " + exo1.NbSucess);*/
+                ExerciseStdinStdout exo1 = (ExerciseStdinStdout) exo[Integer.parseInt(selectedExercise)];
+                exo1.ExerciseResolution();
             }
             if (s.equals("2")) {
 
@@ -188,8 +190,6 @@ public class Main {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
         }
     }
 }

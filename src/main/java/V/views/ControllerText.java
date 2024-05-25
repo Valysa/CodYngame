@@ -66,6 +66,7 @@ public class ControllerText extends VBox {
         Pattern keywordPattern;
         Pattern stringPattern;
         Pattern intPattern = Pattern.compile("\\b\\d+\\b"); // Pattern for integers common to all languages
+        Pattern functionPattern = Pattern.compile("\\b\\w+(?=\\s*\\()"); // Pattern for function common to all languages
         Pattern commentPattern;
         switch (language) {
             case "java":
@@ -120,6 +121,11 @@ public class ControllerText extends VBox {
         matcher = commentPattern.matcher(text);
         while (matcher.find()) {
             codeArea.setStyleClass(matcher.start(), matcher.end(), "comment");
+        }
+        // Apply styles for function names
+        matcher = functionPattern.matcher(text);
+        while (matcher.find()) {
+            codeArea.setStyleClass(matcher.start(), matcher.end(), "function");
         }
     }
 }

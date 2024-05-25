@@ -46,7 +46,7 @@ public class EditorText extends VBox {
 
 
         mainApp.getInitTextArea().setPrefWidth(600);
-        mainApp.getInitTextArea().setPrefHeight(600);
+        mainApp.getInitTextArea().setPrefHeight(800);
         /*
         Button submitButton = new Button("Submit");
 

@@ -10,3 +10,11 @@
 .int {
     -fx-fill : blue;
 }
+
+.comment {
+    -fx-fill : gray;
+}
+
+.function {
+    -fx-fill : red;
+}

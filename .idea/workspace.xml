@@ -4,25 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc2928a6-f4dd-413c-b1a8-6ad3a11bc22e" name="Changes" comment="refactor : new pom.xml">
+    <list default="true" id="dc2928a6-f4dd-413c-b1a8-6ad3a11bc22e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/C/Languages/JavaLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/C/Languages/JavaLanguage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/C/Languages/Language.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/C/Languages/Language.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/M/Bdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/M/Bdd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/M/Exercise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/M/Exercise.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/M/ExerciseInclude.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/M/ExerciseInclude.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/M/ExerciseStdinStdout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/M/ExerciseStdinStdout.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/launcher/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/launcher/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo1/genExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo1/soluceExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo3/mainExo.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo3/mainExo.c" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo4/mainExo.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo4/mainExo.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo5/genExo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo5/genExo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo5/mainExo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo5/mainExo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo6/mainExo.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo6/mainExo.mjs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo7/genExo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo7/genExo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo7/mainExo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo7/mainExo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo7/soluceExo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo7/soluceExo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,7 +136,7 @@
       <workItem from="1716567432262" duration="53000" />
       <workItem from="1716567505122" duration="136000" />
       <workItem from="1716570560709" duration="5761000" />
-      <workItem from="1716588806199" duration="14447000" />
+      <workItem from="1716588806199" duration="18173000" />
     </task>
     <task id="LOCAL-00001" summary="refactor : new pom.xml">
       <created>1716581905530</created>
@@ -158,7 +145,14 @@
       <option name="project" value="LOCAL" />
       <updated>1716581905530</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="feat : now able to generate random data to stdin exo">
+      <created>1716600818403</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716600818403</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -166,6 +160,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="refactor : new pom.xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor : new pom.xml" />
+    <MESSAGE value="feat : now able to generate random data to stdin exo" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : now able to generate random data to stdin exo" />
   </component>
 </project>

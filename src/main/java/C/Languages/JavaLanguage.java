@@ -47,7 +47,7 @@ public class JavaLanguage extends Language {
     }
 
     public String[] execute(String sourceFilePath, int ent) throws IOException, InterruptedException {
-        System.out.println(sourceFilePath);
+        //System.out.println(sourceFilePath);
         compile(sourceFilePath);
         Process process = Runtime.getRuntime().exec("java " + sourceFilePath);
         return readStdout(process);
@@ -55,14 +55,15 @@ public class JavaLanguage extends Language {
 
 
     @Override
-    public String[] execute(String executablePath, String[] entries) throws IOException, InterruptedException {
+    public String[] execute(String sourceFilePath, String[] entries) throws IOException, InterruptedException {
         /*try {
             compile(sourceFilePath);
         } catch (Exception e) {
             System.out.println("Compilation error");
             throw new InterruptedException("Error");
         }*/
-        Process process = Runtime.getRuntime().exec("php " + executablePath);
+        compile(sourceFilePath);
+        Process process = Runtime.getRuntime().exec("java " + sourceFilePath);
         readStdin(process, entries);
         return readStdout(process);
     }

@@ -102,7 +102,24 @@ public class Bdd {
 
     public static void basicExo(){
 
-        addEx(0,"Exercise 1","You will be given in entry a list of 10 integer and we ask you to give back their values multiplied by two",2,"int main(){\n\tint entry;\n\tint exit;\n\tfor(int i=0; i<10; i++){\n\t\tscanf(\"%d\",&entry);\n\t\texit = entry*2;\n\t\tprintf(\"%d\\n\",exit);\n\t}\n\treturn 0;\n}","import java.util.Random;\n" +
+        addEx(0,"Exercise 1","You will be given in entry a list of 10 integer and we ask you to give back their values multiplied by two",2,
+                "import java.util.Scanner;\n" +
+                "\n" +
+                "public class soluceExo {\n" +
+                "    public static void main(String[] args) {\n" +
+                "        Scanner scanner = new Scanner(System.in);\n" +
+                "        \n" +
+                "        // Boucle pour lire 10 entiers et afficher leur double\n" +
+                "        for (int i = 0; i < 10; i++) {\n" +
+                "            int entry = scanner.nextInt();\n" +
+                "            int exit = entry * 2;\n" +
+                "            System.out.println(exit);\n" +
+                "        }\n" +
+                "        \n" +
+                "        scanner.close();\n" +
+                "    }\n" +
+                "}\n",
+                "import java.util.Random;\n" +
                 "\n" +
                 "public class genExo {\n" +
                 "    public static void main(String[] args) {\n" +

@@ -103,8 +103,26 @@ public class Main {
                 if (selectedExercise.equals("1")) {
                     // initialing the exercise with name description entry and expected exit
                     ExerciseStdinStdout exo1 = (ExerciseStdinStdout) exo[1];
-                    exo1.generateData();
-                    exo1.ExerciseResolution();
+                    exo1.inputData = exo1.generateInputs();
+                    exo1.outputData = exo1.generateOutputs(exo1.inputData);
+                    //exo1.ExerciseResolution();
+                    System.out.print("enter the file name\n");
+                    String filePath = bufferRead.readLine();
+
+                    // initialisating exercise file
+                    String file = filePath;
+                    Language solutionFile = LanguageFactory.assignLanguage(filePath);
+                    // executing file, with this specific exercise (entry and expected output)
+                    // in 3 different ways; the classic, the random and the error one;
+                    String[] givenResult;
+                    givenResult = solutionFile.execute(file, exo1.inputData);
+                    if (exo1.checkResult(givenResult)) {
+                        // case where utilisator's programm output matches the expected output
+                        System.out.println("You win, congrats");
+                    } else {
+                        // case where it doesnt
+                        System.out.println("You loose, try again by modifing your source code");
+                    }
                     }
                 } /*else if (selectedExercise.equals("2")) {
                     // initialing the exercise with name description entry and expected exit
@@ -194,6 +212,8 @@ public class Main {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }

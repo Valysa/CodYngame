@@ -1,65 +1,125 @@
 package V.views;
 
-
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.scene.layout.VBox;
 import org.fxmisc.richtext.CodeArea;
 import org.fxmisc.richtext.LineNumberFactory;
 import org.fxmisc.flowless.VirtualizedScrollPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
+import javafx.scene.control.ChoiceBox;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class ControllerText extends VBox{
+public class ControllerText extends VBox {
 
     private MainView mainApp;
 
     public ControllerText(MainView mainApp) {
         this.mainApp = mainApp;
-        mainApp.getInitTextArea().setVisible(false);
+        CodeArea initTextArea = mainApp.getInitTextArea();
+        ChoiceBox<String> languages = mainApp.getLanguages();
 
+        if (languages == null || initTextArea == null) {
+            throw new IllegalArgumentException("languages or initTextArea is not initialized properly");
+        }
 
-        //CodeArea codeArea = new CodeArea();
-        //Définir la taille du CodeArea
-        mainApp.getInitTextArea().setPrefSize(700, 800);
-        // add ligne number
-        mainApp.getInitTextArea().setParagraphGraphicFactory(LineNumberFactory.get(mainApp.getInitTextArea()));
+        initTextArea.setVisible(false);
 
-        // add patterns
-        Pattern keywordPattern = Pattern.compile("\\b(public|private|protected|class|static|void|int|double|new|if|else|extends|import|package)\\b");
-        Pattern stringPattern = Pattern.compile("\"([^\"\\\\]|\\\\.)*\"");
-        Pattern intPattern = Pattern.compile("\\b\\d+\\b");
-        // pay attention to changes in the text
-        mainApp.getInitTextArea().textProperty().addListener((obs, oldText, newText) -> applyHighlighting(mainApp.getInitTextArea(), keywordPattern, stringPattern,intPattern));
+        // Add a listener to detect selection changes
+        languages.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
+                System.out.println(newValue + " has changed");
+                applyHighlighting(initTextArea, newValue);
+            }
+        });
+
+        // Define CodeArea size
+        initTextArea.setPrefSize(1000, 800);
+        // Add line numbers
+        initTextArea.setParagraphGraphicFactory(LineNumberFactory.get(initTextArea));
+
+        // Monitor text changes without resetting the language
+        initTextArea.textProperty().addListener((obs, oldText, newText) -> {
+            // Apply syntax highlighting if the language hasn't changed
+            if (languages.getValue() != null) {
+                applyHighlighting(initTextArea, languages.getValue());
+            }
+        });
 
         // Initial application of syntax highlighting
-        applyHighlighting(mainApp.getInitTextArea(), keywordPattern, stringPattern,intPattern);
+        applyHighlighting(initTextArea, languages.getValue());
 
-        // Ajout du CodeArea à la VBox avec un VirtualizedScrollPane
-        this.getChildren().add(new VirtualizedScrollPane<>(mainApp.getInitTextArea()));
-
+        // Add CodeArea to VBox with VirtualizedScrollPane
+        this.getChildren().add(new VirtualizedScrollPane<>(initTextArea));
     }
 
-    private void applyHighlighting(CodeArea codeArea, Pattern keywordPattern, Pattern stringPattern, Pattern intPattern) {
-        // Récupération du texte du CodeArea
+    private void applyHighlighting(CodeArea codeArea, String language) {
+        // Get the text from the CodeArea
         String text = codeArea.getText();
 
-        // Réinitialisation des styles
+        // Reset styles
         codeArea.clearStyle(0, text.length());
 
-        // Application des styles pour les mots-clés
+        // Add patterns
+        Pattern keywordPattern;
+        Pattern stringPattern;
+        Pattern intPattern = Pattern.compile("\\b\\d+\\b"); // Pattern for integers common to all languages
+        Pattern commentPattern;
+        switch (language) {
+            case "java":
+                keywordPattern = Pattern.compile("\\b(public|private|protected|class|static|void|int|double|new|if|else|for|while|return|import|package)\\b");
+                stringPattern = Pattern.compile("\"([^\"\\\\]|\\\\.)*\"");
+                commentPattern = Pattern.compile("//[^\n]*|/\\*(.|\\R)*?\\*/");
+                break;
+            case "py":
+                keywordPattern = Pattern.compile("\\b(def|class|if|elif|else|while|for|in|import|from|as|return|lambda|try|except|finally|with|yield|assert|break|continue|del|global|nonlocal|pass|raise|True|False|None)\\b");
+                stringPattern = Pattern.compile("\"([^\"\\\\]|\\\\.)*\"|'([^'\\\\]|\\\\.)*'");
+                commentPattern = Pattern.compile("#[^\n]*");
+                break;
+            case "c":
+                keywordPattern = Pattern.compile("\\b(int|float|double|char|void|if|else|for|while|return|struct|typedef|union|enum|extern|static|const|volatile|sizeof|break|continue|goto|switch|case|default|register|signed|unsigned|long|short|auto)\\b");
+                stringPattern = Pattern.compile("\"([^\"\\\\]|\\\\.)*\"");
+                commentPattern = Pattern.compile("//[^\n]*|/\\*(.|\\R)*?\\*/");
+                break;
+            case "js":
+            case "mjs":
+                keywordPattern = Pattern.compile("\\b(var|let|const|if|else|for|while|function|return|class|import|export|from|as|try|catch|finally|throw|new|this|super|extends|constructor|get|set|async|await|static|public|private|protected|yield|true|false|null|undefined)\\b");
+                stringPattern = Pattern.compile("\"([^\"\\\\]|\\\\.)*\"|'([^'\\\\]|\\\\.)*`([^`\\\\]|\\\\.)*`");
+                commentPattern = Pattern.compile("//[^\n]*|/\\*(.|\\R)*?\\*/");
+                break;
+            case "php":
+                keywordPattern = Pattern.compile("\\b(<?php|class|function|if|else|elseif|endif|for|while|do|foreach|as|switch|case|default|break|continue|return|new|try|catch|finally|throw|namespace|use|public|protected|private|static|const|var|echo|print|true|false|null)\\b");
+                stringPattern = Pattern.compile("\"([^\"\\\\]|\\\\.)*\"|'([^'\\\\]|\\\\.)*'");
+                commentPattern = Pattern.compile("//[^\n]*|/\\*(.|\\R)*?\\*/|#.*");
+                break;
+            default:
+                throw new IllegalArgumentException("Unsupported language: " + language);
+        }
+
+        // Apply styles for keywords
         Matcher matcher = keywordPattern.matcher(text);
         while (matcher.find()) {
             codeArea.setStyleClass(matcher.start(), matcher.end(), "keyword");
         }
-        // Application des styles pour les chaînes de caractères
+
+        // Apply styles for strings
         matcher = stringPattern.matcher(text);
         while (matcher.find()) {
             codeArea.setStyleClass(matcher.start(), matcher.end(), "string");
         }
+
+        // Apply styles for integers
         matcher = intPattern.matcher(text);
         while (matcher.find()) {
-            codeArea.setStyleClass(matcher.start(), matcher.end(),"int");
+            codeArea.setStyleClass(matcher.start(), matcher.end(), "int");
+        }
+
+        // Apply styles for comments
+        matcher = commentPattern.matcher(text);
+        while (matcher.find()) {
+            codeArea.setStyleClass(matcher.start(), matcher.end(), "comment");
         }
     }
 }

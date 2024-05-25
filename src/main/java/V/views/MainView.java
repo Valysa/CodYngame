@@ -76,7 +76,8 @@ public class MainView extends HBox {
 
         //Initialiser selon la base de données
 
-
+        languages.getItems().setAll("c", "py", "java", "js", "php");
+        languages.setValue("c");
         VBox editorPart = new VBox(new EditorText(this));
 
         HBox editTerm = new HBox(new TerminalText(this));
@@ -114,8 +115,8 @@ public class MainView extends HBox {
         if(exo[idExo].ExoType == 0){
             ExerciseStdinStdout exerciseStdinStdout = (ExerciseStdinStdout)exo[idExo];
             mods.setText("Mode Stdin/Stdout ");
-            languages.getItems().setAll("C", "Python", "Java", "JavaScript", "PHP");
-            languages.setValue("C");
+            languages.getItems().setAll("c", "py", "java", "js", "php");
+            languages.setValue("c");
             /*
             languages.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
                 @Override

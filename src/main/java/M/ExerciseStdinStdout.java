@@ -31,12 +31,12 @@ public class ExerciseStdinStdout extends Exercise {
         return isOk;
     }
 
-    public String[] generateInputs() {
+    public String[] generateInputs(int mode) {
         try {
             String genExoFile = "src/main/resources/Exercise/Exo" + "1"+  "/genExo.java";
             Language cLanguage = LanguageFactory.assignLanguage(genExoFile);
             System.out.println("----- Here are the generated inputs --------");
-            return (cLanguage.execute(genExoFile, 1));
+            return (cLanguage.execute(genExoFile, mode));
         } catch (Exception e) {
             e.printStackTrace();
         }

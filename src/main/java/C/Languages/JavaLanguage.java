@@ -46,10 +46,10 @@ public class JavaLanguage extends Language {
         }
     }
 
-    public String[] execute(String sourceFilePath, int ent) throws IOException, InterruptedException {
+    public String[] execute(String sourceFilePath, int mode) throws IOException, InterruptedException {
         //System.out.println(sourceFilePath);
         compile(sourceFilePath);
-        Process process = Runtime.getRuntime().exec("java " + sourceFilePath);
+        Process process = Runtime.getRuntime().exec("java " + sourceFilePath + " " + mode);
         return readStdout(process);
     }
 

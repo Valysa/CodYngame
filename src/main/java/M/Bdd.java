@@ -120,18 +120,47 @@ public class Bdd {
                 "    }\n" +
                 "}\n",
                 "import java.util.Random;\n" +
-                "\n" +
-                "public class genExo {\n" +
-                "    public static void main(String[] args) {\n" +
-                "        Random random = new Random();\n" +
-                "        \n" +
-                "        // Générer 10 entiers aléatoires\n" +
-                "        for (int i = 0; i < 10; i++) {\n" +
-                "            int randomInt = random.nextInt(100); // Génère un entier aléatoire entre 0 et 99\n" +
-                "            System.out.println(randomInt);\n" +
-                "        }\n" +
-                "    }\n" +
-                "}\n","");
+                        "\n" +
+                        "public class genExo {\n" +
+                        "    public static void main(String[] args) {\n" +
+                        "        if (args.length != 1) {\n" +
+                        "            System.out.println(\"Please provide a mode (1: normal, 2: random, 3: error)\");\n" +
+                        "            return;\n" +
+                        "        }\n" +
+                        "\n" +
+                        "        int mode = Integer.parseInt(args[0]);\n" +
+                        "        Random random = new Random();\n" +
+                        "\n" +
+                        "        switch (mode) {\n" +
+                        "            case 1:\n" +
+                        "                // Normal mode: predefined values\n" +
+                        "                int[] normalValues = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};\n" +
+                        "                for (int value : normalValues) {\n" +
+                        "                    System.out.println(value);\n" +
+                        "                }\n" +
+                        "                break;\n" +
+                        "\n" +
+                        "            case 2:\n" +
+                        "                // Random mode: generate random values\n" +
+                        "                for (int i = 0; i < 10; i++) {\n" +
+                        "                    int randomInt = random.nextInt(100); // Génère un entier aléatoire entre 0 et 99\n" +
+                        "                    System.out.println(randomInt);\n" +
+                        "                }\n" +
+                        "                break;\n" +
+                        "\n" +
+                        "            case 3:\n" +
+                        "                // Error mode: generate erroneous values\n" +
+                        "                int[] errorValues = {-1, 101, 200, -50, 0, 99, 100, 150, -100, 300};\n" +
+                        "                for (int value : errorValues) {\n" +
+                        "                    System.out.println(value);\n" +
+                        "                }\n" +
+                        "                break;\n" +
+                        "\n" +
+                        "            default:\n" +
+                        "                System.out.println(\"Invalid mode. Please provide a mode (1: normal, 2: random, 3: error)\");\n" +
+                        "        }\n" +
+                        "    }\n" +
+                        "}\n","");
         addEx(0,"Exercise 2","You will be given in entry a list of 10 integer and we ask you to give back their values multiplied by ten",0,"int main(){\n\tint entry;\n\tint exit;\n\tfor(int i=0; i<10; i++){\n\t\tscanf(\"%d\",&entry);\n\t\texit = entry*10;\n\t\tprintf(\"%d\\n\",exit);\n\t}\n\treturn 0;\n}","","");
         addEx(1,"Exercise 3","You will be create a function that calculates the sum of an array.\nIt returns 0 if the array is empty.",0,"int array_sum1(int array[], int size){\n\tint sum = 0;\n\tfor(int i = 0; i < size; i++){\n\t\tsum += array[i];\n\t}\n\treturn sum;\n}","int array_sum(int array[], int size){\n\n}","#include <stdio.h>\n#include <stdlib.h>\n#include <time.h>\n#include \"soluceExo.c\"\n#include \"userExo.c\"\n\nint run_test(int array[], int size){\n\tint result1 = array_sum1(array, size);\n\tint result2 = array_sum(array, size);\n\tputs(\"\");\n\tif(result1 == result2){\n\t\tprintf(\"Test passed\");\n\t\treturn 0;\n\t}\n\telse{\n\t\tprintf(\"Test failed\");\n\t\treturn 1;\n\t}\n}\n\nint* generateRandomArray(int size, int minValue, int maxValue){\n\tint* array = malloc(size*sizeof(int));\n\tif(array == NULL){\n\t\texit(2);\n\t}\n\tfor(int i = 0; i < size; i++){\n\t\tarray[i] = rand()%(maxValue - minValue + 1) + minValue;\n\t}\n\treturn array; \n}\n\nint main(){\n\tsrand(time(NULL));\n\tint minSize = 5;\n\tint maxSize = 95;\n\tint minValue = -1000;\n\tint maxValue = 2001;\n\tint failed = 0;\n\tint size1 = rand()%(maxSize - minSize + 1) + minSize;\n\tint* array1 = generateRandomArray(size1, minValue, maxValue);\n\tfailed |= run_test(array1,size1);\n\tint size2 = rand()%(maxSize - minSize + 1) + minSize;\n\tint* array2 = generateRandomArray(size2, minValue, maxValue);\n\tfailed |= run_test(array2,size2);\n\tint size3 = rand()%(maxSize - minSize + 1) + minSize;\n\tint* array3 = generateRandomArray(size3, 0, 0);\n\tfailed |= run_test(array3,size3);\n\tint size4 = 0;\n\tint* array4 = generateRandomArray(size4, minValue, maxValue);\n\tfailed |= run_test(array4,size4);\n\treturn failed;\n}");
         addEx(1,"Exercise 4","You will be create a function that calculates the sum of an array.\nIt returns 0 if the array is empty.",1,"def array_sum1(array, size):\n\tsum = 0\n\tfor i in range(size):\n\t\tsum += array[i]\n\treturn sum","def array_sum(array, size):\n\t","import sys\nimport random\nimport soluceExo\nimport userExo\n\ndef run_test(array, size):\n\tresult1 = soluceExo.array_sum1(array, size)\n\tresult2 = userExo.array_sum(array, size)\n\tif(result1 == result2):\n\t\tprint(\"Test passed\")\n\t\treturn 0\n\telse:\n\t\tprint(\"Test failed\")\n\t\treturn 1\n\ndef main():\n\tfailed = 0\n\tminSize = 5\n\tmaxSize = 100\n\tminValue = -1000\n\tmaxValue = 1000\n\tarraySize1 = random.randint(minSize, maxSize)\n\tarray1 = [random.randint(minValue, maxValue) for _ in range(arraySize1)]\n\tfailed |= run_test(array1,arraySize1)\n\tarraySize2 = random.randint(minSize, maxSize)\n\tarray2 = [random.randint(minValue, maxValue) for _ in range(arraySize2)]\n\tfailed |= run_test(array2,arraySize2)\n\tarraySize3 = random.randint(minSize, maxSize)\n\tarray3 = [0 for _ in range(arraySize3)]\n\tfailed |= run_test(array3,arraySize3)\n\tarray4 = []\n\tfailed |= run_test(array4,0)\n\treturn failed\n\nsys.exit(main())");

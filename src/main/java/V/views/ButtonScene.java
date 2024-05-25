@@ -18,8 +18,7 @@ public class ButtonScene implements EventHandler<ActionEvent> {
     @Override
     public void handle(ActionEvent event)
     {
-        int j = this.i+1;
-        System.out.println("L'exercise "+ j + " a été séléctionné");
+        System.out.println("L'exercise "+ i + " a été séléctionné");
         mainApp.updateIdExo(i);
     }
 

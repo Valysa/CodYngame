@@ -25,7 +25,7 @@ public class TerminalText extends VBox{
 
         mainApp.getTerminalTextArea().setVisible(false);
 
-        mainApp.getTerminalTextArea().setPrefWidth(700);
+        mainApp.getTerminalTextArea().setPrefWidth(500);
         mainApp.getTerminalTextArea().setPrefHeight(800);
         mainApp.getTerminalTextArea().setEditable(false);
         mainApp.getTerminalTextArea().setStyle("-fx-control-inner-background: #1e1e1e; -fx-text-fill: #c5c5c5; -fx-font-family: monospace;");

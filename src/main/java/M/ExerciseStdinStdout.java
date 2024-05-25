@@ -32,6 +32,7 @@ public class ExerciseStdinStdout extends Exercise {
     public String[] generateInputs(int mode) {
         try {
             String genExoFile = "src/main/resources/Exercise/Exo" + this.Id +  "/genExo.java";
+            System.out.println(genExoFile);
             Language cLanguage = LanguageFactory.assignLanguage(genExoFile);
             System.out.println("----- Here are the generated inputs --------");
             return (cLanguage.execute(genExoFile, mode));

@@ -6,7 +6,12 @@
   <component name="ChangeListManager">
     <list default="true" id="dc2928a6-f4dd-413c-b1a8-6ad3a11bc22e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/ControllerText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/ControllerText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/M/ExerciseStdinStdout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/M/ExerciseStdinStdout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/ButtonScene.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/ButtonScene.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/SubmitButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/SubmitButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/Summary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/Summary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/TerminalText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/TerminalText.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +73,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="Application.Starter">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="launcher.Main" />
       <module name="codying-game" />
@@ -101,8 +106,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.codying-game-1.0.0.jar" />
         <item itemvalue="Application.Starter" />
+        <item itemvalue="JAR Application.codying-game-1.0.0.jar" />
       </list>
     </recent_temporary>
   </component>

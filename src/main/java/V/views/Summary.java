@@ -29,9 +29,10 @@ public class Summary extends ScrollPane{
         searching.setPrefHeight(8.0);
         searching.setPromptText("Tapez pour rechercher...");
         menuBar.getChildren().addAll(searching);
-
-        for(int i=0; i<Bdd.count(); i++){
-            String nameExercise = mainApp.getExo()[i].ExoName;
+        System.out.println(Bdd.count());
+        for(int i=1; i<Bdd.count(); i++){
+            Exercise exerciseBdd = Bdd.take(i);
+            String nameExercise = exerciseBdd.ExoName;
             Button exercise = new Button(nameExercise);
             exercise.setPrefSize(300.0, 100.0 );
             exercise.setMaxSize(Double.MAX_VALUE, Double.MAX_VALUE);

@@ -16,6 +16,8 @@ public class ControllerText extends VBox{
 
     public ControllerText(MainView mainApp) {
         this.mainApp = mainApp;
+        mainApp.getInitTextArea().setVisible(false);
+
 
         //CodeArea codeArea = new CodeArea();
         //Définir la taille du CodeArea

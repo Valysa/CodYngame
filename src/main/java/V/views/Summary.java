@@ -1,5 +1,6 @@
 package V.views;
 
+import M.Bdd;
 import M.Exercise;
 import javafx.event.ActionEvent;
 import javafx.scene.control.*;
@@ -29,9 +30,7 @@ public class Summary extends ScrollPane{
         searching.setPromptText("Tapez pour rechercher...");
         menuBar.getChildren().addAll(searching);
 
-        final int NUMBER_EX = mainApp.getExo().length;
-
-        for(int i=0; i<NUMBER_EX; i++){
+        for(int i=0; i<Bdd.count(); i++){
             String nameExercise = mainApp.getExo()[i].ExoName;
             Button exercise = new Button(nameExercise);
             exercise.setPrefSize(300.0, 100.0 );

@@ -1,3 +1,1 @@
 function isPrime(number){
-
-}

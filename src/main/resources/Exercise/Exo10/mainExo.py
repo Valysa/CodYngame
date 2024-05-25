@@ -1,4 +1,3 @@
-import sys
 import random
 import string
 import soluceExo
@@ -34,4 +33,4 @@ def main():
 	failed |= run_test(string4)
 	return failed
 
-sys.exit(main())
+main()

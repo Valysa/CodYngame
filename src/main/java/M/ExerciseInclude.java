@@ -79,8 +79,6 @@ public class ExerciseInclude extends Exercise {
         }
         String main = PATH + "mainExo." + SolutionLang;
         try {
-
-
             FileWriter mainF = new FileWriter(main);
             mainF.write(MainCode);
             mainF.close();

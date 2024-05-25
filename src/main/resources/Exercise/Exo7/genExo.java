@@ -1,3 +1,1 @@
-package Exo7;
-
-public class userExo {
+public float array_moy(int[] array, int size){

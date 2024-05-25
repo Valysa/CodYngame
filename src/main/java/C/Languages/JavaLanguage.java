@@ -46,6 +46,13 @@ public class JavaLanguage extends Language {
         }
     }
 
+    public String[] execute(String sourceFilePath, int ent) throws IOException, InterruptedException {
+        System.out.println(sourceFilePath);
+        compile(sourceFilePath);
+        Process process = Runtime.getRuntime().exec("java " + sourceFilePath);
+        return readStdout(process);
+    }
+
 
     @Override
     public String[] execute(String executablePath, String[] entries) throws IOException, InterruptedException {

@@ -67,4 +67,8 @@ public class Language {
     public boolean checkLanguage(StringBuilder program){
         return false;
     }
+
+    public String[] execute(String genExoFile, int i) throws IOException, InterruptedException {
+        return new String[]{"0"};
+    }
 }

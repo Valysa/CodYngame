@@ -4,52 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc2928a6-f4dd-413c-b1a8-6ad3a11bc22e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/40fcebab-3df3-4580-9b1a-23ddc055fa71.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="dc2928a6-f4dd-413c-b1a8-6ad3a11bc22e" name="Changes" comment="refactor : new pom.xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/C/Languages/CLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/C/Languages/CLanguage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/C/Languages/JavaLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/C/Languages/JavaLanguage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/C/Languages/JsLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/C/Languages/JsLanguage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/C/Languages/Language.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/C/Languages/Language.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/C/Languages/PHPLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/C/Languages/PHPLanguage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/C/Languages/PythonLanguage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/C/Languages/PythonLanguage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/M/Bdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/M/Bdd.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/M/Exercise.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/M/Exercise.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/M/ExerciseInclude.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/M/ExerciseInclude.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/M/ExerciseStdinStdout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/M/ExerciseStdinStdout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/launcher/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/launcher/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo1/genExo.c" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo1/soluceExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo10/genExo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo10/mainExo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo10/soluceExo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo11/genExo.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo11/mainExo.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo11/soluceExo.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo12/genExo.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo12/mainExo.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo12/soluceExo.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo2/genExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo2/soluceExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo3/genExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo3/mainExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo3/soluceExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo4/genExo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo4/mainExo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo4/soluceExo.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo5/genExo.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo5/mainExo.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo5/soluceExo.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo6/genExo.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo6/mainExo.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo6/soluceExo.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo7/genExo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo7/mainExo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo7/soluceExo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo8/genExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo8/mainExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo8/soluceExo.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo9/genExo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo9/mainExo.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo9/soluceExo.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo3/mainExo.c" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo3/mainExo.c" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo4/mainExo.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo4/mainExo.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo5/genExo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo5/genExo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo5/mainExo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo5/mainExo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo6/mainExo.mjs" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo6/mainExo.mjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo7/genExo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo7/genExo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo7/mainExo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo7/mainExo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Exercise/Exo7/soluceExo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Exercise/Exo7/soluceExo.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,31 +61,40 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Application.MainEx.executor&quot;: &quot;Run&quot;,
-    &quot;Application.Starter.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "Application.MainEx.executor": "Run",
+    "Application.Starter.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "/home/cytech/CodYngame",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;mysql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
     ]
   }
-}</component>
-  <component name="RunManager" selected="JAR Application.codying-game-1.0.0.jar">
-    <configuration name="Main" type="Application" factoryName="Application">
+}]]></component>
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="launcher.Main" />
       <module name="codying-game" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="launcher.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -142,6 +124,7 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JAR Application.codying-game-1.0.0.jar" />
         <item itemvalue="Application.Starter" />
       </list>
@@ -166,10 +149,23 @@
       <workItem from="1716567432262" duration="53000" />
       <workItem from="1716567505122" duration="136000" />
       <workItem from="1716570560709" duration="5761000" />
+      <workItem from="1716588806199" duration="14447000" />
     </task>
+    <task id="LOCAL-00001" summary="refactor : new pom.xml">
+      <created>1716581905530</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716581905530</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="refactor : new pom.xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor : new pom.xml" />
   </component>
 </project>

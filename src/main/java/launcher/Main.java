@@ -91,7 +91,7 @@ public class Main {
 
             BufferedReader bufferRead = new BufferedReader(new InputStreamReader(System.in));
             String s = bufferRead.readLine();
-            /*if (s.equals("1")) {
+            if (s.equals("1")) {
                 // ---------------------------------------------
                 // ExerciseStdinStdout part
                 // ---------------------------------------------
@@ -102,16 +102,11 @@ public class Main {
                 // if exo1 selected
                 if (selectedExercise.equals("1")) {
                     // initialing the exercise with name description entry and expected exit
-                    System.out.println(exo[1].ExoName);
-                    System.out.println(exo[1].ExoType);
-                    exo.entryData = new String[10];
-                    exo.outputData = new String[10];
-                    for (int i = 0; i < 10; i++) {
-                        exo.entryData[i] = String.valueOf(i);
-                        exo.outputData[i] = String.valueOf(i * 2);
+                    ExerciseStdinStdout exo1 = (ExerciseStdinStdout) exo[1];
+                    exo1.generateData();
+                    exo1.ExerciseResolution();
                     }
-                    System.out.println("The selected exercise is : " + exo.name);
-                } else if (selectedExercise.equals("2")) {
+                } /*else if (selectedExercise.equals("2")) {
                     // initialing the exercise with name description entry and expected exit
                     exo.name = "exo2";
                     exo.description = "You will be given in entry a list of 10 integer and we ask you to give back their values multiplied by ten";

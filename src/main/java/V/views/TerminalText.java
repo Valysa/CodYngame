@@ -23,10 +23,14 @@ public class TerminalText extends VBox{
     public TerminalText(MainView mainApp){
         this.mainApp = mainApp;
 
+        VBox testController = new VBox();
+        testController.setPrefHeight(80);
+
+        testController.getChildren().addAll(mainApp.getNbTry(), mainApp.getNbSuccess(), mainApp.getNbSessionSucess(), mainApp.getNbFirstTry());
         //mainApp.getTerminalTextArea().setVisible(false);
 
         mainApp.getTerminalTextArea().setPrefWidth(500);
-        mainApp.getTerminalTextArea().setPrefHeight(800);
+        mainApp.getTerminalTextArea().setPrefHeight(500);
         mainApp.getTerminalTextArea().setEditable(false);
         mainApp.getTerminalTextArea().setStyle("-fx-control-inner-background: #1e1e1e; -fx-text-fill: #c5c5c5; -fx-font-family: monospace;");
 
@@ -44,7 +48,7 @@ public class TerminalText extends VBox{
         });
 */
 
-        this.getChildren().addAll(mainApp.getTerminalTextArea(), submitButton);
+        this.getChildren().addAll(testController, mainApp.getTerminalTextArea(), submitButton);
     }
 
     private void executeCommand(String command, TextArea terminalTextArea) {

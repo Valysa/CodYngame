@@ -71,26 +71,27 @@ public class MainView extends HBox {
             Font fnt1 = new Font("Arial", 50);
             Label titleGame = new Label("CODYINGAME");
             titleGame.setFont(fnt1);
+            titleGame.setMaxHeight(100);
+            titleGame.setMinHeight(100);
+            titleGame.setPrefHeight(100);
             rightPart.setAlignment(Pos.CENTER);
             Text linejump = new Text("\n");
             Font fntSubtitle = new Font("Arial",15);
-            labelInstruction = new Label("\nPlease click on an exercise on the left part to start ! \n test\n test\n test\n test\n test\n test\n test\n test\n test\n test\n test");
+            labelInstruction = new Label("Codyingame is a fun application that allows you to practice coding through numerous exercises in different programming languages.\nAll exercises are included in 2 different modes: \"Stdin/Stdout\" and \"Include\".\nIn Stdin/Stdout mode you must retrieve inputs via a scanf and modify these inputs so that the outgoing data corresponds to the instructions of the exercise.\nIn Include mode, you must program a function called by a hidden main, with input data in parameters and data to output in a return.\nGood luck and have fun\nCLick on an exercise to start playing");
             labelInstruction.setFont(fntSubtitle);
+            labelInstruction.setWrapText(true);
+            labelInstruction.setMinHeight(100);
 
-
+        rightPart.setMaxWidth(2000.0);
         languages.getItems().setAll("c", "py", "java", "js", "php");
         languages.setValue("c");
         VBox editorPart = new VBox(new EditorText(this));
 
         HBox editTerm = new HBox(new TerminalText(this));
 
-        VBox testController = new VBox();
-
-
-        testController.getChildren().addAll(nbTry, nbSuccess, nbSessionSucess, nbFirstTry);
 
         editorAndTerminal.setVisible(false);
-        editorAndTerminal.getChildren().addAll(editorPart, editTerm, testController);
+        editorAndTerminal.getChildren().addAll(editorPart, editTerm);
 
         rightPart.getChildren().addAll(titleGame, labelInstruction, linejump, editorAndTerminal);
 
@@ -108,7 +109,7 @@ public class MainView extends HBox {
     public void updateResult(boolean result){
         Exercise exUpdated = Bdd.take(idExo);
         if (result){
-            terminalTextArea.setText("Good Job! You're function work \n Number of try : " + exUpdated.NbTry);
+            terminalTextArea.setText("Good Job! You're function work \n Number of try : " + nbTrySession[idExo]);
             exUpdated.NbSucess++;
             exUpdated.NbSessionSucess++;
 
@@ -129,7 +130,7 @@ public class MainView extends HBox {
 
     public void updateResult(boolean result, String errors){
         Exercise exUpdated = Bdd.take(idExo);
-        if(errors.isBlank()){
+        if(!errors.isBlank()){
             terminalTextArea.setText("Error detected" + errors);
         }else if (result){
             terminalTextArea.setText("Good Job! You're function work \n Number of try : " + exUpdated.NbTry);
@@ -159,7 +160,6 @@ public class MainView extends HBox {
         Exercise exUpdated = Bdd.take(idExo);
         //Replace the instruction by the correct instruction
         labelInstruction.setText("\n Instruction : " + exUpdated.Instruction);
-        labelInstruction.setWrapText(true);
         labelInstruction.setMaxWidth(1300);
         //Show Editor, terminal and Stats
         editorAndTerminal.setVisible(true);
@@ -309,6 +309,22 @@ public class MainView extends HBox {
 
     public TextArea getTerminalTextArea() {
         return terminalTextArea;
+    }
+
+    public Label getNbTry() {
+        return nbTry;
+    }
+
+    public Label getNbSuccess() {
+        return nbSuccess;
+    }
+
+    public Label getNbSessionSucess() {
+        return nbSessionSucess;
+    }
+
+    public Label getNbFirstTry() {
+        return nbFirstTry;
     }
 
     public void setInitTextArea(CodeArea initTextArea) {

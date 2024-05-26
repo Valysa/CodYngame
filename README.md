@@ -1,51 +1,45 @@
 # ***CodYngame***
 ## Table of Contents
 1. [Infos général](#infos-général)
-2. [Compatibilité système](#compatibilité-système)
-3. [Technologies utilisées](#technologies-utilisées)
-4. [Téléchargement](#téléchargement)
-5. [Lancement](#lancement)
+2. [Technologies utilisées](#technologies-utilisées)
+3. [Téléchargement](#téléchargement)
+4. [Lancement](#lancement)
 
 ## Infos général
 
-Le site est une librairie en ligne qui permet d'acheter des romans, des mangas et des web novels, on peut se connecter à un compte et faire un formulaire pour contacter le web master.
+L'application propose des exercices de programmation dans de multiple langages tels que le C, le PHP, le JavaScript, le Java et le Python
 <br/> 
 
-## Compatibilité système
-
-Le site est compatible avec la plupart des navigateurs récents ( Google, Opera, Edge, etc...).
-<br/>
 
 ## Technologies utilisées
 
-* Langages de programmations : <code>HTML</code>, <code>CSS</code>, <code>PHP</code>, <code>JavaScript</code>, <code>SQL</code>
+* Langages de programmations : <code>Java</code>, <code>CSS</code>, <code>JavaScript</code>, <code>SQL</code>
 <br/>
+* Bibliothéque utilisé : <code>JavaFX</code>, <code>RichTextFX</code>, <code>mySQL</code>
+* La JavaDoc est stockée dans le dossier JavaDoc, il suffit de lancer le fichier overview-tree.html qui est présent dedans.
 
 
 ## Téléchargement
 
-* Télécharger [<code>Book'In</code>](https://github.com/xymunia/projet/archive/refs/heads/main.zip) et extraire le fichier .
-* Télécharger une version de [<code>-php</code>], [<code>-php-xml</code>], [<code>-mySQL</code>], [<code>-mysqli</code>] et [<code>-mySQL-workbench</code>] (si cela n'est pas déjà fait).
+* Télécharger [<code>CoDyngame</code>] : git clone https://github.com/Valysa/CodYngame
+* Télécharger une version de [<code>-php</code>], [<code>-Java</code>], [<code>-C</code>], [<code>-Python</code>], [<code>-JavaScrypt</code>], [<code>-mySQL</code>], [<code>-mysqli</code>] et [<code>-mySQL-workbench</code>] (si cela n'est pas déjà fait).
 
 
 ## Lancement
-Il faut d'abord créer la base de données: 
+Il faut d'abord créer la base de données pour cela nous alons utiliser l'IDE intelliJ: 
 <ul>
-<li> Ouvrir mysql-workbench</li>
-<li> Créer une connexion avec un serveur root sans mot de passe</li>
-<li> Executer le script sql: <code>projet-main/sql/bookln.sql</code></li>
-<li> Executer le script sql: <code>projet-main/sql/booklndata.sql</code></li>
-
+  <li> Clicker sur View > ToolWindows > Database </li>
+  <li> Dans la fenêtre qui s'ouvre à droite appuyez sur le +</li>
+  <li> Puis sur Data Source > MySQL </li>
+  <li> Rentrez comme port <code>3306</code></li>
+  <li> Comme user <code>root</code> </li>
+  <li> Et comme Password <code>MyS3cur3P@sswOrd!</code></li>
+  <li> Tester votre connextion puis clicker sur Apply puis OK</li>
 </ul>
-
 <br/>
-Un serveur Apache ( comme Wamp) peut être utilisé pour pouvoir lancer le site et avoir un localhost dédié
-Afin d'utiliser le site, veuillez glisser le fichier dezippé projet dans le dossier du serveur Apache ( ex : C:\wamp64\www).
-Une fois le serveur lancé, tapez localhost/projet dans la barre de recherche du navigateur internet.
-<br/><br/>
-On peut aussi utilisé la fonctionnalité déjà incluse dans PHP, avec la commande éxecutable dans le fichier dézippé projet : <code>php -S localhost:port</code> avec port le port voulu. Pour ouvrir le site, il suffira de lancer localhost.
-<br/>
-<br/>
-
-
-Pour se connecter dans connexion sur le site, il faut mettre l'identifiant 'john_doe' et le mot de passe '123'. <br/>
+Puis il faut, dans le terminal, faire les commande suivante:
+<ul>
+  <li> <code>mvn clean package</code></li>
+  <li> <code>cd target</code></li>
+  <li> <code>java -jar "codying-game-1.0.0.jar"</code></li>
+</ul>

@@ -1,6 +1,20 @@
 package C.Languages;
 
+/**
+ * The LanguageFactory class is used to automatically assign a language to a given file
+ * by looking at its extension.
+ */
+
 public class LanguageFactory {
+
+    /**
+     * Assigns a language to a given file based on its extension.
+     *
+     * @param filePath the path to the file.
+     * @return an instance of a subclass of Language corresponding to the file extension.
+     * @throws IllegalArgumentException if the file extension is not recognized.
+     */
+
     //This class is used to auto assign a language to a gived file by looking at its extension
     public static Language assignLanguage(String filePath) {
         if (filePath.endsWith(".c")) {

@@ -11,9 +11,35 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Objects;
 
+/**
+ * The ExerciseInclude class represents an exercise that includes code in various languages.
+ * It extends the Exercise class.
+ */
+
 public class ExerciseInclude extends Exercise {
 
+    /**
+     * The solution language for the exercise.
+     */
     public String SolutionLang;
+
+
+    /**
+     * Constructs an ExerciseInclude instance with the given parameters.
+     *
+     * @param id the ID of the exercise.
+     * @param ExoType the type of the exercise.
+     * @param ExoName the name of the exercise.
+     * @param Instruction the instructions for the exercise.
+     * @param SolutionLang the solution language for the exercise.
+     * @param SolutionCode the solution code for the exercise.
+     * @param GeneratorCode the generator code for the exercise.
+     * @param MainCode the main code for the exercise.
+     * @param NbTry the number of tries for the exercise.
+     * @param NbSucess the number of successes for the exercise.
+     * @param NbSessionSucess the number of session successes for the exercise.
+     * @param NbFirstTry the number of first tries for the exercise.
+     */
     ExerciseInclude(int id, int ExoType, String ExoName, String Instruction, int SolutionLang, String SolutionCode, String GeneratorCode, String MainCode, int NbTry, int NbSucess, int NbSessionSucess, int NbFirstTry){
         super(id, ExoType, ExoName, Instruction, SolutionLang, SolutionCode, GeneratorCode, NbTry, NbSucess, NbSessionSucess, NbFirstTry);
 
@@ -46,6 +72,13 @@ public class ExerciseInclude extends Exercise {
 
     }
 
+    /**
+     * Reads the line from the genExo file and displays the type, name, and parameters of the function.
+     *
+     * @return a substring of the line until the first occurrence of '{' or ':'.
+     * @throws IOException if an I/O error occurs.
+     */
+
     //We read the genExo file and display the type, name and parameters of the function
     public String readLineFromFile() throws IOException {
         String genExoFile = "src/main/resources/Exercise/Exo" + this.Id + "/genExo." + this.SolutionLang;
@@ -69,6 +102,14 @@ public class ExerciseInclude extends Exercise {
         reader.close();
         return null; //returns null if no line with '{' or ':' is found in the file
     }
+
+    /**
+     * Writes the main code to the include directory for the specified solution language.
+     *
+     * @param MainCode the main code to be included.
+     * @param SolutionLang the solution language.
+     */
+
     public void writeInclude(String MainCode, String SolutionLang) {
 
         String PATH = "src/main/resources/Exercise/Exo"+this.Id+"/";
@@ -87,6 +128,12 @@ public class ExerciseInclude extends Exercise {
             System.out.println("Cannot write the file main : " + e.getMessage());
         }
     }
+
+    /**
+     * Saves the user's code to a file named userExo.extension (e.g., c, py, js, php, java).
+     *
+     * @param program the code entered by the user.
+     */
 
     //This function saves the code entered by the user in a file named userExo.extension ie c,py,js,php,java
     public void saveToFile(StringBuilder program) {
@@ -118,6 +165,10 @@ public class ExerciseInclude extends Exercise {
         }
     }
 
+    /**
+     * Deletes the user's code file.
+     */
+
     public void deleteUserFile(){
         Path path = Paths.get( "src/main/resources/Exercise/Exo"+this.Id+"/userExo."+SolutionLang);
         try {
@@ -146,6 +197,11 @@ public class ExerciseInclude extends Exercise {
             }
         }
     }
+
+    /**
+     * Executes the exercise resolution process.
+     * Displays the exercise name and instructions, reads the function details, and handles user input to resolve the exercise.
+     */
 
     public void ExerciseResolution() {
         System.out.println(this.ExoName);
@@ -198,13 +254,13 @@ public class ExerciseInclude extends Exercise {
                             isProgramCorrect = true;
                         }
                     }
+                    //We delete the file containing the user's code when he has programming in the good language
+                    this.deleteUserFile();
                 }
             } catch (IOException es) {
                 es.printStackTrace();
             }
         }
-        //We delete the file containing the user's code when he has successfully completed the exercise
-        this.deleteUserFile();
     }
 
 }

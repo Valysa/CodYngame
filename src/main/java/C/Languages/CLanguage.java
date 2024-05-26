@@ -5,8 +5,21 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+/**
+ * The CLanguage class provides methods to compile and execute C language programs.
+ * It extends the abstract Language class.
+ */
 
 public class CLanguage extends Language {
+
+    /**
+     * Compiles a single C source file into an executable.
+     *
+     * @param sourceFilePath the path to the C source file.
+     * @param executableFile the name of the output executable file.
+     * @throws IOException if an I/O error occurs during the compilation process.
+     * @throws InterruptedException if the compilation process is interrupted.
+     */
 
     public void compile(String sourceFilePath, String executableFile) throws IOException, InterruptedException {
         Process process = Runtime.getRuntime().exec("gcc " + sourceFilePath + " -o " + executableFile);
@@ -15,6 +28,15 @@ public class CLanguage extends Language {
             throw new RuntimeException("Compilation Error !");
         }
     }
+
+    /**
+     * Compiles multiple C source files into a single executable.
+     *
+     * @param sourceFilePaths an array of paths to the C source files.
+     * @param executableFile the name of the output executable file.
+     * @throws IOException if an I/O error occurs during the compilation process.
+     * @throws InterruptedException if the compilation process is interrupted.
+     */
 
     public void compile(String[] sourceFilePaths, String executableFile) throws IOException, InterruptedException {
         StringBuilder command = new StringBuilder("gcc");
@@ -33,9 +55,13 @@ public class CLanguage extends Language {
         }
     }
 
+    /**
+     * Compiles and executes a single C source file.
+     *
+     * @param executablePath the path to the C source file.
+     * @return true if the execution was successful, false otherwise.
+     */
     @Override
-    // Here its a void but I maybe want to take the output ? (thinking of returning
-    // String[])
     public boolean execute(String executablePath){
         String executableFile = "execName";
         try {
@@ -53,6 +79,15 @@ public class CLanguage extends Language {
         }
     }
 
+    /**
+     * Compiles and executes a single C source file with input entries.
+     *
+     * @param executablePath the path to the C source file.
+     * @param entries the input entries for the executable.
+     * @return the output of the executable as an array of Strings.
+     * @throws IOException if an I/O error occurs during the execution process.
+     * @throws InterruptedException if the execution process is interrupted.
+     */
     @Override
     public String[] execute(String executablePath, String[] entries) throws IOException, InterruptedException {
         String executableFile = "execName";
@@ -68,6 +103,14 @@ public class CLanguage extends Language {
         return readStdout(process);
     }
 
+    /**
+     * Compiles and executes multiple C source files.
+     *
+     * @param executablePaths an array of paths to the C source files.
+     * @throws IOException if an I/O error occurs during the execution process.
+     * @throws InterruptedException if the execution process is interrupted.
+     */
+
     public void execute(String[] executablePaths) throws IOException, InterruptedException {
         String executableFile = "execName";
         try {
@@ -81,6 +124,12 @@ public class CLanguage extends Language {
         readStdout(process);
     }
 
+    /**
+     * Checks if the given program code is written in C language.
+     *
+     * @param program the program code to check.
+     * @return true if the program is written in C language, false otherwise.
+     */
     @Override
     public boolean checkLanguage(StringBuilder program) {
         try {

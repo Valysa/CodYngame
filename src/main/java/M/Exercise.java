@@ -6,6 +6,10 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
+/**
+ * Exercise class represents an exercise with various attributes and functionalities.
+ */
+
 public class Exercise {
 
     public int Id;
@@ -18,8 +22,24 @@ public class Exercise {
     public int NbFirstTry;
     public String[] outputData;
     public String[] inputData;
-    public String GeneratorCode; // Ajouter ce champ
-    public String SolutionCode;  // Ajouter ce champ
+    public String GeneratorCode;
+    public String SolutionCode;
+
+    /**
+     * Constructor for Exercise class.
+     *
+     * @param id The id of the exercise.
+     * @param ExoType The type of the exercise.
+     * @param ExoName The name of the exercise.
+     * @param Instruction The instructions of the exercise.
+     * @param SolutionLang The language of the solution.
+     * @param SolutionCode The code of the solution.
+     * @param GeneratorCode The code of the generator.
+     * @param NbTry The number of tries.
+     * @param NbSucess The number of successes.
+     * @param NbSessionSucess The number of session successes.
+     * @param NbFirstTry The number of first tries.
+     */
 
     // Constructor of Exercise
     Exercise(int id, int ExoType, String ExoName, String Instruction, int SolutionLang, String SolutionCode, String GeneratorCode, int NbTry, int NbSucess, int NbSessionSucess, int NbFirstTry) {
@@ -56,6 +76,12 @@ public class Exercise {
 
     }
 
+    /**
+     * Returns a string representation of the Exercise object.
+     *
+     * @return A string containing the attributes of the Exercise object.
+     */
+
     // Display all the atribute of Exercise
     @Override
     public String toString() {
@@ -71,6 +97,12 @@ public class Exercise {
                 "\n}";
     }
 
+    /**
+     * Retrieves all exercises from the database and stores them in an array.
+     *
+     * @return An array containing all exercises.
+     */
+
     // Take all exercise in database and stock them in an array
     public static Exercise[] allExo() {
 
@@ -83,6 +115,14 @@ public class Exercise {
 
         return exo;
     }
+
+    /**
+     * Writes the solution code and the generator code to respective files.
+     *
+     * @param SolutionCode The solution code to be written.
+     * @param GeneratorCode The generator code to be written.
+     * @param SolutionLang The language of the solution and generator code.
+     */
 
     // Create file who contain the solution code and the input generator
     public void write(String SolutionCode, String GeneratorCode, String SolutionLang) {

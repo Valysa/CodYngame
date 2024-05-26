@@ -20,6 +20,11 @@ public class TerminalText extends VBox{
 
     private MainView mainApp;
 
+    /**
+     * Constructor of the TerminalText
+     *
+     * @param mainApp param of the exercises
+     */
     public TerminalText(MainView mainApp){
         this.mainApp = mainApp;
 
@@ -27,7 +32,6 @@ public class TerminalText extends VBox{
         testController.setPrefHeight(80);
 
         testController.getChildren().addAll(mainApp.getNbTry(), mainApp.getNbSuccess(), mainApp.getNbSessionSucess(), mainApp.getNbFirstTry());
-        //mainApp.getTerminalTextArea().setVisible(false);
 
         mainApp.getTerminalTextArea().setPrefWidth(500);
         mainApp.getTerminalTextArea().setPrefHeight(500);
@@ -36,35 +40,7 @@ public class TerminalText extends VBox{
 
         Button submitButton = new Button("Submit");
         submitButton.addEventHandler(ActionEvent.ACTION, new SubmitButton(mainApp));
-        /*
-        submitButton.setOnAction(e -> {
-
-            String command = mainApp.getInitTextArea().getText();
-            mainApp.getTerminalTextArea().appendText("$ " + command + "\n");
-            executeCommand(command, mainApp.getTerminalTextArea());
-            mainApp.getInitTextArea().clear();
-
-
-        });
-*/
 
         this.getChildren().addAll(testController, mainApp.getTerminalTextArea(), submitButton);
     }
-
-    private void executeCommand(String command, TextArea terminalTextArea) {
-        try {
-            Process process = Runtime.getRuntime().exec(command);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
-            String line;
-            while ((line = reader.readLine()) != null) {
-                terminalTextArea.appendText(line + "\n");
-            }
-            process.waitFor();
-        } catch (Exception ex) {
-            terminalTextArea.appendText("Erreur: " + ex.getMessage() + "\n");
-        }
-    }
-
-
-
 }

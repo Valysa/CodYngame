@@ -4,13 +4,20 @@ import launcher.Main;
 import java.sql.*;
 
 
-
+/**
+ * The Bdd class provides methods to interact with the database.
+ */
 
 public class Bdd {
 
     static String port ;
     static String user;
     static String password;
+
+    /**
+     * Connects to the database.
+     * @return Connection object
+     */
 
     // Connect to the database
 
@@ -38,6 +45,10 @@ public class Bdd {
     }
 
 
+    /**
+     * Disconnects from the database.
+     * @param con Connection object
+     */
 
     // Disconnect to the database
 
@@ -52,6 +63,13 @@ public class Bdd {
 
     }
 
+    /**
+     * Sets the connection details for the database.
+     * @param p Port
+     * @param u User
+     * @param pa Password
+     */
+
     public static void idBdd(String p,String u,String pa){
         port = p;
         user = u;
@@ -59,6 +77,9 @@ public class Bdd {
     }
 
 
+    /**
+     * Creates the Exercise table in the database.
+     */
 
     // Create the table in the database
 
@@ -99,6 +120,10 @@ public class Bdd {
         basicExo();
 
     }
+
+    /**
+     * This method adds a basic exercise to the database.
+     */
 
     public static void basicExo(){
 
@@ -399,6 +424,11 @@ public class Bdd {
                 "","");
     }
 
+    /**
+     * Retrieves an exercise from the database by its ID.
+     * @param Id The ID of the exercise to retrieve
+     * @return The Exercise object retrieved from the database
+     */
 
     // Take a Question (Id) from the database and stock it in the class Excercise
     
@@ -464,10 +494,18 @@ public class Bdd {
         return exo;
     }
 
-
+    /**
+     * Adds an exercise to the database (question).
+     * @param ExoType Exercise type
+     * @param ExoName Exercise name
+     * @param Instruction Exercise instructions
+     * @param SolutionLang Solution language
+     * @param SolutionCode Solution code
+     * @param GeneratorCode Generator code
+     * @param MainCode Main code
+     */
 
     // Add an exercise to the database (question)
-
     public static void addEx(int ExoType, String ExoName, String Instruction, int SolutionLang, String SolutionCode, String GeneratorCode, String MainCode) {
 
         int NbTry = 0;
@@ -512,10 +550,14 @@ public class Bdd {
         }
     }
 
-
-
-
-
+    /**
+     * Updates the number of tries, successes, session successes, and first tries for a question in the database.
+     * @param Id ID of the question to update
+     * @param NbTry Number of tries to add
+     * @param NbSucess Number of successes to add
+     * @param NbSessionSucess Number of session successes to add
+     * @param NbFirstTry Number of first tries to add
+     */
 
     // Increment all the number of try/sucess of the wanted number in the database
 
@@ -550,7 +592,10 @@ public class Bdd {
         }
     }
 
-
+    /**
+     * Counts the number of questions in the database.
+     * @return The number of questions in the database
+     */
 
     // Count the number of question in the database
 
@@ -581,10 +626,12 @@ public class Bdd {
         return count;
     }
 
-
+    /**
+     * Deletes the specified question from the database and adjusts the IDs to maintain correct order.
+     * @param Id ID of the question to delete
+     */
 
     // Delete the wanted question and remake the id to be correct
-
     public static void delete(int Id){
 
         String sqlDelete = "DELETE FROM Question WHERE Id = ?";
@@ -619,9 +666,4 @@ public class Bdd {
             }
         }
     }
-
-
-
 }
-
-

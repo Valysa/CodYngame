@@ -17,7 +17,11 @@ import java.util.regex.Pattern;
 public class ControllerText extends VBox {
 
     private MainView mainApp;
-
+    /**
+     * Constructor of the ControllerText
+     *
+     * @param mainApp param of the exercise
+     */
     public ControllerText(MainView mainApp) {
         this.mainApp = mainApp;
         CodeArea initTextArea = mainApp.getInitTextArea();
@@ -66,6 +70,12 @@ public class ControllerText extends VBox {
         this.getChildren().add(new VirtualizedScrollPane<>(initTextArea));
     }
 
+    /**
+     * Apply the highlighting on different words.
+     *
+     * @param codeArea Text editor area
+     * @param language language chosen by the user
+     */
     private void applyHighlighting(CodeArea codeArea, String language) {
         // Get the text from the CodeArea
         String text = codeArea.getText();

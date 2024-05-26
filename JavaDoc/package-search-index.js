@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","url":"allpackages-index.html"},{"m":"fr.cyu","l":"C.Languages"},{"m":"fr.cyu","l":"launcher"},{"m":"fr.cyu","l":"M"},{"m":"fr.cyu","l":"V"},{"m":"fr.cyu","l":"V.views"}]

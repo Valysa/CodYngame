@@ -43,21 +43,7 @@ public class ExerciseStdinStdout extends Exercise {
      * @return The content of the minimal code file as a string.
      * @throws IOException If an I/O error occurs while reading the file.
      */
-/*
-    public static String readMinimalFile(String lang) throws IOException {
-        String genExoFile = "src/main/resources/Minimal Code Stdin Stdout/minimal." + lang;
-        // Creates a StringBuilder to accumulate the content of the file
-        StringBuilder content = new StringBuilder();
-        // Creates a BufferedReader to read the file
-        BufferedReader reader = new BufferedReader(new FileReader(genExoFile));
-        String line;
-        // Reads each line from the file
-        while ((line = reader.readLine()) != null) {
-            content.append(line).append("\n"); // Adds each line to the StringBuilder
-        }
-        reader.close();
-        return content.toString(); // Returns the accumulated content as a string
-    }*/
+
     public static String readMinimalFile(String lang) throws IOException {
         // Determine the path of the file in the classpath
         String resourcePath = "Minimal Code Stdin Stdout/minimal." + lang;

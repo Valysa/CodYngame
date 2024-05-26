@@ -1,6 +1,9 @@
 package C.Languages;
 
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
@@ -97,10 +100,54 @@ public class CLanguage extends Language {
             System.out.println("Compilation error");
             throw new InterruptedException("Error");
         }
-        ;
+
         Process process = Runtime.getRuntime().exec("./" + executableFile);
-        readStdin(process, entries);
-        return readStdout(process);
+
+        // Write entries to stdin of the process
+        try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(process.getOutputStream()))) {
+            for (String entry : entries) {
+                writer.write(entry);
+                writer.newLine();
+            }
+            writer.flush();
+        }
+
+        // Create a callable to handle process reading
+        Callable<String[]> processReader = () -> {
+            List<String> outputLines = new ArrayList<>();
+            try (BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()))) {
+                String line;
+                int lineCount = 0;
+                int maxLines = 10000;  // Define the maximum number of lines to read
+
+                while ((line = reader.readLine()) != null) {
+                    outputLines.add(line);
+                    lineCount++;
+                    if (lineCount >= maxLines) {
+                        process.destroy(); // Destroy the process if the limit is reached
+                        System.out.println("Exceeded maximum line limit");
+                        return new String[]{("Exceeded maximum line limit")};
+                    }
+                }
+            }
+            return outputLines.toArray(new String[0]);
+        };
+
+        ExecutorService executor = Executors.newSingleThreadExecutor();
+        Future<String[]> future = executor.submit(processReader);
+
+        try {
+            // Set the timeout for the process execution
+            return future.get(10, TimeUnit.SECONDS); // Adjust the timeout as needed
+        } catch (TimeoutException e) {
+            process.destroy();
+            System.out.println("Process timeout");
+            return new String[]{("Exceeded maximum line limit")};
+        } catch (ExecutionException e) {
+            throw new IOException(e);
+        } finally {
+            executor.shutdown();
+        }
     }
 
     /**
@@ -147,7 +194,7 @@ public class CLanguage extends Language {
                 System.out.println("Yes, you understand C language !");
                 return true;
             } else {
-                System.out.println("No, you haven't programming in C language");
+                System.out.println("No, you haven't programmed in C language");
                 return false;
             }
         } catch (PatternSyntaxException pse) {

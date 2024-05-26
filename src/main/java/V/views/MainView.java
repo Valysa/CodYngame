@@ -82,7 +82,7 @@ public class MainView extends HBox {
             rightPart.setAlignment(Pos.CENTER);
             Text linejump = new Text("\n");
             Font fntSubtitle = new Font("Arial",15);
-            labelInstruction = new Label("Codyingame is a fun application that allows you to practice coding through numerous exercises in different programming languages.\nAll exercises are included in 2 different modes: \"Stdin/Stdout\" and \"Include\".\nIn Stdin/Stdout mode you must retrieve inputs via a scanf and modify these inputs so that the outgoing data corresponds to the instructions of the exercise.\nIn Include mode, you must program a function called by a hidden main, with input data in parameters and data to output in a return.\nGood luck and have fun\nCLick on an exercise to start playing");
+            labelInstruction = new Label("Codyingame is a fun application that allows you to practice coding through numerous exercises in different programming languages.\nAll exercises are included in 2 different modes: \"Stdin/Stdout\" and \"Include\".\nIn Stdin/Stdout mode you must retrieve inputs via a scanf and modify these inputs so that the outgoing data corresponds to the instructions of the exercise.\nIn Include mode, you must program a function called by a hidden main, with input data in parameters and data to output in a return.\nGood luck and have fun\nClick on an exercise to start playing");
             labelInstruction.setFont(fntSubtitle);
             labelInstruction.setWrapText(true);
             labelInstruction.setMinHeight(100);

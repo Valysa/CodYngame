@@ -1,5 +1,6 @@
 package V.views;
 
+import C.Languages.LanguageFactory;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.layout.VBox;
@@ -24,15 +25,17 @@ public class ControllerText extends VBox {
             throw new IllegalArgumentException("languages or initTextArea is not initialized properly");
         }
 
-        initTextArea.setVisible(false);
+        //initTextArea.setVisible(false);
 
         // Add a listener to detect selection changes
         languages.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                System.out.println("language "+newValue + " has been selected");
                 if (languages.getValue() != null){
+                    System.out.println("Language " + newValue + " has been selected");
                     applyHighlighting(initTextArea, newValue);
+                    mainApp.setStringInitTextArea(" ");
+                    initTextArea.replaceText(mainApp.getStringInitTextArea());
                 }
             }
         });

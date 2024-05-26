@@ -38,14 +38,17 @@ public class MainView extends HBox {
     private ChoiceBox languages = new ChoiceBox<>();
     private Label labelInstruction;
 
-
+    private HBox editorAndTerminal = new HBox();
+    private VBox rightPart = new VBox();
+    /*
     private Language exerciseLang;
+     */
     private Label nbTry = new Label();
     private Label nbSuccess = new Label();
     private Label nbSessionSucess = new Label();
     private Label nbFirstTry = new Label();
 
-    private int nbTrySession = 0;
+    private int[] nbTrySession;
 
 
     //Constructor VBox
@@ -53,28 +56,27 @@ public class MainView extends HBox {
         Bdd.idBdd("3306", "root", "MyS3cur3P@sswOrd!");
         Bdd.create();
         Exercise[] exo = Exercise.allExo();
+        this.exo = exo;
 
         //initialize sessions param
-        for(int i =0; i< exo.length; i++){
-            exo[i].NbSessionSucess = 0;
+        nbTrySession = new int[Bdd.count()+1];
+        for(int i = 1; i<Bdd.count(); i++){
+            Exercise exUpdated = Bdd.take(i);
+            exUpdated.NbSessionSucess = 0;
+            nbTrySession[i] = 0;
         }
-        this.exo = exo;
 
         ScrollPane menuBar = new ScrollPane(new Summary(this));
 
-        VBox rightPart = new VBox();
-        Font fnt1 = new Font("Arial", 50);
-        Label lbl = new Label("CODYINGAME");
-        lbl.setFont(fnt1);
-        rightPart.setAlignment(Pos.CENTER);
-        Text linejump = new Text("\n");
-        Font fntSubtitle = new Font("Arial",15);
-        labelInstruction = new Label("\nPlease click on an exercise on the left part to start ! ");
-        labelInstruction.setFont(fntSubtitle);
+            Font fnt1 = new Font("Arial", 50);
+            Label titleGame = new Label("CODYINGAME");
+            titleGame.setFont(fnt1);
+            rightPart.setAlignment(Pos.CENTER);
+            Text linejump = new Text("\n");
+            Font fntSubtitle = new Font("Arial",15);
+            labelInstruction = new Label("\nPlease click on an exercise on the left part to start ! \n test\n test\n test\n test\n test\n test\n test\n test\n test\n test\n test");
+            labelInstruction.setFont(fntSubtitle);
 
-        HBox editorAndTerminal = new HBox();
-
-        //Initialiser selon la base de données
 
         languages.getItems().setAll("c", "py", "java", "js", "php");
         languages.setValue("c");
@@ -87,35 +89,10 @@ public class MainView extends HBox {
 
         testController.getChildren().addAll(nbTry, nbSuccess, nbSessionSucess, nbFirstTry);
 
-
+        editorAndTerminal.setVisible(false);
         editorAndTerminal.getChildren().addAll(editorPart, editTerm, testController);
 
-        rightPart.getChildren().addAll(lbl, labelInstruction, linejump ,editorAndTerminal);
-
-/*
-
-        languages.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-
-                    //ExerciseStdinStdout exerciseStdinStdout = (ExerciseStdinStdout)exo[idExo];
-               // Exercise exUpdated = Bdd.take(idExo);
-                System.out.println("Vous avez sélectionné : " + newValue);
-                languages.getValue();
-                System.out.println(languages.getValue());
-
-                stringInitTextArea = " ";
-                initTextArea.replaceText(stringInitTextArea);
-
-                String soluceExoFile = "src/main/resources/Exercise/Exo" + idExo + "/soluceExo." + languages.getValue();System.out.println(soluceExoFile);
-
-                exercise = LanguageFactory.assignLanguage(soluceExoFile);
-
-
-                }
-            });
-
- */
+        rightPart.getChildren().addAll(titleGame, labelInstruction, linejump, editorAndTerminal);
 
         this.getChildren().addAll(menuBar, rightPart);
 
@@ -135,14 +112,14 @@ public class MainView extends HBox {
             exUpdated.NbSucess++;
             exUpdated.NbSessionSucess++;
 
-            if(nbTrySession == 1){
+            if(nbTrySession[idExo] == 1){
                 exUpdated.NbFirstTry++;
                 Bdd.update(idExo, 1, 1, 0, 1);
             }
             else{
                 Bdd.update(idExo, 1, 1, 0, 0);
             }
-            nbTrySession = 0;
+            nbTrySession[idExo] = 0;
         }else {
             terminalTextArea.setText("The code isn't correct! Try again!");
             Bdd.update(idExo, 1, 0, 0, 0);
@@ -159,14 +136,14 @@ public class MainView extends HBox {
             exUpdated.NbSucess++;
             exUpdated.NbSessionSucess++;
 
-            if(nbTrySession == 1){
+            if(nbTrySession[idExo] == 1){
                 exUpdated.NbFirstTry++;
                 Bdd.update(idExo, 1, 1, 0, 1);
             }
             else{
                 Bdd.update(idExo, 1, 1, 0, 0);
             }
-            nbTrySession = 0;
+            nbTrySession[idExo] = 0;
         }else {
             terminalTextArea.setText("The code isn't correct! Try again!");
             Bdd.update(idExo, 1, 0, 0, 0);
@@ -174,61 +151,44 @@ public class MainView extends HBox {
         setScore();
     }
 
+
+    //Function updated each time you click on a button (Summary)
     public void updateIdExo(int i){
+        //initialize idExo & exUpdated for the exercise chosen
         idExo = i;
         Exercise exUpdated = Bdd.take(idExo);
+        //Replace the instruction by the correct instruction
         labelInstruction.setText("\n Instruction : " + exUpdated.Instruction);
         labelInstruction.setWrapText(true);
         labelInstruction.setMaxWidth(1300);
-        languages.setVisible(true);
-        initTextArea.setVisible(true);
-        terminalTextArea.setVisible(true);
+        //Show Editor, terminal and Stats
+        editorAndTerminal.setVisible(true);
         setScore();
-        System.out.println(exUpdated.ExoType);
-
+        //STDIN/STDOUT MOD
         if(exUpdated.ExoType == 0){
             ExerciseStdinStdout exerciseStdinStdout = (ExerciseStdinStdout)exo[idExo-1];
             mods.setText("Mode Stdin/Stdout ");
             languages.getItems().setAll("c", "py", "java", "js", "php");
             languages.setValue("c");
-            /*
-            languages.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-                @Override
-                public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                    System.out.println("Vous avez sélectionné : " + newValue);
-                    languages.getValue();
-                }
-            });
-
-             */
-            //updateEditor(exerciseStdinStdout.inputData);
+            //INCLUDE MOD
         } else if (exUpdated.ExoType == 1) {
-            System.out.println(languages.getValue());
             ExerciseInclude exerciseInclude = (ExerciseInclude)exo[idExo-1];
             mods.setText("Mode Include ");
-            System.out.println(languages.getValue());
             languages.getItems().setAll(exerciseInclude.SolutionLang);
-            System.out.println(languages.getValue());
             languages.setValue(exerciseInclude.SolutionLang);
-            System.out.println(languages.getValue());
             try {
                 stringInitTextArea = exerciseInclude.readLineFromFile();
                 initTextArea.replaceText(stringInitTextArea);
             }catch (IOException e){
                 System.err.println("Can't read the file " + e.getMessage());
             }
-            String soluceExoFile = "src/main/resources/Exercise/Exo" + this.idExo + "/soluceExo." + this.languages.getValue();
-            exerciseLang = LanguageFactory.assignLanguage(soluceExoFile);
-
-
         }
-
     }
 
     public void exerciseResolutionFXStdinStdout(){
         Exercise exUpdated = Bdd.take(idExo);
         exUpdated.NbTry ++;
-        nbTrySession++;
+        nbTrySession[idExo]++;
         ExerciseStdinStdout exerciseStdinStdout = (ExerciseStdinStdout)exUpdated;
 
         boolean result = false;
@@ -285,25 +245,26 @@ public class MainView extends HBox {
     public void exerciseResolutionFXInclude() {
         Exercise exUpdated = Bdd.take(idExo);
         boolean result = false;
-
+        String soluceExoFile = "src/main/resources/Exercise/Exo" + this.idExo + "/soluceExo." + this.languages.getValue();
+        Language exerciseLang = LanguageFactory.assignLanguage(soluceExoFile);
         ExerciseInclude exerciseInclude = (ExerciseInclude)exUpdated;
-            exUpdated.NbTry++;
-            nbTrySession++;
-            stringInitTextArea = initTextArea.getText();
-            System.out.println("You have coded this program :");
-            System.out.println(stringInitTextArea);
+        exUpdated.NbTry++;
+        nbTrySession[idExo]++;
+        stringInitTextArea = initTextArea.getText();
+        System.out.println("You have coded this program :");
+        System.out.println(stringInitTextArea);
             //Check if the code entered by the user is in the good language
-            StringBuilder initTextAreaStringBuilder = new StringBuilder(stringInitTextArea);
-            if (exerciseLang.checkLanguage(initTextAreaStringBuilder)) {
+        StringBuilder initTextAreaStringBuilder = new StringBuilder(stringInitTextArea);
+        if (exerciseLang.checkLanguage(initTextAreaStringBuilder)) {
                 //Save the code in a file named userExo.c here
-                exerciseInclude.saveToFile(initTextAreaStringBuilder);
-                String file = "src/main/resources/Exercise/Exo" + idExo + "/mainExo." + exerciseInclude.SolutionLang;
-                Language language = LanguageFactory.assignLanguage(file);
-                if(language instanceof JavaLanguage){
-                    String soluceExo = "src/main/resources/Exercise/Exo" + idExo + "/soluceExo." + exerciseInclude.SolutionLang;
-                    String userExo = "src/main/resources/Exercise/Exo" + idExo + "/userExo." + exerciseInclude.SolutionLang;
-                    String mainFile = "Exo" + idExo + "/mainExo";
-                    String[] files = {file, soluceExo, userExo};
+            exerciseInclude.saveToFile(initTextAreaStringBuilder);
+            String file = "src/main/resources/Exercise/Exo" + idExo + "/mainExo." + exerciseInclude.SolutionLang;
+            Language language = LanguageFactory.assignLanguage(file);
+            if(language instanceof JavaLanguage){
+                String soluceExo = "src/main/resources/Exercise/Exo" + idExo + "/soluceExo." + exerciseInclude.SolutionLang;
+                String userExo = "src/main/resources/Exercise/Exo" + idExo + "/userExo." + exerciseInclude.SolutionLang;
+                String mainFile = "Exo" + idExo + "/mainExo";
+                String[] files = {file, soluceExo, userExo};
 
                     result = ((JavaLanguage) language).execute(files, mainFile);
                 }else {
@@ -317,8 +278,6 @@ public class MainView extends HBox {
 
 
     }
-
-    //public void updateLabel(int)
 
     public Exercise[] getExo() {
         return exo;
@@ -352,4 +311,11 @@ public class MainView extends HBox {
         return terminalTextArea;
     }
 
+    public void setInitTextArea(CodeArea initTextArea) {
+        this.initTextArea = initTextArea;
+    }
+
+    public void setStringInitTextArea(String stringInitTextArea) {
+        this.stringInitTextArea = stringInitTextArea;
+    }
 }

@@ -23,7 +23,7 @@ public class TerminalText extends VBox{
     public TerminalText(MainView mainApp){
         this.mainApp = mainApp;
 
-        mainApp.getTerminalTextArea().setVisible(false);
+        //mainApp.getTerminalTextArea().setVisible(false);
 
         mainApp.getTerminalTextArea().setPrefWidth(500);
         mainApp.getTerminalTextArea().setPrefHeight(800);

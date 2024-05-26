@@ -28,7 +28,7 @@ public class EditorText extends VBox {
 
         HBox choicesExerciseType = new HBox();
 
-        mainApp.getLanguages().setVisible(false);
+        //mainApp.getLanguages().setVisible(false);
 
         choicesExerciseType.getChildren().addAll(mainApp.getMods(), mainApp.getLanguages());
 

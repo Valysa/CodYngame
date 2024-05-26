@@ -52,7 +52,11 @@ public class MainView extends HBox {
     private int[] nbTrySession;
 
 
-    //Constructor VBox
+    /**
+     * Constructor of the MainView of the application.
+     *
+     * @return Summary on the left and Main Scene on the right
+     */
     public MainView() {
         Bdd.idBdd("3306", "root", "MyS3cur3P@sswOrd!");
         Bdd.create();
@@ -99,6 +103,10 @@ public class MainView extends HBox {
         this.getChildren().addAll(menuBar, rightPart);
 
     }
+
+    /**
+     * Modify the intern score variables.
+     */
     public void setScore(){
         Exercise exUpdated = Bdd.take(idExo);
         this.nbTry.setText("Number of try : " + exUpdated.NbTry);
@@ -107,6 +115,11 @@ public class MainView extends HBox {
         this.nbSessionSucess.setText("Number of success in this session : " + exUpdated.NbSessionSucess);
     }
 
+    /**
+     * Update Result of the Include exercise.
+     *
+     * @param result true if the exercise is correct | false if it's not
+     */
     public void updateResult(boolean result){
         Exercise exUpdated = Bdd.take(idExo);
         if (result){
@@ -116,10 +129,10 @@ public class MainView extends HBox {
 
             if(nbTrySession[idExo] == 1){
                 exUpdated.NbFirstTry++;
-                Bdd.update(idExo, 1, 1, 0, 1);
+                Bdd.update(idExo, 1, 1, 1, 1);
             }
             else{
-                Bdd.update(idExo, 1, 1, 0, 0);
+                Bdd.update(idExo, 1, 1, 1, 0);
             }
             nbTrySession[idExo] = 0;
         }else {
@@ -128,22 +141,27 @@ public class MainView extends HBox {
         }
         setScore();
     }
-
+    /**
+     * Update Result of the Stdin/Stdout exercise.
+     *
+     * @param result true if the exercise is correct | false if it's not
+     * @param errors In case there are error(s)
+     */
     public void updateResult(boolean result, String errors){
         Exercise exUpdated = Bdd.take(idExo);
         if(!errors.isBlank()){
             terminalTextArea.setText("Error detected" + errors);
         }else if (result){
-            terminalTextArea.setText("Good Job! You're function work \nNumber of try : " + exUpdated.NbTry);
+            terminalTextArea.setText("Good Job! You're function work \nNumber of try in the session : " + exUpdated.NbTry);
             exUpdated.NbSucess++;
             exUpdated.NbSessionSucess++;
 
             if(nbTrySession[idExo] == 1){
                 exUpdated.NbFirstTry++;
-                Bdd.update(idExo, 1, 1, 0, 1);
+                Bdd.update(idExo, 1, 1, 1, 1);
             }
             else{
-                Bdd.update(idExo, 1, 1, 0, 0);
+                Bdd.update(idExo, 1, 1, 1, 0);
             }
             nbTrySession[idExo] = 0;
         }else {
@@ -153,8 +171,11 @@ public class MainView extends HBox {
         setScore();
     }
 
-
-    //Function updated each time you click on a button (Summary)
+    /**
+     * Function updated each time you click on a button (Summary).
+     *
+     * @param i the id of the exercise
+     */
     public void updateIdExo(int i){
         //initialize idExo & exUpdated for the exercise chosen
         idExo = i;
@@ -164,6 +185,7 @@ public class MainView extends HBox {
         labelInstruction.setMaxWidth(1300);
         //Show Editor, terminal and Stats
         editorAndTerminal.setVisible(true);
+        terminalTextArea.setText("Exercise " + idExo + " chosen\n");
         setScore();
         //STDIN/STDOUT MOD
         if(exUpdated.ExoType == 0){
@@ -185,24 +207,10 @@ public class MainView extends HBox {
             }
         }
     }
-/*
-    public boolean takeAndCheckResult(String[] entries) {
-        Exercise exUpdated = Bdd.take(idExo);
-        Boolean isOk = false;
-        stringTerminalArea = "Testing your returns\n";
-        System.out.println(exUpdated.outputData + " - " + exUpdated.outputData.length);
-        if (exUpdated.outputData != null && exUpdated.outputData.length == entries.length) {
-            isOk = true;
-            for (int i = 0; i < exUpdated.outputData.length; i++) {
-                stringTerminalArea = stringTerminalArea + "Expected : " + exUpdated.outputData[i]  + " | "    + "Given :  " + entries[i] + "\n";
-                isOk = isOk && entries[i].equals(exUpdated.outputData[i]);
-            }
-        }
-        System.out.println(isOk);
-        return isOk;
-    }
-    */
 
+    /**
+     * Execution and Resolution of a Stdin/Stdout exercise.
+     */
     public void exerciseResolutionFXStdinStdout(){
         Exercise exUpdated = Bdd.take(idExo);
         exUpdated.NbTry ++;
@@ -251,6 +259,9 @@ public class MainView extends HBox {
         }
 
     }
+    /**
+     * Execution and Resolution of an Include exercise.
+     */
     public void exerciseResolutionFXInclude() {
         Exercise exUpdated = Bdd.take(idExo);
         boolean result = false;
@@ -287,59 +298,91 @@ public class MainView extends HBox {
 
 
     }
-
-    public Exercise[] getExo() {
-        return exo;
-    }
-
+    /**
+     * Getter idExo
+     *
+     * @return idExo
+     */
     public int getIdExo() {
         return idExo;
     }
-
+    /**
+     * Getter initTextArea
+     *
+     * @return initTextArea
+     */
     public CodeArea getInitTextArea() {
         return initTextArea;
     }
-
+    /**
+     * Getter mods
+     *
+     * @return mods
+     */
     public Label getMods() {
         return mods;
     }
-
+    /**
+     * Getter languages
+     *
+     * @return languages
+     */
     public ChoiceBox getLanguages() {
         return languages;
     }
-
-    public Label getLabelInstruction() {
-        return labelInstruction;
-    }
-
+    /**
+     * Getter stringInitTextArea
+     *
+     * @return stringInitTextArea
+     */
     public String getStringInitTextArea() {
         return stringInitTextArea;
     }
-
+    /**
+     * Getter terminalTextArea
+     *
+     * @return terminalTextArea
+     */
     public TextArea getTerminalTextArea() {
         return terminalTextArea;
     }
-
+    /**
+     * Getter nbTry
+     *
+     * @return nbTry
+     */
     public Label getNbTry() {
         return nbTry;
     }
-
+    /**
+     * Getter nbSuccess
+     *
+     * @return nbSuccess
+     */
     public Label getNbSuccess() {
         return nbSuccess;
     }
-
+    /**
+     * Getter nbSessionSucess
+     *
+     * @return nbSessionSucess
+     */
     public Label getNbSessionSucess() {
         return nbSessionSucess;
     }
-
+    /**
+     * Getter nbFirstTry
+     *
+     * @return nbFirstTry
+     */
     public Label getNbFirstTry() {
         return nbFirstTry;
     }
-
-    public void setInitTextArea(CodeArea initTextArea) {
-        this.initTextArea = initTextArea;
-    }
-
+    /**
+     * Setter
+     *
+     * @param stringInitTextArea to display the init text for the editor text
+     */
     public void setStringInitTextArea(String stringInitTextArea) {
         this.stringInitTextArea = stringInitTextArea;
     }

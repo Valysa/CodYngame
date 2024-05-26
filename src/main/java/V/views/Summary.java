@@ -13,6 +13,11 @@ import javafx.scene.layout.VBox;
 public class Summary extends ScrollPane{
     private final MainView mainApp;
 
+    /**
+     * Constructor of the Summary
+     *
+     * @param mainApp param of the exercises
+     */
     public Summary(MainView mainApp){
         this.mainApp = mainApp;
         VBox menuBar = new VBox();
@@ -48,6 +53,13 @@ public class Summary extends ScrollPane{
         this.setContent(menuBar);
         this.setHbarPolicy(ScrollBarPolicy.AS_NEEDED);
     }
+
+    /**
+     * Filter the buttons using the filter text area.
+     *
+     * @param buttonBox the left part (summary)
+     * @param query text in the filter text area
+     */
 
     private void filterButtons(VBox buttonBox, String query) {
         for (javafx.scene.Node node : buttonBox.getChildren()) {

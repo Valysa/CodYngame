@@ -5,15 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="dc2928a6-f4dd-413c-b1a8-6ad3a11bc22e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Minimal Code Stdin Stdout/minimal.c" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Minimal Code Stdin Stdout/minimal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Minimal Code Stdin Stdout/minimal.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Minimal Code Stdin Stdout/minimal.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/Minimal Code Stdin Stdout/minimal.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/M/ExerciseStdinStdout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/M/ExerciseStdinStdout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/M/Bdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/M/Bdd.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/V/views/ControllerText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/ControllerText.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/MainView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -136,9 +130,21 @@
       <workItem from="1716660650938" duration="806000" />
       <workItem from="1716664975440" duration="727000" />
     </task>
+    <task id="LOCAL-00001" summary="feat : displays a minimal code for stdin/stdout exercises">
+      <created>1716727124923</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1716727124923</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat : displays a minimal code for stdin/stdout exercises" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat : displays a minimal code for stdin/stdout exercises" />
   </component>
 </project>

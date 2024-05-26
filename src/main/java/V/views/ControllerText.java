@@ -1,6 +1,7 @@
 package V.views;
 
 import C.Languages.LanguageFactory;
+import M.ExerciseStdinStdout;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.scene.layout.VBox;
@@ -9,6 +10,7 @@ import org.fxmisc.richtext.LineNumberFactory;
 import org.fxmisc.flowless.VirtualizedScrollPane;
 import javafx.scene.control.ChoiceBox;
 
+import java.io.IOException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -34,7 +36,11 @@ public class ControllerText extends VBox {
                 if (languages.getValue() != null){
                     System.out.println("Language " + newValue + " has been selected");
                     applyHighlighting(initTextArea, newValue);
-                    mainApp.setStringInitTextArea(" ");
+                    try {
+                        mainApp.setStringInitTextArea(ExerciseStdinStdout.readMinimalFIle(languages.getValue()));
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    }
                     initTextArea.replaceText(mainApp.getStringInitTextArea());
                 }
             }

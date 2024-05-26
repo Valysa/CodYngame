@@ -212,7 +212,7 @@ public class MainView extends HBox {
                 String[] givenResult;
                 try {
                     givenResult = langExecutor.execute(userExoFile, exerciseStdinStdout.inputData);
-                    if (exerciseStdinStdout.checkResult(givenResult)) {
+                    if (exerciseStdinStdout.checkResult(givenResult, terminalTextArea)) {
                         System.out.println("You win, congrats");
                         succes++;
                     } else {

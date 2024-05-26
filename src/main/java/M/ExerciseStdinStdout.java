@@ -3,6 +3,7 @@ package M;
 import C.Languages.JavaLanguage;
 import C.Languages.Language;
 import C.Languages.LanguageFactory;
+import javafx.scene.control.TextArea;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -26,6 +27,20 @@ public class ExerciseStdinStdout extends Exercise {
                 isOk = isOk && entries[i].equals(outputData[i]);
             }
         }
+        return isOk;
+    }
+
+    public boolean checkResult(String[] entries, TextArea terminalTextArea) {
+        String print = new String();
+        Boolean isOk = false;
+        if (outputData != null && outputData.length == entries.length) {
+            isOk = true;
+            for (int i = 0; i < outputData.length; i++) {
+                print = print + ("Expected : " + outputData[i]  + " | "    + "Given :  " + entries[i] + "\n");
+                isOk = isOk && entries[i].equals(outputData[i]);
+            }
+        }
+        terminalTextArea.setText("We are testing you results\n" + print);
         return isOk;
     }
 
@@ -68,7 +83,21 @@ public class ExerciseStdinStdout extends Exercise {
         }
     }
 
-
+    //We read the minimal file and display it
+    public static String readMinimalFIle(String lang) throws IOException {
+        String genExoFile = "src/main/resources/Minimal Code Stdin Stdout/minimal." + lang;
+        // Creates a StringBuilder to accumulate the content of the file
+        StringBuilder content = new StringBuilder();
+        // Creates a BufferedReader to read the file
+        BufferedReader reader = new BufferedReader(new FileReader(genExoFile));
+        String line;
+        // Reads each line from the file
+        while ((line = reader.readLine()) != null) {
+            content.append(line).append("\n"); // Adds each line to the StringBuilder
+        }
+        reader.close();
+        return content.toString(); // Returns the accumulated content as a string
+    }
 
     public void deleteUserFile(String language) {
         Path path = Paths.get("src/main/resources/Exercise/Exo" + this.Id + "/userExo." + language);

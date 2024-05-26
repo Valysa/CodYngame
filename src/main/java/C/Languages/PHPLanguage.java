@@ -4,7 +4,19 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+/**
+ * The PHPLanguage class provides methods to execute PHP programs.
+ * It extends the abstract Language class.
+ */
+
 public class PHPLanguage extends Language {
+
+    /**
+     * Executes a PHP file.
+     *
+     * @param executablePath the path to the PHP file.
+     * @return true if the execution was successful, false otherwise.
+     */
     @Override
     public boolean execute(String executablePath) {
         try {
@@ -16,6 +28,15 @@ public class PHPLanguage extends Language {
         }
     }
 
+    /**
+     * Executes a PHP file with input entries.
+     *
+     * @param executablePath the path to the PHP file.
+     * @param entries the input entries for the executable.
+     * @return the output of the executable as an array of Strings.
+     * @throws IOException if an I/O error occurs during the execution process.
+     * @throws InterruptedException if the execution process is interrupted.
+     */
     @Override
     public String[] execute(String executablePath, String[] entries) throws IOException, InterruptedException {
         Process process = Runtime.getRuntime().exec("php " + executablePath);
@@ -23,6 +44,12 @@ public class PHPLanguage extends Language {
         return readStdout(process);
     }
 
+    /**
+     * Checks if the given program code is written in PHP language.
+     *
+     * @param program the program code to check.
+     * @return true if the program is written in PHP language, false otherwise.
+     */
     @Override
     public boolean checkLanguage(StringBuilder program) {
         try {

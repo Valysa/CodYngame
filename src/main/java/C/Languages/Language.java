@@ -8,16 +8,46 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
+/**
+ * The Language class provides methods to execute programs and handle input/output streams.
+ * This class is intended to be extended by specific language implementations.
+ */
 
 public class Language {
+
+    /**
+     * Executes a program.
+     *
+     * @param executablePath the path to the executable file.
+     * @return false by default, should be overridden by subclasses.
+     */
 
     public boolean execute(String executablePath) {
         return false;
     }
 
+    /**
+     * Executes a program with input entries.
+     *
+     * @param executablePath the path to the executable file.
+     * @param entries the input entries for the executable.
+     * @return the input entries by default, should be overridden by subclasses.
+     * @throws IOException if an I/O error occurs during the execution process.
+     * @throws InterruptedException if the execution process is interrupted.
+     */
+
     public String[] execute(String executablePath, String[] entries) throws IOException, InterruptedException {
         return entries;
     }
+
+    /**
+     * Writes input data to the standard input of a process.
+     *
+     * @param process the process to which input data is written.
+     * @param entryData the input data to write to the process.
+     * @throws IOException if an I/O error occurs during the writing process.
+     * @throws InterruptedException if the writing process is interrupted.
+     */
 
     public void readStdin(Process process, String[] entryData) throws IOException, InterruptedException {
         BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(process.getOutputStream()));
@@ -30,6 +60,13 @@ public class Language {
         writer.close();
 
     }
+
+    /**
+     * Reads the standard output of a process.
+     *
+     * @param process the process from which to read the output.
+     * @return the output of the process as an array of Strings, or null if an error occurs.
+     */
 
     //this function return the standard output of a running programm (in any language)
     public String[] readStdout(Process process) {
@@ -64,9 +101,24 @@ public class Language {
         }
     }
 
+    /**
+     * Checks if the given program code is written in the specific language.
+     *
+     * @param program the program code to check.
+     * @return false by default, should be overridden by subclasses.
+     */
     public boolean checkLanguage(StringBuilder program){
         return false;
     }
+
+    /**
+     * Executes a program with a given parameter.
+     * @param genExoFile the path to the executable file.
+     * @param i the parameter to pass to the executable.
+     * @return an array containing a single "0" by default, should be overridden by subclasses.
+     * @throws IOException if an I/O error occurs during the execution process.
+     * @throws InterruptedException if the execution process is interrupted.
+     */
 
     public String[] execute(String genExoFile, int i) throws IOException, InterruptedException {
         return new String[]{"0"};

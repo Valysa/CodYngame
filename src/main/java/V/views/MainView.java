@@ -33,6 +33,7 @@ public class MainView extends HBox {
     private String stringInitTextArea;
 
     private TextArea terminalTextArea = new TextArea();
+    private String stringTerminalArea;
 
     private Label mods = new Label(" ");
     private ChoiceBox languages = new ChoiceBox<>();
@@ -133,7 +134,7 @@ public class MainView extends HBox {
         if(!errors.isBlank()){
             terminalTextArea.setText("Error detected" + errors);
         }else if (result){
-            terminalTextArea.setText("Good Job! You're function work \n Number of try : " + exUpdated.NbTry);
+            terminalTextArea.setText("Good Job! You're function work \nNumber of try : " + exUpdated.NbTry);
             exUpdated.NbSucess++;
             exUpdated.NbSessionSucess++;
 
@@ -146,7 +147,7 @@ public class MainView extends HBox {
             }
             nbTrySession[idExo] = 0;
         }else {
-            terminalTextArea.setText("The code isn't correct! Try again!");
+            terminalTextArea.setText(stringTerminalArea + "The code doesn't work well! Try again!");
             Bdd.update(idExo, 1, 0, 0, 0);
         }
         setScore();
@@ -184,6 +185,23 @@ public class MainView extends HBox {
             }
         }
     }
+/*
+    public boolean takeAndCheckResult(String[] entries) {
+        Exercise exUpdated = Bdd.take(idExo);
+        Boolean isOk = false;
+        stringTerminalArea = "Testing your returns\n";
+        System.out.println(exUpdated.outputData + " - " + exUpdated.outputData.length);
+        if (exUpdated.outputData != null && exUpdated.outputData.length == entries.length) {
+            isOk = true;
+            for (int i = 0; i < exUpdated.outputData.length; i++) {
+                stringTerminalArea = stringTerminalArea + "Expected : " + exUpdated.outputData[i]  + " | "    + "Given :  " + entries[i] + "\n";
+                isOk = isOk && entries[i].equals(exUpdated.outputData[i]);
+            }
+        }
+        System.out.println(isOk);
+        return isOk;
+    }
+    */
 
     public void exerciseResolutionFXStdinStdout(){
         Exercise exUpdated = Bdd.take(idExo);
@@ -209,23 +227,14 @@ public class MainView extends HBox {
             for (int i = 1; i < 4; i++) {
                 exerciseStdinStdout.inputData = exerciseStdinStdout.generateInputs(i);
                 exerciseStdinStdout.outputData = exerciseStdinStdout.generateOutputs(exerciseStdinStdout.inputData);
+
                 String[] givenResult;
                 try {
                     givenResult = langExecutor.execute(userExoFile, exerciseStdinStdout.inputData);
-                    if (exerciseStdinStdout.checkResult(givenResult, terminalTextArea)) {
-                        System.out.println("You win, congrats");
+                    if (exerciseStdinStdout.checkResult(givenResult)) {
                         succes++;
                     } else {
-                        System.out.println("You lose, try again by modifying your source code");
-                        if (i == 1) {
-                            System.out.println("You failed the basic part");
-                        }
-                        if (i == 2) {
-                            System.out.println("You failed the random part");
-                        }
-                        if (i == 3) {
-                            System.out.println("You failed the error part");
-                        }
+                        stringTerminalArea = exerciseStdinStdout.takeResult(givenResult);
                     }
                 } catch (IOException | InterruptedException e) {
                     e.printStackTrace();

@@ -4,8 +4,18 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import java.util.regex.PatternSyntaxException;
 
+/**
+ * The PythonLanguage class provides methods to execute Python programs.
+ * It extends the abstract Language class.
+ */
 public class PythonLanguage extends Language {
 
+    /**
+     * Executes a Python file using Python3.
+     *
+     * @param executablePath the path to the Python file.
+     * @return true if the execution was successful, false otherwise.
+     */
     @Override
     public boolean execute(String executablePath) {
         try {
@@ -17,6 +27,15 @@ public class PythonLanguage extends Language {
         }
     }
 
+    /**
+     * Executes a Python file using Python3 with input entries.
+     *
+     * @param executablePath the path to the Python file.
+     * @param entries the input entries for the executable.
+     * @return the output of the executable as an array of Strings.
+     * @throws IOException if an I/O error occurs during the execution process.
+     * @throws InterruptedException if the execution process is interrupted.
+     */
     @Override
     public String[] execute(String executablePath, String[] entries) throws IOException, InterruptedException {
         Process process = Runtime.getRuntime().exec("python3 " + executablePath);
@@ -24,6 +43,12 @@ public class PythonLanguage extends Language {
         return readStdout(process);
     }
 
+    /**
+     * Checks if the given program code is written in Python language.
+     *
+     * @param program the program code to check.
+     * @return true if the program is written in Python language, false otherwise.
+     */
     @Override
     public boolean checkLanguage(StringBuilder program) {
         try {

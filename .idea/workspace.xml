@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc2928a6-f4dd-413c-b1a8-6ad3a11bc22e" name="Changes" comment="">
+    <list default="true" id="dc2928a6-f4dd-413c-b1a8-6ad3a11bc22e" name="Changes" comment="push app working">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/M/Bdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/M/Bdd.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/ControllerText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/ControllerText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/EditorText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/EditorText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/MainView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/Summary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/Summary.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/TerminalText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/TerminalText.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +71,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="JAR Application.codying-game-1.0.0.jar">
+  <component name="RunManager" selected="Application.Starter">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="launcher.Main" />
       <module name="codying-game" />
@@ -102,8 +104,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JAR Application.codying-game-1.0.0.jar" />
         <item itemvalue="Application.Starter" />
+        <item itemvalue="JAR Application.codying-game-1.0.0.jar" />
       </list>
     </recent_temporary>
   </component>
@@ -129,22 +131,45 @@
       <workItem from="1716641554270" duration="6299000" />
       <workItem from="1716660650938" duration="806000" />
       <workItem from="1716664975440" duration="727000" />
+      <workItem from="1716714511355" duration="2823000" />
     </task>
-    <task id="LOCAL-00001" summary="feat : displays a minimal code for stdin/stdout exercises">
-      <created>1716727124923</created>
+    <task id="LOCAL-00001" summary="big changes for stdin/stdout mod in javafx">
+      <created>1716672134372</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1716727124923</updated>
+      <updated>1716672134372</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="big changes for stdin/stdout mod in javafx">
+      <created>1716672196403</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1716672196403</updated>
+    </task>
+    <task id="LOCAL-00003" summary="big changes for stdin/stdout mod in javafx">
+      <created>1716672244481</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1716672244481</updated>
+    </task>
+    <task id="LOCAL-00004" summary="push app working">
+      <created>1716675635054</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1716675635054</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="feat : displays a minimal code for stdin/stdout exercises" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat : displays a minimal code for stdin/stdout exercises" />
+    <MESSAGE value="big changes for stdin/stdout mod in javafx" />
+    <MESSAGE value="push app working" />
+    <option name="LAST_COMMIT_MESSAGE" value="push app working" />
   </component>
 </project>

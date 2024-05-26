@@ -13,7 +13,7 @@ L'application propose des exercices de programmation dans de multiple langages t
 
 ## Technologies utilisées
 
-* Langages de programmations : <code>Java</code>, <code>CSS</code>, <code>JavaScript</code>, <code>PHP</code>, <code>C</code>, <code>Python</code>  <code>SQL</code>,
+* Langages de programmations : <code>Java</code>, <code>CSS</code>, <code>JavaScript</code>, <code>PHP</code>, <code>C</code>, <code>Python</code>, <code>SQL</code>
 <br/>
 * Bibliothéque utilisé : <code>JavaFX</code>, <code>RichTextFX</code>, <code>mySQL</code>
 * La JavaDoc est stockée dans le dossier JavaDoc, il suffit de lancer le fichier overview-tree.html qui est présent dedans.

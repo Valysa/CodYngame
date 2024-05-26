@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dc2928a6-f4dd-413c-b1a8-6ad3a11bc22e" name="Changes" comment="push app working">
+    <list default="true" id="dc2928a6-f4dd-413c-b1a8-6ad3a11bc22e" name="Changes" comment="refactor : merge all recent works">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/EditorText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/EditorText.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/MainView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/MainView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/Summary.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/Summary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/TerminalText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/TerminalText.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/M/ExerciseStdinStdout.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/M/ExerciseStdinStdout.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/V/views/ControllerText.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/V/views/ControllerText.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +69,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="Application.Starter">
+  <component name="RunManager" selected="JAR Application.codying-game-1.0.0.jar">
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="launcher.Main" />
       <module name="codying-game" />
@@ -104,8 +102,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Starter" />
         <item itemvalue="JAR Application.codying-game-1.0.0.jar" />
+        <item itemvalue="Application.Starter" />
       </list>
     </recent_temporary>
   </component>
@@ -170,6 +168,7 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="big changes for stdin/stdout mod in javafx" />
     <MESSAGE value="push app working" />
-    <option name="LAST_COMMIT_MESSAGE" value="push app working" />
+    <MESSAGE value="refactor : merge all recent works" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor : merge all recent works" />
   </component>
 </project>

@@ -37,7 +37,7 @@ public class ControllerText extends VBox {
                     System.out.println("Language " + newValue + " has been selected");
                     applyHighlighting(initTextArea, newValue);
                     try {
-                        mainApp.setStringInitTextArea(ExerciseStdinStdout.readMinimalFIle(languages.getValue()));
+                        mainApp.setStringInitTextArea(ExerciseStdinStdout.readMinimalFile(languages.getValue()));
                     } catch (IOException e) {
                         throw new RuntimeException(e);
                     }

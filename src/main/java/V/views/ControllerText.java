@@ -58,7 +58,7 @@ public class ControllerText extends VBox {
         // Monitor text changes without resetting the language
         initTextArea.textProperty().addListener((obs, oldText, newText) -> {
             // Apply syntax highlighting if the language hasn't changed
-            if (languages.getValue() != null || oldText == newText) {
+            if (languages.getValue() != null) {
                 applyHighlighting(initTextArea, languages.getValue());
             }
         });
